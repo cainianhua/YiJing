@@ -1,0 +1,8 @@
+F:\Work Folder\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.dll
+F:\Work Folder\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.pdb
+F:\Work Folder\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.dll
+F:\Work Folder\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.pdb
+F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.dll
+F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.pdb
+F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.dll
+F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.pdb

@@ -1,0 +1,16 @@
+F:\承包项目\熠镜\src\YiJingWebUI\bin\App_Data\log4net.config
+F:\承包项目\熠镜\src\YiJingWebUI\bin\YiJingWebUI.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\YiJingWebUI.pdb
+F:\承包项目\熠镜\src\YiJingWebUI\bin\AspNetPager.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\CodeStudio.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\CodeStudio.YiJing.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\log4net.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\CodeStudio.pdb
+F:\承包项目\熠镜\src\YiJingWebUI\bin\CodeStudio.YiJing.pdb
+F:\承包项目\熠镜\src\YiJingWebUI\bin\AspNetPager.xml
+F:\承包项目\熠镜\src\YiJingWebUI\bin\log4net.xml
+F:\承包项目\熠镜\src\YiJingWebUI\bin\en\AspNetPager.resources.dll
+F:\承包项目\熠镜\src\YiJingWebUI\bin\zh-CHT\AspNetPager.resources.dll
+F:\承包项目\熠镜\src\YiJingWebUI\obj\Debug\YiJingWebUI.csprojResolveAssemblyReference.cache
+F:\承包项目\熠镜\src\YiJingWebUI\obj\Debug\YiJingWebUI.dll
+F:\承包项目\熠镜\src\YiJingWebUI\obj\Debug\YiJingWebUI.pdb

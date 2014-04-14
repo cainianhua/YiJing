@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="false" CodeBehind="Site.master.cs" Inherits="YiJingWebUI.MasterPages.Site" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<title>广州熠镜品牌策划有限公司</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="/content/reset.css" type="text/css" rel="stylesheet" />
+	<link href="/content/style.css" type="text/css" rel="stylesheet" />
+	<asp:ContentPlaceHolder ID="HeaderStyles" runat="server"></asp:ContentPlaceHolder>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    <script type="text/javascript" src="/scripts/html5.js"></script>
+	<![endif]-->
+	<asp:ContentPlaceHolder ID="HeaderScripts" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body style="background:<%= BgColor.Text %> <%= BgImage.Text %> repeat-x center top;">
+	<!--<asp:Literal ID="BgColor" runat="server"></asp:Literal>-->
+	<!--<asp:Literal ID="BgImage" runat="server"></asp:Literal>-->
+	<form id="form1" runat="server">
+	<asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
+	<div id="maincontent" class="clearfix">
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+	</div>
+	<asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
+	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
+	</form>
+</body>
+</html>

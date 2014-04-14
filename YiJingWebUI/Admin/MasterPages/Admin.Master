@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="YiJingWebUI.Admin.MasterPages.Admin" %>
+<%@ Register src="../UserControls/AdminMenu.ascx" tagname="AdminMenu" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title><asp:ContentPlaceHolder ID="PageTitle" runat="server"></asp:ContentPlaceHolder></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="<%= this.ResolveUrl("~/admin/content/reset.css")%>" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<%= this.ResolveUrl("~/admin/content/style.css")%>" type="text/css" media="screen" />
+    <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+    <link rel="stylesheet" href="<%= this.ResolveUrl("~/admin/content/invalid.css")%>" type="text/css" media="screen" />	
+    <!-- Internet Explorer Fixes Stylesheet -->
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" href="../css/ie.css" type="text/css" media="screen" />
+    <![endif]-->
+	<link rel="stylesheet" href="<%= this.ResolveUrl("~/admin/content/admin.css")%>" type="text/css" media="screen" />
+    <asp:ContentPlaceHolder ID="HeadStyles" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/jquery-1.11.0.min.js")%>"></script>
+	<%--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>--%>
+	<script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/facebox.js") %>"></script>
+    <script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/configuration.js") %>"></script>
+    <!--[if IE]><script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/jquery.bgiframe.js") %>"></script><![endif]-->
+    <!-- Internet Explorer .png-fix -->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="<%= this.ResolveUrl("~/Admin/Scripts/DD_belatedPNG_0.0.7a.js") %>"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('.png_bg, img, li');
+    </script>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="HeadScripts" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="body-wrapper">
+        <!-- Wrapper for the radial gradient background -->
+        <div id="sidebar">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar with logo and menu -->
+                <h1 id="sidebar-title">
+					<a href="#">Simpla Admin</a></h1>
+                <!-- Logo (221px wide) -->
+                <a href="#">
+                    <img id="logo" src="<%= this.ResolveUrl("../Content/images/logo.png") %>" alt="Simpla Admin logo" /></a>
+                <!-- Sidebar Profile links -->
+                <div id="profile-links">
+                    您好， <a href="javascript:void(0);" onclick="javascript:return false;"><%= Session["SignInToken"] %></a>， 欢迎您。<br />
+                    <br />
+                    <a href="http://www.gzyijing.com.cn" title="View the Site">访问网站</a>
+                </div>
+                <ul id="main-nav">
+                    <uc1:AdminMenu ID="AdminMenu1" runat="server" />
+                </ul>
+                <!-- End #main-nav -->
+            </div>
+        </div>
+        <!-- End #sidebar -->
+
+        <div id="main-content">
+            <!-- Main Content Section with everything -->
+            <noscript>
+                <!-- Show a notification if the user has disabled javascript -->
+                <div class="notification error png_bg">
+                    <div>
+                        Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+                    </div>
+                </div>
+            </noscript>
+            
+            <!-- Page Head -->
+            <h2>熠镜后台管理系统</h2>
+            <br />
+            <br />
+
+            <asp:ContentPlaceHolder ID="Top" runat="server"></asp:ContentPlaceHolder>
+
+            <div class="content-box">
+				<div class="content-box-header">
+					<h3><asp:Literal ID="BoxTitle" runat="server"></asp:Literal></h3>
+					<div class="clear"></div>
+				</div>
+				<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+            <div class="clear"></div>
+
+            <asp:ContentPlaceHolder ID="Bottom" runat="server"></asp:ContentPlaceHolder>
+
+            <!-- End Notifications -->
+            <div id="footer">
+                <small>
+                    <!-- Remove this notice or replace it with whatever you want -->
+                    <!-- http://themeforest.net/item/simpla-admin-flexible-user-friendly-admin-skin/46073 -->&#169; Copyright 2014 The Yi Jing Inc. | <a href="#">Top</a> 
+                </small>
+            </div>
+            <!-- End #footer -->
+        </div>
+        <!-- End #main-content -->
+    </div>
+	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+﻿tr.pagination td
+{
+	text-align:right;
+}
+
+/* Search form */
+form.search label 
+{
+	display: inline;
+	padding:0 0 10px;
+	font-weight:bold;
+}
+form.search fieldset legend {
+	font-weight:bold;
+	margin-bottom:10px;
+	padding-top:10px;
+}
+form.search p small {
+	font-size:0.75em;
+	color:#777;
+}
+form.search input.text-input,form.search select,form.search textarea,form.search .wysiwyg {
+	padding:6px;
+	font-size:13px;
+	background:#fff url('images/bg-form-field.gif') top left repeat-x;
+	border:1px solid #d5d5d5;
+	color:#333;
+}
+form.search .small-input {
+	width:25% !important;
+}
+form.search .medium-input {
+	width:50% !important;
+}
+form.search .large-input {
+	width:97.5% !important;
+	/*font-size:16px !important;
+	padding:8px !important;*/
+}
+form.search textarea {
+	width:97.5% !important;
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;
+}
+form.search select {
+	padding:4px;
+	background:#fff;
+}
+form.search input[type="checkbox"],form.search input[type="radio"] {
+	padding:0;
+	background:none;
+	border:0;
+}
+.uploadify .green-button { 
+	font-family:"Microsoft YaHei",Verdana,Arial,sans-serif;
+	display:inline-block;
+	background:#459300 url('images/bg-button-green.gif') top left repeat-x !important;
+	border:1px solid #459300 !important;
+	padding:2px 3px 2px 3px !important;
+	color:#fff !important;
+	font-size:11px !important;
+	cursor:pointer;	
+}
+/* 显示Color Picker得到的颜色 */
+.colorbox { width: 30px; height:30px; border: 2px solid #cccccc; }
+/* 列表中图片的显示样式 */
+img.preview { max-width: 60px; max-height: 100px; border: 0px; }
+img.thumbnail-preview { max-width: 300px; max-height: 300px; border: 0px; }
+img.bg-preview { max-width: 300px; max-height: 300px; border: 0px; }
+img.icon-preview { max-width: 21px; max-height: 21px; border: 0px; }
+/*.ueditor { height: 300px; }*/
