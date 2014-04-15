@@ -148,8 +148,8 @@ Slider.prototype = {
 				t.navi.find('.current').removeClass('current').end()
                  .find('span:eq(' + pos + ')').addClass('current');
 			}
-			t.item.filter(':visible').stop(true, true).fadeOut(200);
-			t.item.eq(pos).stop(true, true).fadeIn(300, function () {
+			t.item.filter(':visible').stop(true, true).fadeOut(500);
+			t.item.eq(pos).stop(true, true).fadeIn(800, function () {
 				callback && callback();
 			});
 		} else if (t.opts.animate == 'cycleslide') {

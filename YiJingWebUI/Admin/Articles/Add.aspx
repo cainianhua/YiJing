@@ -156,7 +156,7 @@
 				}
 			});
 			// 富文本编辑器
-			var editor = UE.getEditor('<%= HtmlContent.ClientID %>');
+			var editor = UE.getEditor('<%= HtmlContent.ClientID %>', { initialFrameWidth: 1200 });
 		});
 
 		function clientValidationHandler(source, args) {
