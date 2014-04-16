@@ -1,0 +1,4 @@
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.pdb
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.pdb

@@ -6,3 +6,7 @@ F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJi
 F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.pdb
 F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.dll
 F:\承包项目\熠镜\src\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.pdb
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Debug\CodeStudio.YiJing.pdb
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Debug\CodeStudio.YiJing.pdb
