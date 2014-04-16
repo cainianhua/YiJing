@@ -29,7 +29,7 @@ namespace YiJingWebUI.Cases
 			base.OnLoad( e );
 
 			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 1 );
-			this.CurrentCategoryId = CodeStudio.WebRequest.GetQueryInt( "cid", ( int )SiteSort.Case );
+			this.CurrentCategoryId = CodeStudio.WebRequest.GetQueryInt( "cid", ( int )SiteSort.Cases );
 			if ( !this.IsPostBack ) {
 				BindDataToWebUI();
 			}
@@ -39,8 +39,8 @@ namespace YiJingWebUI.Cases
 		/// </summary>
 		protected void BindDataToWebUI() {
 			// 绑定分类
-			Category rootCat = Factory.CategoryProvider.Get( ( int )SiteSort.Case );
-			List<Category> cats = Factory.CategoryProvider.Gets( ( int )SiteSort.Case );
+			Category rootCat = Factory.CategoryProvider.Get( ( int )SiteSort.Cases );
+			List<Category> cats = Factory.CategoryProvider.Gets( ( int )SiteSort.Cases );
 			if ( rootCat != null ) {
 				this.Page.Title = rootCat.NameLocal;
 				rootCat.NameLocal = "全部";
@@ -83,7 +83,7 @@ namespace YiJingWebUI.Cases
 				if ( lnkCategory != null ) {
 					lnkCategory.Text = item.NameLocal;
 					lnkCategory.NavigateUrl = String.Format( "/cases/?cid={0}", item.CategoryId );
-					if ( item.CategoryId == ( int )SiteSort.Case ) {
+					if ( item.CategoryId == ( int )SiteSort.Cases ) {
 						lnkCategory.NavigateUrl = String.Format( "/cases/" );
 					}
 

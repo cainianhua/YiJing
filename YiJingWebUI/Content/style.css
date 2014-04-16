@@ -240,9 +240,8 @@ a:hover img{ opacity: .6;filter: Alpha(opacity=60);}
 .box-search .bd .bd_r li p.desc{}
 .box-search .ft .line{ background:url(images/index_25.png) repeat-x 0 0; height:4px; overflow:hidden; margin-bottom:5px;}
 .box-search .ft .back{ text-align:right; font-size:16px;}
-
+/***************************** Carousel Start *****************************/
 #carousel {
-    
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
@@ -250,14 +249,12 @@ a:hover img{ opacity: .6;filter: Alpha(opacity=60);}
     -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
     -webkit-transform-style: preserve-3d;
 }
-
 #carousel div.animate {
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
 }
-
 #carousel .articles {
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -moz-transform: translate3d(0%,0,0) scale3d(1,1,1);
@@ -268,17 +265,17 @@ a:hover img{ opacity: .6;filter: Alpha(opacity=60);}
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
 }
-
 #carousel .articles {
     -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
     box-shadow: 0 0 20px rgba(0,0,0,.2);
     position: relative;
 }
-
-#carousel .teset {
+#carousel .pane {
     float: left;
     overflow: hidden;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0,0,0);
-    /*border: 1px solid #ccc;*/
+    /*background-color:Green;*/
+    min-height:300px;
 }
+/***************************** Carousel End *****************************/

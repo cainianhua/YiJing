@@ -67,7 +67,7 @@ namespace YiJingWebUI.Cases
 			Article item = null;
 			Pager<Article> articlePagers = new Pager<Article>();
 			if ( this.CurrPageIndex > 0 ) {
-				articlePagers = Factory.ArticleProvider.Gets( this.CurrPageIndex, 1, "", ( int )SiteSort.Case );
+				articlePagers = Factory.ArticleProvider.Gets( this.CurrPageIndex, 1, "", ( int )SiteSort.Cases );
 			}
 			else if ( this.CurrArticleId > 0 ) {
 				articlePagers = Factory.ArticleProvider.GetPagedArticle( this.CurrArticleId );
@@ -100,6 +100,8 @@ namespace YiJingWebUI.Cases
 			ArticleRemarks.Text = item.Remarks;
 			//CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
 			HtmlContent.Text = item.HtmlContent;
+
+			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.Cases, this.TotalCount ), true );
 		}
 		/// <summary>
 		/// 

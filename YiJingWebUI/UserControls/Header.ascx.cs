@@ -51,7 +51,9 @@ namespace YiJingWebUI.UserControls
 				HyperLink lnkNavigator = ( HyperLink )e.Item.FindControl( "lnkNavigator" );
 				if ( lnkNavigator != null ) {
 					lnkNavigator.Text = item.NameLocal;
-					switch ( (SiteSort)(item.CategoryId) ) { 
+					SiteSort currSort = ( SiteSort )( item.CategoryId );
+
+					switch ( currSort ) { 
 						case SiteSort.HomePage:
 							lnkNavigator.NavigateUrl = "/";
 							break;
@@ -59,13 +61,11 @@ namespace YiJingWebUI.UserControls
 						case SiteSort.Services:
 						case SiteSort.ContactUs:
 							lnkNavigator.NavigateUrl = "javascript:void(0);";
-							lnkNavigator.Attributes.Add( "rel", ((SiteSort)item.CategoryId).ToString().ToLower() );
+							lnkNavigator.Attributes.Add( "rel", currSort.ToString().ToLower() );
 							break;
 						case SiteSort.News:
-							lnkNavigator.NavigateUrl = "/news/";
-							break;
-						case SiteSort.Case:
-							lnkNavigator.NavigateUrl = "/cases/";
+						case SiteSort.Cases:
+							lnkNavigator.NavigateUrl = String.Format( "/{0}/", currSort.ToString().ToLower() );
 							break;
 					}
 				}
@@ -84,7 +84,7 @@ namespace YiJingWebUI.UserControls
 					if ( rptArticles != null && rptArticles.Visible ) {
 						rptArticles.DataSource = Factory.ArticleProvider.Gets( item.CategoryId );
 						rptArticles.DataBind();
-					}	
+					}
 				}
 			}
 		}
@@ -103,7 +103,7 @@ namespace YiJingWebUI.UserControls
 					if ( item.ParentId == (int)SiteSort.News ) {
 						lnkSubNavigator.NavigateUrl = String.Format( "/news/?cid={0}", item.CategoryId );
 					}
-					else if ( item.ParentId == ( int )SiteSort.Case ) {
+					else if ( item.ParentId == ( int )SiteSort.Cases ) {
 						lnkSubNavigator.NavigateUrl = String.Format( "/cases/?cid={0}", item.CategoryId );
 					}
 					lnkSubNavigator.Text = item.NameLocal;

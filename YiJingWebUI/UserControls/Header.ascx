@@ -124,10 +124,15 @@
 	$(".navi a[rel]").on("click", function (e) {
 		e.preventDefault();
 
-		$("a[name=" + $(this).attr("rel") + "]").slideto({
-			highlight: false,
-			slide_duration: 'slow'
-		});
+		var objslideto = $("a[name=" + $(this).attr("rel") + "]");
+		if (objslideto.length > 0) {
+			//objslideto.slideto({ highlight: false, slide_duration: 'slow' });
+			objslideto.slideto({ offset: (249 + 50 + 120) / 2 - $(window).height() / 2 });
+		}
+		else {
+			var li = $(this).parent().parent();
+			window.location = li.find("div.subnav dd:eq(0) a").attr("href");
+		}
 
 		return false;
 	});

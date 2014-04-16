@@ -11,9 +11,12 @@ namespace YiJingWebUI.UserControls
 {
 	public partial class AboutDetail : YiJingWebUI.BaseClasses.ControlBase
 	{
-		public string RootUrl { get; set; }
-
-		private int CurrentArticleId;
+		/// <summary>
+		/// 
+		/// </summary>
+		public SiteSort Sort { get; set; }
+		private int CurrArticleId { get; set; }
+		private int TotalCount { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -30,14 +33,15 @@ namespace YiJingWebUI.UserControls
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
 
-			this.CurrentArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
+			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
+			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
+
 			if ( !this.IsPostBack ) {
-				if ( CurrentArticleId > 0 ) {
-					BindDataToWebUI();
-				}
-				else {
+				if ( CurrArticleId <= 0 && CurrPageIndex <= 0 ) {
 					Response.Redirect( "/", true );
 				}
+
+				BindDataToWebUI();
 			}
 		}
 		/// <summary>
@@ -54,9 +58,14 @@ namespace YiJingWebUI.UserControls
 				HyperLink lnkArticle = ( HyperLink )e.Item.FindControl( "lnkArticle" );
 				if ( lnkArticle != null ) {
 					lnkArticle.Text = item.ArticleTitleLocal;
-					lnkArticle.NavigateUrl = String.Format( "{0}/?aid={1}", this.RootUrl, item.ArticleId );
-					if ( item.ArticleId == this.CurrentArticleId ) {
+					lnkArticle.NavigateUrl = String.Format( "/{0}/?aid={1}", this.Sort.ToString().ToLower(), item.ArticleId );
+					if ( item.ArticleId == this.CurrArticleId ) {
 						lnkArticle.CssClass = "selected";
+						// 设置背景
+						base.BgColor = item.BgColor;
+						if ( !string.IsNullOrEmpty( item.BgPic ) ) {
+							base.BgImage = item.BgPic;
+						}
 					}
 				}
 			}
@@ -65,23 +74,31 @@ namespace YiJingWebUI.UserControls
 		/// 
 		/// </summary>
 		private void BindDataToWebUI() {
-			// 当前文章
-			Article currItem = Factory.ArticleProvider.Get( this.CurrentArticleId );
-			ltrContent.Text = currItem.HtmlContent;
-			this.Page.Title = currItem.ArticleTitleLocal;
-			// 所有文章
-			List<Article> articles = Factory.ArticleProvider.Gets( currItem.CategoryId );
-			rptArticles.DataSource = articles;
-			rptArticles.DataBind();
-			// 设置背景
-			foreach ( Article item in articles ) {
-				if ( item.ArticleId == this.CurrentArticleId ) {
-					base.BgColor = item.BgColor;
-					if ( !string.IsNullOrEmpty( item.BgPic ) ) {
-						base.BgImage = item.BgPic;
-					}
-				}
+			Article item = null;
+			Pager<Article> articlePagers = new Pager<Article>();
+			if ( this.CurrPageIndex > 0 ) {
+				articlePagers = Factory.ArticleProvider.Gets( this.CurrPageIndex, 1, "", ( int )Sort );
 			}
+			else if ( this.CurrArticleId > 0 ) {
+				articlePagers = Factory.ArticleProvider.GetPagedArticle( this.CurrArticleId );
+			}
+
+			this.CurrPageIndex = articlePagers.CurrentPageIndex;
+			this.TotalCount = articlePagers.Total;
+			if ( articlePagers.DataItems.Count > 0 ) {
+				item = articlePagers.DataItems.Single();
+			}
+
+			if ( item == null ) return;
+
+			this.CurrArticleId = item.ArticleId;
+			ltrContent.Text = item.HtmlContent;
+			this.Page.Title = item.ArticleTitleLocal;
+			// 所有文章
+			rptArticles.DataSource = Factory.ArticleProvider.Gets(item.CategoryId);
+			rptArticles.DataBind();
+
+			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )Sort, this.TotalCount ), true );
 		}
 	}
 }

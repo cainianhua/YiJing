@@ -14,7 +14,7 @@ namespace CodeStudio.YiJing
 		HomePage = 1,
 		AboutUs = 2,
 		News = 3,
-		Case = 4,
+		Cases = 4,
 		Services = 5,
 		ContactUs = 6
 	}

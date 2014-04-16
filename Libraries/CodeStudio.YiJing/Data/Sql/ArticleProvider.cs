@@ -36,7 +36,7 @@ CROSS JOIN (
 WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 	SELECT CategoryId FROM Categories WHERE CategoryId = t.ParentId OR ParentId = t.ParentId
 )";
-		private const string SQL_GET_ENTITIES = "SELECT * FROM Articles WHERE CategoryId = @CategoryId";
+		private const string SQL_GET_ENTITIES = "SELECT * FROM Articles WHERE CategoryId = @CategoryId ORDER BY SortOrder, CreatedDate DESC, ArticleId DESC";
 		private const string SQL_DELETE_ENTITY = "DELETE FROM Articles WHERE ArticleId = @ArticleId";
 		#endregion
 

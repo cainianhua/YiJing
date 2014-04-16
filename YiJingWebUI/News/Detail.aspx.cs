@@ -93,7 +93,7 @@ namespace YiJingWebUI.News
 			CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
 			HtmlContent.Text = item.HtmlContent;
 
-			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageIndex = {0}; var currentCategoryId = {1}", CurrPageIndex, ( int )SiteSort.News ), true );
+			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.News, this.TotalCount ), true );
 		}
 		/// <summary>
 		/// 

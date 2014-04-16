@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderStyles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
-	<script type="text/javascript" src="/scripts/swipe/js/jquery.event.swipe.js"></script>
+	<script type="text/javascript" src="/scripts/modernizr.js"></script>
+	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<div class="detail-topbar">
@@ -19,31 +21,37 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="detail-hd clearfix">
-		<div class="detail-hd-l">
-			<h2><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
-			<p>
-				<asp:Repeater ID="rptTags" runat="server">
-					<ItemTemplate>
-						<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
-					</ItemTemplate>
-				</asp:Repeater>
-			</p>
-		</div>
-		<div class="detail-hd-r">
-			<asp:Literal ID="ArticleRemarks" runat="server"></asp:Literal>
-			<!--<p>客户行业&nbsp;｜&nbsp;推荐案例/集团</p>
-			<p>客户行业&nbsp;｜&nbsp;2012年</p>
-			<p>客户行业&nbsp;｜&nbsp;推荐案集团</p>-->
+	<div id="carousel">
+		<div class="articles">
+			<div class="pane">
+				<div class="detail-hd clearfix">
+					<div class="detail-hd-l">
+						<h2><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
+						<p>
+							<asp:Repeater ID="rptTags" runat="server">
+								<ItemTemplate>
+									<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
+								</ItemTemplate>
+							</asp:Repeater>
+						</p>
+					</div>
+					<div class="detail-hd-r">
+						<asp:Literal ID="ArticleRemarks" runat="server"></asp:Literal>
+						<!--<p>客户行业&nbsp;｜&nbsp;推荐案例/集团</p>
+						<p>客户行业&nbsp;｜&nbsp;2012年</p>
+						<p>客户行业&nbsp;｜&nbsp;推荐案集团</p>-->
+					</div>
+				</div>
+				<!--bd-->
+				<div class="detail-bd">
+					<div class="richcont">
+						<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
+					</div>
+				</div>
+				<!--bd end-->
+			</div>
 		</div>
 	</div>
-	<!--bd-->
-	<div class="detail-bd">
-		<div class="richcont">
-			<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
-		</div>
-	</div>
-	<!--bd end-->
   	<div class="detail-ft">
 		<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>
 		<div class="line"></div>
@@ -54,18 +62,20 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
-		jQuery(function ($) {
-			var slides = jQuery('body')
-
-			slides.on('swipeleft', function (e) {
-				console.log("swipeleft");
-				//$("a[id$=lnkNext]").trigger("click");
-				window.location = $("a[id$=lnkNext]").attr("href");
-			}).on('swiperight', function (e) {
-				console.log("swiperight");
-				//$("a[id$=lnkPrevious]").trigger("click");
-				window.location = $("a[id$=lnkPrevious]").attr("href");
-			});
+		var carousel = new Carousel("#carousel", {
+			"containerSelector": ">div.articles",
+			"panesSelector": ">div.articles>div",
+			//"paneDataTemplate": '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',
+			"totalPane": totalCount,
+			"currentPane": currentPageNo - 1,
+			"currentCategoryId": currentCategoryId,
+			"onShowed": function (pageIndex) {
+				var pageNo = pageIndex + 1;
+				if (currentPageNo != pageNo) {
+					window.location = "/cases/detail.aspx?pn=" + pageNo;
+				}
+			}
 		});
+		carousel.init();
 	</script>
 </asp:Content>

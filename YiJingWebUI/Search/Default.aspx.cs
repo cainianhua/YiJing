@@ -70,8 +70,8 @@ namespace YiJingWebUI.Search
 		/// </summary>
 		/// <param name="s"></param>
 		private void BindDataToWebUI() {
-			Pager<Article> articlePages = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, this.SearchWords, (int)SiteSort.News, (int)SiteSort.Case );
-			this.CategoryStatistics = Factory.ArticleProvider.GetStatistics( this.CurrPageIndex, this.PageSize, this.SearchWords, ( int )SiteSort.News, ( int )SiteSort.Case );
+			Pager<Article> articlePages = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, this.SearchWords, (int)SiteSort.News, (int)SiteSort.Cases );
+			this.CategoryStatistics = Factory.ArticleProvider.GetStatistics( this.CurrPageIndex, this.PageSize, this.SearchWords, ( int )SiteSort.News, ( int )SiteSort.Cases );
 			
 			this.Page.Title = String.Format( "{0} - 搜索结果", this.SearchWords );
 			this.SearchText.Text = this.SearchWords;
@@ -125,7 +125,7 @@ namespace YiJingWebUI.Search
 			string returnVal = "";
 
 			switch ( ( SiteSort )parentId ) { 
-				case SiteSort.Case:
+				case SiteSort.Cases:
 					returnVal = String.Format( "/cases/detail.aspx?aid={0}", articleId );
 					break;
 				case SiteSort.News:

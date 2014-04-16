@@ -1,8 +1,8 @@
-F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.dll
-F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.pdb
-F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.dll
-F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.pdb
 E:\dev\YiJing2\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.dll
 E:\dev\YiJing2\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.pdb
 E:\dev\YiJing2\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.dll
 E:\dev\YiJing2\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.pdb
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\bin\Release\CodeStudio.YiJing.pdb
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.dll
+F:\WorkFolder\YiJing\Libraries\CodeStudio.YiJing\obj\Release\CodeStudio.YiJing.pdb

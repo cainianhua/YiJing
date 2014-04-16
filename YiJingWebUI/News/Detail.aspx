@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderStyles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
-	<script type="text/javascript" src="/scripts/move/js/jquery.event.move.js"></script>
 	<script type="text/javascript" src="/scripts/modernizr.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
 	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
@@ -26,7 +25,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
 	<div id="carousel">
 		<div class="articles">
-			<div class="teset">
+			<div class="pane">
 				<div class="newsdetail-hd clearfix">
 					<h2>
 						<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
@@ -63,12 +62,19 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
-		var template = '<div class="teset"><div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div></div>';
 		var carousel = new Carousel("#carousel", {
-			containerSelector: ">div.articles",
-			panesSelector: ">div.articles>div",
-			dataApi: "/api/articledetail.ashx",
-			template: template 
+			"containerSelector": ">div.articles",
+			"panesSelector": ">div.articles>div",
+			//"paneDataTemplate": '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',
+			"totalPane": totalCount,
+			"currentPane": currentPageNo - 1,
+			"currentCategoryId": currentCategoryId,
+			"onShowed": function (pageIndex) {
+				var pageNo = pageIndex + 1;
+				if (currentPageNo != pageNo) {
+					window.location = "/news/detail.aspx?pn=" + pageNo;
+				}
+			}
 		});
 		carousel.init();
 	</script>

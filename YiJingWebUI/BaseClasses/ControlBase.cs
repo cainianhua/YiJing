@@ -30,5 +30,20 @@ namespace YiJingWebUI.BaseClasses
 				}
 			}
 		}
+		private int _PageSize;
+		protected int PageSize {
+			get {
+				if ( _PageSize == 0 )
+					return int.Parse( System.Configuration.ConfigurationManager.AppSettings["PageSize"] );
+
+				return _PageSize;
+			}
+			set { _PageSize = value; }
+		}
+
+		protected int CurrPageIndex {
+			get;
+			set;
+		}
 	}
 }

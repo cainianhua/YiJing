@@ -8,10 +8,16 @@
 		</ItemTemplate>
 	</asp:Repeater>
 </div>
-<!--bd-->
-<div class="detail-bd">
-	<div class="richcont">
-		<asp:Literal ID="ltrContent" runat="server"></asp:Literal>
+<div id="carousel">
+	<div class="articles">
+		<div class="pane">
+			<!--bd-->
+			<div class="detail-bd">
+				<div class="richcont">
+					<asp:Literal ID="ltrContent" runat="server"></asp:Literal>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <!--bd end-->

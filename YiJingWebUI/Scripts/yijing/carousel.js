@@ -8,34 +8,53 @@ function Carousel(element, options) {
 	var self = this;
 	element = $(element);
 
-	// default configurations.
 	var defaults = {
-		dataApi: "",
-		containerSelector: ">ul",
-		panesSelector: ">ul>li",
-		cachedCount: 1,
-		template: "<div class=\"newsdetail-hd clearfix\"><h2>{article}</h2><p>{tags}<span>{createddate}</span></p><div class=\"line\"></div></div><!--bd--><div class=\"detail-bd\"><div class=\"richcont\">{content}</div></div>"
+		dataApi: "/api/articledetail.ashx", // 获取数据的文章数据的API
+		containerSelector: ">ul", 			// Carousel的容器
+		panesSelector: ">ul>li", 			// Carousel的数据项
+		//cachedCount: 1,					// 缓存的页数，就是每次从数据表里面获取多少个数据
+		//penaCssClass: '<div class="pane"></div>',
+		paneDataTemplate: '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',
+		totalPane: 10, 						// Carousel的总个数
+		currentPane: 0, 					// 当前显示的Pane序号，从0开始计算
+		currentCategoryId: 0, 				// 当前页的根类编号
+		onShowed: function () { }
 	}
+	var paneStatuses = {};
 
 	options = $.extend({}, defaults, options);
 
 	var container = $(options.containerSelector, element);
-	var panes = $(options.panesSelector, element);
+	//var panes = $(options.panesSelector, element);
 
 	var pane_width = 0;
-	var pane_count = panes.length;
+	var pane_count = options.totalPane;
 
-	var current_pane = 0;
+	var current_pane = options.currentPane;
 	var loading = false;
 	/**
 	* initial
 	*/
 	this.init = function () {
+		// current page is loaded.
+		paneStatuses["p" + current_pane] = true;
+
+		// generate empty Carousel element.
+		for (var i = current_pane - 1; i >= 0; i--) {
+			container.prepend('<div class="pane"></div>');
+			paneStatuses["p" + i] = false;
+		}
+		for (var i = pane_count - 1; i > current_pane; i--) {
+			container.append('<div class="pane"></div>');
+			paneStatuses["p" + i] = false;
+		}
 		setPaneDimensions();
 
 		$(window).on("load resize orientationchange", function () {
 			setPaneDimensions();
-		})
+		});
+
+		self.showPane(current_pane, true);
 	};
 	/**
 	* show pane by index
@@ -45,8 +64,16 @@ function Carousel(element, options) {
 		index = Math.max(0, Math.min(index, pane_count - 1));
 		current_pane = index;
 
+		//// try to get new data items.
+		//if (!paneStatuses["p" + current_pane]) {
+		//	LoadPaneDataAsync();
+		//}
+
 		var offset = -((100 / pane_count) * current_pane);
 		setContainerOffset(offset, animate);
+
+		if (options.onShowed)
+			options.onShowed(current_pane);
 	};
 
 	this.next = function () { return this.showPane(current_pane + 1, true); };
@@ -57,13 +84,13 @@ function Carousel(element, options) {
 	*/
 	function setPaneDimensions() {
 		pane_width = element.width();
-		panes.each(function () {
+		$(options.panesSelector, element).each(function () {
 			$(this).width(pane_width);
 		});
 		container.width(pane_width * pane_count);
 	};
 	/**
-	* set 
+	* set the container offset to decide which pane to show.
 	*/
 	function setContainerOffset(percent, animate) {
 		container.removeClass("animate");
@@ -83,7 +110,7 @@ function Carousel(element, options) {
 			container.css("left", px + "px");
 		}
 	}
-
+	//
 	function handleHammer(ev) {
 		// disable browser scrolling
 		ev.gesture.preventDefault();
@@ -91,10 +118,6 @@ function Carousel(element, options) {
 		switch (ev.type) {
 			case 'dragright':
 			case 'dragleft':
-				console.log("dragleft");
-				// try to get new data items.
-				loadNewPanes();
-
 				// stick to the finger
 				var pane_offset = -(100 / pane_count) * current_pane;
 				var drag_offset = ((100 / pane_width) * ev.gesture.deltaX) / pane_count;
@@ -119,7 +142,6 @@ function Carousel(element, options) {
 				break;
 
 			case 'release':
-				console.log("release");
 				// more then 50% moved, navigate
 				if (Math.abs(ev.gesture.deltaX) > pane_width / 2) {
 					if (ev.gesture.direction == 'right') {
@@ -137,20 +159,20 @@ function Carousel(element, options) {
 	/**
 	* data provider, it will get data from a web api by ajax.
 	*/
-	function loadNewPanes() {
-		if (!loading && pane_count - 1 - current_pane <= options.cachedCount) {
+	function LoadPaneDataAsync() {
+		if (!loading) {
 			loading = true;
 			$.ajax({
 				url: options.dataApi,
-				data: { pn: currentPageIndex + 1, cid: currentCategoryId },
+				data: { pn: current_pane + 1, cid: options.currentCategoryId },
 				dataType: "json",
 				error: function (jqXHR, textStatus, errorThrown) { },
 				complete: function (jqXHR, textStatus) { loading = false; },
 				success: function (data, status) {
-					$.each(data.items, function (index, item) {
-						currentPageIndex++;
+					if (data.code > 0) {
+						var item = data.dataItem;
 
-						var s = options.template;
+						var s = options.paneDataTemplate;
 						s = s.replace("{title}", item.title);
 						s = s.replace("{subtitle}", item.subtitle);
 						s = s.replace("{remarks}", item.remarks);
@@ -158,30 +180,13 @@ function Carousel(element, options) {
 						s = s.replace("{createddate}", item.createddate);
 						s = s.replace("{content}", item.content);
 
-						console.log(s);
+						$(">div.pane:eq(" + current_pane + ")", container).html(s);
 
-						var o = $(s);
-
-
-						container.append(o);
-						updatePaneDimension(o);
-					});
+						paneStatuses["p" + current_pane] = true;
+					}
 				}
 			});
 		}
-	}
-	/**
-	* Update the new pane Dimension and recalculate the container width.
-	*/
-	function updatePaneDimension(panes) {
-		panes = $(options.panesSelector, element);
-		pane_count = panes.length;
-
-		panes.each(function (index, item) {
-			$(item).width(pane_width);
-		});
-
-		container.width(pane_width * pane_count);
 	}
 
 	new Hammer(element[0], { drag_lock_to_axis: true }).on("release dragleft dragright swipeleft swiperight", handleHammer);
