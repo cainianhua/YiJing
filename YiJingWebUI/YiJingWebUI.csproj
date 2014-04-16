@@ -767,6 +767,9 @@
     <Compile Include="Admin\UserControls\MessageTips.ascx.designer.cs">
       <DependentUpon>MessageTips.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Api\ArticleDetail.ashx.cs">
+      <DependentUpon>ArticleDetail.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\News.ashx.cs">
       <DependentUpon>News.ashx</DependentUpon>
     </Compile>
@@ -975,6 +978,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Api\News.ashx" />
+    <Content Include="Api\ArticleDetail.ashx" />
     <None Include="Scripts\move\event.move.jquery.json" />
     <None Include="Scripts\move\package.json" />
     <None Include="Scripts\move\README.md" />

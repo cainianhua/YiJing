@@ -55,6 +55,9 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
+		
+
+
 		jQuery(function ($) {
 			var slides = jQuery('body')
 

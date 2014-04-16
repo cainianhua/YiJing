@@ -49,7 +49,7 @@ namespace YiJingWebUI.News
 				HyperLink lnkTag = ( HyperLink )e.Item.FindControl( "lnkTag" );
 				if ( lnkTag != null ) {
 					lnkTag.Text = tag;
-					lnkTag.NavigateUrl = String.Format( "/search.aspx?s={0}&type=tag",  tag);
+					lnkTag.NavigateUrl = String.Format( "/search/?s={0}&type=tag",  tag);
 				}
 			}
 		}
