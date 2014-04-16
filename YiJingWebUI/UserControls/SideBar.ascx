@@ -37,13 +37,18 @@
 	$('#floatShare li').click(function (e) {
 		e.stopPropagation();
 		$(this).toggleClass('on');
+		$('.subfloatshare',this).show().animate({'marginRight': '0px'}, 100);
 	});
 	$('#floatShare .close').click(function (e) {
-		e.stopPropagation();
-		$(this).parents('.on').removeClass('on');
+		e.stopPropagation();		
+		$(this).parents('.on').find('.subfloatshare').animate({'marginRight': '-180px'}, 100,function(){
+			$('#floatShare li.on').removeClass('on');
+		});
 	});
-	$(document).click(function (e) {
-		$('#floatShare li.on').removeClass('on');
+	$(document).click(function (e) {		
+		$('.subfloatshare:visible').animate({'marginRight': '-180px'}, 100,function(){
+			$('#floatShare li.on').removeClass('on');
+		});
 	});
 	//ie6不支持position fixed
 	if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
@@ -52,5 +57,5 @@
 		$(window).scroll(function () {
 			floatShare.css({ 'top': $(window).scrollTop() + 180, 'position': 'absolute' });
 		});
-	} 
+	}
 </script>
