@@ -92,6 +92,8 @@ namespace YiJingWebUI.News
 			this.Page.Title = ArticleTitle.Text = item.ArticleTitleLocal;
 			CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
 			HtmlContent.Text = item.HtmlContent;
+
+			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageIndex = {0}; var currentCategoryId = {1}", CurrPageIndex, ( int )SiteSort.News ), true );
 		}
 		/// <summary>
 		/// 

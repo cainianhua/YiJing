@@ -28,11 +28,15 @@ namespace YiJingWebUI.Api
 				output = serializer.Serialize( new { code = -1, message = "invalid parameters" } );
 			}
 			else {
-				List<Article> items = Factory.ArticleProvider.Gets( pageIndex, 1, "", cid ).DataItems;
-				if ( items.Count > 0 ) {
-					Article item = items.Single();
-					output = serializer.Serialize( new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate } );
-				}
+				List<Article> items = Factory.ArticleProvider.Gets( pageIndex, 1, "", cid ).DataItems;	
+					//Article item = items.Single();
+				output = serializer.Serialize( new {
+					code = 1,
+					message = "success",
+					//items = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate.ToString("yyyy-MM-dd") } } );
+					items = from item in items
+							select new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
+				} );
 			}
 			context.Response.ContentType = "application/json";
 			context.Response.Write( output );

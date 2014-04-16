@@ -6,7 +6,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
 	<script type="text/javascript" src="/scripts/move/js/jquery.event.move.js"></script>
-	<script type="text/javascript" src="/scripts/swipe/js/jquery.event.swipe.js"></script>
+	<script type="text/javascript" src="/scripts/modernizr.js"></script>
+	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<div class="detail-topbar">
@@ -22,28 +24,34 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="newsdetail-hd clearfix">
-		<h2>
-			<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
-		<p>
-			<asp:Repeater ID="rptTags" runat="server">
-				<ItemTemplate>
-					<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
-				</ItemTemplate>
-			</asp:Repeater>
-			<span><asp:Literal ID="CreatedDate" runat="server"></asp:Literal></span></p>
-		<div class="line">
-		</div>
-	</div>
-	<!--bd-->
-	<div class="detail-bd">
-		<div class="richcont">
-			<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
+	<div id="carousel">
+		<div class="articles">
+			<div class="teset">
+				<div class="newsdetail-hd clearfix">
+					<h2>
+						<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
+					<p>
+						<asp:Repeater ID="rptTags" runat="server">
+							<ItemTemplate>
+								<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
+							</ItemTemplate>
+						</asp:Repeater>
+						<span><asp:Literal ID="CreatedDate" runat="server"></asp:Literal></span></p>
+					<div class="line">
+					</div>
+				</div>
+				<!--bd-->
+				<div class="detail-bd">
+					<div class="richcont">
+						<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!--bd end-->
 	<div class="detail-ft">
-		<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>
+		<div class="sharebox"></div>
 		<div class="line">
 		</div>
 		<div class="back">
@@ -55,21 +63,13 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
-		
-
-
-		jQuery(function ($) {
-			var slides = jQuery('body')
-
-			slides.on('swipeleft', function (e) {
-				console.log("swipeleft");
-				//$("a[id$=lnkNext]").trigger("click");
-				window.location = $("a[id$=lnkNext]").attr("href");
-			}).on('swiperight', function (e) {
-				console.log("swiperight");
-				//$("a[id$=lnkPrevious]").trigger("click");
-				window.location = $("a[id$=lnkPrevious]").attr("href");
-			});
+		var template = '<div class="teset"><div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div></div>';
+		var carousel = new Carousel("#carousel", {
+			containerSelector: ">div.articles",
+			panesSelector: ">div.articles>div",
+			dataApi: "/api/articledetail.ashx",
+			template: template 
 		});
+		carousel.init();
 	</script>
 </asp:Content>

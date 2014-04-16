@@ -233,7 +233,10 @@
     <Content Include="Default.aspx" />
     <Content Include="News\Default.aspx" />
     <Content Include="News\Detail.aspx" />
+    <Content Include="Scripts\hammer\hammer.js" />
+    <Content Include="Scripts\hammer\hammer.min.js" />
     <Content Include="Scripts\html5.js" />
+    <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\slideto\js\jquery.slideto.min.js" />
     <Content Include="Scripts\move\.gitignore" />
     <Content Include="Scripts\move\index.html" />
@@ -247,6 +250,7 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\slide.js" />
     <Content Include="Scripts\waterfall.js" />
+    <Content Include="Scripts\yijing\carousel.js" />
     <Content Include="Scripts\yijing\index.js" />
     <Content Include="Search\Default.aspx" />
     <Content Include="Services\Default.aspx" />
@@ -979,6 +983,7 @@
     </Content>
     <Content Include="Api\News.ashx" />
     <Content Include="Api\ArticleDetail.ashx" />
+    <Content Include="Config\PROD\Web.config" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Scripts\move\event.move.jquery.json" />
     <None Include="Scripts\move\package.json" />
