@@ -979,6 +979,7 @@
     </Content>
     <Content Include="Api\News.ashx" />
     <Content Include="Api\ArticleDetail.ashx" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Scripts\move\event.move.jquery.json" />
     <None Include="Scripts\move\package.json" />
     <None Include="Scripts\move\README.md" />
