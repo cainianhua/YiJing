@@ -18,7 +18,7 @@
 			<asp:Repeater ID="rptArticles2" runat="server">
 			<ItemTemplate>
 			<li>
-				<a target="_blank" href="/services/?aid=<%#Eval("ArticleId") %>">
+				<a href="/services/?aid=<%#Eval("ArticleId") %>">
 					<img src="<%#Eval("Thumbnail") %>" alt="<%#Eval("ArticleTitleLocal") %>" /></a>
 			</li>
 			</ItemTemplate>

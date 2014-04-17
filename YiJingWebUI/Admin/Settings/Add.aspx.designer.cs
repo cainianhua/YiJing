@@ -130,6 +130,15 @@ namespace YiJingWebUI.Admin.Settings {
         protected global::System.Web.UI.WebControls.HiddenField Seq;
         
         /// <summary>
+        /// ConstantType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ConstantType;
+        
+        /// <summary>
         /// ConstantId control.
         /// </summary>
         /// <remarks>

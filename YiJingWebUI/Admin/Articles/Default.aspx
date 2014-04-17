@@ -33,6 +33,24 @@
 					<FooterTemplate>
 						<asp:LinkButton ID="btnBatchDelete" CssClass="button" runat="server" Text="批量删除" CommandName="BatchDelete"></asp:LinkButton>
 						<a href="Add.aspx" class="button">添加文章</a>
+						<webdiyer:aspnetpager id="AspNetPager1" runat="server"
+							CssClass="pagination" 
+							ImagePath="/Admin/Content/Images"
+							PagingButtonSpacing="0px" 
+							showcustominfosection="Never" 
+							urlpaging="True" 
+							UrlPageIndexName="pn"
+							PagingButtonsClass="number"
+							PrevNextButtonsClass=""
+							FirstLastButtonsClass=""
+							CurrentPageButtonTextFormatString="<a class=&quot;current&quot; href=&quot;javascript:void(0);&quot;>{0}</a>"
+							PrevPageText="&laquo;上一页" 
+							NextPageText="下一页 &raquo;"
+							ShowFirstLast="true"
+							FirstPageText="&laquo; 首页"
+							LastPageText="尾页&raquo;" 
+							NumericButtonCount="5" ShowDisabledButtons ="false"
+							AlwaysShowFirstLastPageNumber="true"></webdiyer:aspnetpager>
 					</FooterTemplate>
 				</asp:TemplateField>
 				<asp:TemplateField HeaderText="标题（中文/英文）">

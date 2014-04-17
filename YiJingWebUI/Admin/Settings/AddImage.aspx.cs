@@ -56,6 +56,7 @@ namespace YiJingWebUI.Admin.Settings
 					item.SortOrder = int.Parse( SortOrder.Text );
 					item.ActionDate = DateTime.Now;
 					item.ActionBy = User.Identity.Name;
+					item.Type = ConstantType.Image;
 
 					item.ConstantId = Factory.ConstantProvider.SaveOrUpdate( item );
 					if ( item.ConstantId > 0 ) {

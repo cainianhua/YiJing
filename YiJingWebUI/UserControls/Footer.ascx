@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="YiJingWebUI.UserControls.Footer" %>
 
 <a name="contactus"></a>
-<div id="footer" runat="server">
+<div id="footer" <%=ContactUsBackgroundBottomString%>>
 	<div class="footerinner">
 		<div class="footerinfo clearfix">
 			<div class="footerinfo-l">

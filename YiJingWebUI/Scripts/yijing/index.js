@@ -42,9 +42,9 @@
 				var lis = [];
 				$.each(data, function (index, item) {
 					var li = '<li>'
-						   + '    <a target="_blank" title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '"><img alt="' + item.ArticleTitleLocal + '" src="' + item.Thumbnail + '" /></a>'
-						   + '    <h3><a target="_blank" title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '">' + item.ArticleTitleLocal + '</a></h3>'
-						   + '    <p><a target="_blank" title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '">' + item.Description + '</a></p>'
+						   + '    <a title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '"><img alt="' + item.ArticleTitleLocal + '" src="' + item.Thumbnail + '" /></a>'
+						   + '    <h3><a title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '">' + item.ArticleTitleLocal + '</a></h3>'
+						   + '    <p><a title="' + item.ArticleTitleLocal + '" href="/news/detail.aspx?aid=' + item.ArticleId + '">' + item.Description + '</a></p>'
 						   + '</li>'; 
 					lis.push(li);
 				});

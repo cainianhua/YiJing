@@ -60,6 +60,8 @@ namespace YiJingWebUI.Admin.Settings
 					item.ActionDate = DateTime.Now;
 					item.ActionBy = User.Identity.Name;
 
+					item.Type = ConstantType.Text;
+
 					item.ConstantId = Factory.ConstantProvider.SaveOrUpdate( item );
 					if ( item.ConstantId > 0 ) {
 						Response.Redirect( "Default.aspx", true );

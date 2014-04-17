@@ -14,6 +14,14 @@ namespace YiJingWebUI.UserControls
 		/// <summary>
 		/// 
 		/// </summary>
+		protected string ContactUsBackgroundBottomString { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		protected string ContactUsBackgroundTopString { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
@@ -27,30 +35,42 @@ namespace YiJingWebUI.UserControls
 		/// 
 		/// </summary>
 		private void BindDataToWebUI() {
+			List<Constant> allConstants = Factory.ConstantProvider.Gets();
+			List<Constant> constants = new List<Constant>();
 			// 公司宣言
-			List<Constant> constants = Factory.ConstantProvider.Gets( "CutureWords" );
+			constants = allConstants.Where( item => item.Code == "CutureWords" ).ToList();
 			if ( constants.Count > 0 ) {
 				bottomWords.Text = constants.SingleOrDefault().TextValue;
 			}
 			// 联系方式
-			rptContactUs.DataSource = Factory.ConstantProvider.Gets( "ContactUs" );
+			rptContactUs.DataSource = allConstants.Where( item => item.Code == "ContactUs" ); 
 			rptContactUs.DataBind();
 			// 底部LOGO
-			constants = Factory.ConstantProvider.Gets( "LogoBottom" );
+			constants = allConstants.Where( item => item.Code == "LogoBottom" ).ToList();
 			if ( constants.Count > 0 ) {
 				BottomLogo.ImageUrl = constants.SingleOrDefault().TextValue;
 			}
 			// Mirror...
-			constants = Factory.ConstantProvider.Gets( "MirrorPic" );
+			constants = allConstants.Where( item => item.Code == "MirrorPic" ).ToList();
 			if ( constants.Count > 0 ) {
 				MirrorPic.ImageUrl = constants.SingleOrDefault().TextValue;
 			}
-			// 底部背景
-			constants = Factory.ConstantProvider.Gets( "ContactUsBackground" );
+			// 联系我底图（下）
+			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundBottom" ).ToList();
 			if ( constants.Count > 0 ) {
 				Constant item = constants.SingleOrDefault();
 				if ( !string.IsNullOrEmpty( item.TextValue ) ) {
-					footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
+					ContactUsBackgroundBottomString = String.Format( "style=\"background-image:url({0})\"", item.TextValue );
+					//footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
+				}
+			}
+			// 联系我底图（上）
+			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundTop" ).ToList();
+			if ( constants.Count > 0 ) {
+				Constant item = constants.SingleOrDefault();
+				if ( !string.IsNullOrEmpty( item.TextValue ) ) {
+					ContactUsBackgroundTopString = String.Format( "style=\"background-image:url({0})\"", item.TextValue );
+					//footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
 				}
 			}
 		}

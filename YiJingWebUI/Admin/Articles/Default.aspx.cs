@@ -7,11 +7,15 @@ using System.Web.UI.WebControls;
 using CodeStudio.YiJing;
 using CodeStudio.YiJing.Entities;
 using System.Web.UI.HtmlControls;
+using Wuqi.Webdiyer;
 
 namespace YiJingWebUI.Admin.Articles
 {
 	public partial class Default : YiJingWebUI.BaseClasses.Admin.PageBase
 	{
+		private int PageSize { get; set; }
+		private int CurrPageIndex { get; set; }
+		//private int TotalCount { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -33,6 +37,7 @@ namespace YiJingWebUI.Admin.Articles
 			base.OnLoad( e );
 			int cid = CodeStudio.WebRequest.GetQueryInt( "cid", 0 );
 			string searchWords = CodeStudio.WebRequest.GetQueryString( "s" );
+			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 1 );
 
 			if ( !this.IsPostBack ) {
 				BindDateToDropdownList( cid.ToString() );
@@ -80,7 +85,6 @@ namespace YiJingWebUI.Admin.Articles
 				GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
 				// FooterRow将被<tfoot>包裹
 				GridView1.FooterRow.TableSection = TableRowSection.TableFooter;
-				
 			}
 		}
 		/// <summary>
@@ -109,9 +113,19 @@ namespace YiJingWebUI.Admin.Articles
 		private void BindDataToWebUI() {
 			int categoryId = int.Parse( drpCategories.SelectedValue );
 			string searchWords = txtSearchText.Text.Trim();
-
-			GridView1.DataSource = Factory.ArticleProvider.Gets( 1, 100, searchWords, categoryId ).DataItems;
+			this.PageSize = 5;
+			Pager<Article> articlePager = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, searchWords, categoryId );
+			
+			GridView1.DataSource = articlePager.DataItems;
 			GridView1.DataBind();
+
+			AspNetPager AspNetPager1 = ( AspNetPager )GridView1.FooterRow.FindControl( "AspNetPager1" );
+			if ( AspNetPager1 != null ) {
+				// 分页代码
+				AspNetPager1.RecordCount = articlePager.Total;
+				AspNetPager1.PageSize = this.PageSize;
+				AspNetPager1.CurrentPageIndex = this.CurrPageIndex;
+			}
 		}
 
 		/// <summary>

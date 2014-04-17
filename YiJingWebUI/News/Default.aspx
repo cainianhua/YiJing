@@ -27,12 +27,12 @@
 				<asp:Repeater ID="rptArticles" runat="server">
 					<ItemTemplate>
 					<li>
-						<a target="_blank" title="<%#Eval("ArticleTitleLocal") %>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>">
+						<a title="<%#Eval("ArticleTitleLocal") %>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>">
 							<img alt="<%#Eval("ArticleTitleLocal") %>" src="<%#Eval("Thumbnail")%>" /></a>
 						<h3>
-							<a target="_blank" title="<%#Eval("ArticleTitleLocal")%>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>"><%#Eval("ArticleTitleLocal")%></a></h3>
+							<a title="<%#Eval("ArticleTitleLocal")%>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>"><%#Eval("ArticleTitleLocal")%></a></h3>
 						<p>
-							<a target="_blank" title="<%#Eval("ArticleTitleLocal")%>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>"><%#Eval("Description")%></a></p>
+							<a title="<%#Eval("ArticleTitleLocal")%>" href="/news/detail.aspx?aid=<%#Eval("ArticleId")%>"><%#Eval("Description")%></a></p>
 					</li>
 					</ItemTemplate>
 				</asp:Repeater>
@@ -57,10 +57,11 @@
 					ShowNavigationToolTip="true" 
 					UrlPageIndexName="pn"
 					ShowPageIndexBox="Never" 
+					AlwaysShowFirstLastPageNumber="true"
 					NumericButtonCount="7"></webdiyer:aspnetpager>
 			<div class="line"></div>
 			<div class="back">
-				<a href="javascript:history.go(-1);"><i class="icon icon-x"></i>返回</a></div>
+				<a href="/"><i class="icon icon-x"></i>返回</a></div>
 		</div>
 	</div>
 	<!--news end-->

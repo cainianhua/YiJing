@@ -29,7 +29,8 @@ namespace CodeStudio.YiJing.Entities
 
 		public Article() {
 			this.SortOrder = 9999;
-			this.BgColor = this.TitleColor = "FFFFFF";
+			this.BgColor = "FFFFFF";
+			this.TitleColor = "333333";
 		}
     }
 }

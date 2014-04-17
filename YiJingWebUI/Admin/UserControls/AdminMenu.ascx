@@ -37,8 +37,12 @@
 	<ul>
         <li><a href="<%= this.ResolveUrl("../Settings/")%>">配置列表</a></li>
         <li><a href="<%= this.ResolveUrl("../Settings/Add.aspx")%>">添加联系方式</a></li>
-		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx")%>">修改LOGO</a></li>
-		<li><a href="<%= this.ResolveUrl("../Settings/AddText.aspx?code=CutureWords")%>">修改文字</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx?code=LogoTop")%>">左上角LOGO</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx?code=LogoBottom")%>">联系我们LOGO</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddText.aspx?code=CutureWords")%>">联系我们文字</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx?code=MirrorPic")%>">联系我们左图</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx?code=ContactUsBackgroundBottom")%>">全屏下背景图</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx?code=ContactUsBackgroundTop")%>">全屏上背景图</a></li>
     </ul>
 </li>
 

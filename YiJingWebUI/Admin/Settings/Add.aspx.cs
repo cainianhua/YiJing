@@ -47,6 +47,7 @@ namespace YiJingWebUI.Admin.Settings
 					item.Seq = int.Parse( Seq.Value );
 					item.TextValue = String.Format( "{0}|{1}", Pic.Text.Trim(), TextValue.Text.Trim() );
 					item.Description = Description.Text.Trim();
+					item.Type = ( ConstantType )( int.Parse( ConstantType.Value ) );
 					item.SortOrder = int.Parse( SortOrder.Text );
 					item.ActionDate = DateTime.Now;
 					item.ActionBy = User.Identity.Name;
@@ -88,7 +89,7 @@ namespace YiJingWebUI.Admin.Settings
 					}
 				}
 			}
-
+			ConstantType.Value = item.Type.ToString();
 			Description.Text = item.Description;
 			SortOrder.Text = item.SortOrder.ToString();
 		}

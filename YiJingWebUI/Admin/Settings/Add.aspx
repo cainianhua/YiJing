@@ -48,6 +48,7 @@
                 <p>
 					<asp:HiddenField ID="Code" runat="server" />
 					<asp:HiddenField ID="Seq" runat="server" />
+					<asp:HiddenField ID="ConstantType" runat="server" />
 					<asp:HiddenField ID="ConstantId" runat="server" />
 					<asp:Button ID="btnSave" runat="server" Text="保存联系方式" CssClass="button" onclick="btnSave_Click" />
                 </p>
