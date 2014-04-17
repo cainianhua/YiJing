@@ -94,6 +94,8 @@ namespace YiJingWebUI.Cases
 			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
 				base.BgImage = item.BgPic;
 			}
+			// 文字颜色
+			TitleColor.Text = item.TitleColor;
 
 			this.Page.Title = ArticleTitle.Text = item.ArticleTitleLocal;
 			ArticleSubtitle.Text = item.ArticleSubtitle;

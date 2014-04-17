@@ -21,12 +21,13 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
+	<!--<asp:Literal ID="TitleColor" runat="server"></asp:Literal>-->
 	<div id="carousel">
 		<div class="articles">
 			<div class="pane">
 				<div class="detail-hd clearfix">
 					<div class="detail-hd-l">
-						<h2><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
+						<h2 style="color:#<%=TitleColor.Text%>"><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
 						<p>
 							<asp:Repeater ID="rptTags" runat="server">
 								<ItemTemplate>
@@ -35,7 +36,7 @@
 							</asp:Repeater>
 						</p>
 					</div>
-					<div class="detail-hd-r">
+					<div class="detail-hd-r" style="color:#<%=TitleColor.Text%>">
 						<asp:Literal ID="ArticleRemarks" runat="server"></asp:Literal>
 						<!--<p>客户行业&nbsp;｜&nbsp;推荐案例/集团</p>
 						<p>客户行业&nbsp;｜&nbsp;2012年</p>
