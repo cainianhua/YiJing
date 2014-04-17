@@ -230,6 +230,7 @@ a:hover img{ opacity: .6;filter: Alpha(opacity=60);}
 .detailtopbar-inner .topbar-t{ float:left;}
 .detailtopbar-inner .topbar-t h2{ font-size:20px; color:#FFF; font-weight:normal;}
 .detailtopbar-inner .topbar-t h2 strong{ font-size:26px; color:#00B4EF;font-weight:bold;}
+.detailtopbar-inner .topbar-t h2 img{ max-height:38px;}
 
 .servicedetail-hd{ padding:13px 0;}
 .servicedetail-hd a{ font-family: ºÚÌå;width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:16px; text-align:center; margin-right:15px;}

@@ -132,7 +132,7 @@
 				var returns = data.split("|");
 				if (returns.length == 2 && returns[0] == "success") {
 					$("img[id$=imgLogo2]").attr("src", returns[1]);
-					$("input[id$=imgLogo2]").val(returns[1]);
+					$("input[id$=Logo2]").val(returns[1]);
 				}
 			});
 		});
