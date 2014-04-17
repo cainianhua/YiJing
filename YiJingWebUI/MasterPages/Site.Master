@@ -21,6 +21,7 @@
 	<!--<asp:Literal ID="BgImage" runat="server"></asp:Literal>-->
 	<form id="form1" runat="server">
 	<asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
+	<a name="top"></a>
 	<div id="maincontent" class="clearfix">
 		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 	</div>
@@ -28,36 +29,34 @@
 	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
 	</form>
 	<div class="backtotop" id="toTop">返回顶部</div>
-<script type="text/javascript">
-	//返回顶部
-$('#toTop').click(function (){
-$('html,body').animate({ scrollTop: 0 }, 120);
-});
-if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-$('#toTop').css({'position': 'absolute','bottom':''});
-$(window).scroll(function () {
-$('#toTop').css('top', $(window).scrollTop()+ $(window).height()-30);
-});
-}
-
-//导航
-var scrollTimes;
-if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-	$('#header').css({'position': 'absolute','bottom':''});	
-}
-$(window).scroll(function () {
-	clearTimeout(scrollTimes);
-	if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-		$('#header').css('top', $(window).scrollTop());
-	}
-	if(!$('body').hasClass('onscroll')){
-		$('body').addClass('onscroll');
-	}
-	scrollTimes=setTimeout(function(){
-		$('body').removeClass('onscroll');
-	},300);
-});
-
-</script>
+	<script type="text/javascript">
+		//返回顶部
+		$('#toTop').click(function () {
+			$('html,body').animate({ scrollTop: 0 }, 120);
+		});
+		if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+			$('#toTop').css({ 'position': 'absolute', 'bottom': '' });
+			$(window).scroll(function () {
+				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
+			});
+		}
+		//导航
+		var scrollTimes;
+		if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+			$('#header').css({ 'position': 'absolute', 'bottom': '' });
+		}
+		$(window).scroll(function () {
+			clearTimeout(scrollTimes);
+			if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+				$('#header').css('top', $(window).scrollTop());
+			}
+			if (!$('body').hasClass('onscroll')) {
+				$('body').addClass('onscroll');
+			}
+			scrollTimes = setTimeout(function () {
+				$('body').removeClass('onscroll');
+			}, 300);
+		});
+	</script>
 </body>
 </html>

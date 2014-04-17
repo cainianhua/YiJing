@@ -21,8 +21,11 @@ namespace YiJingWebUI.UserControls
 
 		private void BindDataToWebUI() {
 			Category c = Factory.CategoryProvider.Get( ( int )SiteSort.AboutUs );
-			ltrName.Text = c.Name.ToUpper();
-			ltrNameLocal.Text = c.NameLocal;
+			//ltrName.Text = c.Name.ToUpper();
+			//ltrNameLocal.Text = c.NameLocal;
+
+			CategoryLogo.ImageUrl = c.Logo;
+			CategoryLogo.AlternateText = c.NameLocal;
 
 			rptAboutUs.DataSource = Factory.ArticleProvider.Gets( (int)SiteSort.AboutUs );
 			rptAboutUs.DataBind();

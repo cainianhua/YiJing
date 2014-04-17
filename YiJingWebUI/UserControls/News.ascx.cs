@@ -23,8 +23,10 @@ namespace YiJingWebUI.UserControls
 		/// </summary>
 		private void BindDataToWebUI() {
 			Category c = Factory.CategoryProvider.Get( ( int )SiteSort.News );
-			ltrName.Text = c.Name.ToUpper();
-			ltrNameLocal.Text = c.NameLocal;
+			//ltrName.Text = c.Name.ToUpper();
+			//ltrNameLocal.Text = c.NameLocal;
+			CategoryLogo.ImageUrl = c.Logo;
+			CategoryLogo.AlternateText = c.NameLocal;
 
 			rptNews.DataSource = CodeStudio.YiJing.Factory.ArticleProvider.Gets( 1, 12, string.Empty, ( int )SiteSort.News ).DataItems;
 			rptNews.DataBind();

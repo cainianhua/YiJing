@@ -27,8 +27,8 @@ namespace YiJingWebUI.UserControls
 		/// </summary>
 		private void BindDataToWebUI() {
 			Category c = Factory.CategoryProvider.Get( ( int )SiteSort.Services );
-			ltrName.Text = c.Name.ToUpper();
-			ltrNameLocal.Text = c.NameLocal;
+			CategoryLogo.ImageUrl = c.Logo;
+			CategoryLogo.AlternateText = c.NameLocal;
 
 			var articles = Factory.ArticleProvider.Gets( (int)SiteSort.Services );
 

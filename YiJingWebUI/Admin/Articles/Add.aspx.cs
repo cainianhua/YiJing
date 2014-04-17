@@ -67,6 +67,7 @@ namespace YiJingWebUI.Admin.Articles
 					item.ArticleTitle = ArticleTitle.Text.Trim();
 					item.ArticleTitleLocal = ArticleTitleLocal.Text.Trim();
 					item.ArticleSubtitle = ArticleSubtitle.Text.Trim();
+					item.TitleColor = TitleColor.Text.Trim();
 					item.Keywords = Keywords.Text.Trim();
 					item.Description = Description.Text.Trim();
 					item.Thumbnail = Thumbnail.Text.Trim();
@@ -105,6 +106,7 @@ namespace YiJingWebUI.Admin.Articles
 			ArticleTitle.Text = item.ArticleTitle;
 			ArticleTitleLocal.Text = item.ArticleTitleLocal;
 			ArticleSubtitle.Text = item.ArticleSubtitle;
+			TitleColor.Text = item.TitleColor;
 			Keywords.Text = item.Keywords;
 			Description.Text = item.Description;
 			Thumbnail.Text = item.Thumbnail;

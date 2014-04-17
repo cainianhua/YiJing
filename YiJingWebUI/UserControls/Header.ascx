@@ -3,8 +3,8 @@
 
 <div class="headerinner">
 	<h2 class="logo">
-		<a href="/" title="">
-			<asp:Image ID="imgTopLogo" runat="server" AlternateText="熠镜LOGO" /></a></h2>
+		<a href="/" title="广州熠镜品牌策划">
+			<asp:Image ID="imgTopLogo" runat="server" AlternateText="广州熠镜品牌策划" /></a></h2>
 	<div class="navi">
 		<ul class="clearfix">
 		<asp:Repeater ID="rptNavigator" runat="server" onitemdatabound="rptNavigator_ItemDataBound">

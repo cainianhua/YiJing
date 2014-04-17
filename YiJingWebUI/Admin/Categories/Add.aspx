@@ -62,6 +62,22 @@
 					<input id="file_upload" name="file_upload" type="file" />
 				</p>
 				<p>
+					<label>首页展示部件头图：</label>
+					<asp:HiddenField ID="Logo" runat="server" />
+					<asp:Image ID="imgLogo" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<input id="file_upload2" name="file_upload" type="file" />
+					<br />
+					<small>仅限于关于熠镜，熠镜服务，以及新闻资讯三个分类有效，其他分类在首页没有展示。</small>
+				</p>
+				<p>
+					<label>内容页头图：</label>
+					<asp:HiddenField ID="Logo2" runat="server" />
+					<asp:Image ID="imgLogo2" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<input id="file_upload3" name="file_upload" type="file" />
+					<br />
+					<small>仅限于关于熠镜，熠镜服务有效，其他分类在内容页没有头图展示。</small>
+				</p>
+				<p>
 					<label>排序字段：</label>
 					<asp:TextBox ID="SortOrder" CssClass="text-input small-input" MaxLength="6" runat="server">9999</asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="SortOrder" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须填写"></asp:RequiredFieldValidator>
@@ -85,26 +101,38 @@
 <asp:Content ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
 		jQuery(function ($) {
-			var $bgColor = $("input[id$=BgColor]");
-
 			$('#picker').colpick({
 				layout: 'rgbhex',
 				onBeforeShow: function (el) {
-					var hex = $bgColor.val();
+					var hex = $(this).prev().val();
 					if (hex) $(this).colpickSetColor(hex);
 				},
 				onSubmit: function (hsb, hex, rgb, el) {
-					$bgColor.val(hex);
+					$(el).prev().val(hex);
 					//$(el).css('background-color', '#' + hex);
 					$(el).colpickHide();
 				}
 			});
-			$('#file_upload').uploadify(uploadifyConfig);
+			$('#file_upload,#file_upload2,#file_upload3').uploadify(uploadifyConfig);
 			$('#file_upload').uploadify("settings", "onUploadSuccess", function (file, data, response) {
 				var returns = data.split("|");
 				if (returns.length == 2 && returns[0] == "success") {
 					$("img[id$=imgBgPic]").attr("src", returns[1]);
 					$("input[id$=BgPic]").val(returns[1]);
+				}
+			});
+			$('#file_upload2').uploadify("settings", "onUploadSuccess", function (file, data, response) {
+				var returns = data.split("|");
+				if (returns.length == 2 && returns[0] == "success") {
+					$("img[id$=imgLogo]").attr("src", returns[1]);
+					$("input[id$=Logo]").val(returns[1]);
+				}
+			});
+			$('#file_upload3').uploadify("settings", "onUploadSuccess", function (file, data, response) {
+				var returns = data.split("|");
+				if (returns.length == 2 && returns[0] == "success") {
+					$("img[id$=imgLogo2]").attr("src", returns[1]);
+					$("input[id$=imgLogo2]").val(returns[1]);
 				}
 			});
 		});

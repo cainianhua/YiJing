@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="YiJingWebUI.UserControls.Footer" %>
 
 <a name="contactus"></a>
-<div id="footer">
+<div id="footer" runat="server">
 	<div class="footerinner">
 		<div class="footerinfo clearfix">
 			<div class="footerinfo-l">
@@ -22,7 +22,7 @@
 		</div>
 		<div class="footerlogo">
 			<a href="javascript:void(0);">
-				<asp:Image ID="BottomLogo" runat="server" AlternateText="熠镜LOGO" /></a></div>
+				<asp:Image ID="BottomLogo" runat="server" AlternateText="熠镜品牌策划" /></a></div>
 		<div class="copyright">
 			--<a href="#">粤ICP备ＸＸＸＸＸ号</a>&nbsp;&nbsp;Copyright © 2014 广州熠镜品牌策划有限公司&nbsp;&nbsp;All
 			Rights Reserved--</div>
@@ -31,7 +31,7 @@
 <script type="text/javascript">
 	$(".footerlogo a").on("click", function (e) {
 		e.preventDefault();
-		$("#header").slideto({
+		$("a[name=top]").slideto({
 			highlight: false,
 			slide_duration: 'slow'
 		});

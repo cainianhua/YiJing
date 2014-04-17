@@ -10,9 +10,9 @@ a:hover img{ opacity: .6;filter: Alpha(opacity=60);}
 
 #header{ background:#282829; margin-bottom:5px;box-shadow: 0 0 5px #000; position:fixed; width:100%; z-index:2;}
 .onscroll #header{opacity: 0.95;filter: Alpha(opacity=95);}
-.headerinner{ width:1200px; margin:0 auto; height:100px; position:relative;}
+.headerinner{ width:1200px; margin:0 auto; height:90px; position:relative;}
 #header .logo{ float:left; margin-right:90px; padding-top:24px;}
-#header .navi{float:left; padding-top:64px; width:620px;}
+#header .navi{float:left; padding-top:54px; width:620px;}
 #header .navi ul{}
 #header .navi ul li{ float:left; padding:0 20px; position:relative; height:36px; cursor:pointer;}
 #header .navi ul li h2{ font-size:16px;color:#FFF; font-weight:normal;line-height: 36px; margin:0; padding:0;}

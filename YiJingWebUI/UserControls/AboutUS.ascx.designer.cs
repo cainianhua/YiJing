@@ -13,22 +13,13 @@ namespace YiJingWebUI.UserControls {
     public partial class AboutUS {
         
         /// <summary>
-        /// ltrName control.
+        /// CategoryLogo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrName;
-        
-        /// <summary>
-        /// ltrNameLocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrNameLocal;
+        protected global::System.Web.UI.WebControls.Image CategoryLogo;
         
         /// <summary>
         /// rptAboutUs control.

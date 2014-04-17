@@ -51,7 +51,7 @@ namespace YiJingWebUI.Admin.Settings
 				if ( imgTextValue != null && txtTextValue != null ) {
 					imgTextValue.Visible = false;
 					txtTextValue.Visible = false;
-					if ( item.Code.IndexOf( "Logo" ) > -1 || item.Code.IndexOf( "MirrorPic" ) > -1 ) {
+					if ( item.Type == ConstantType.Image ) {
 						imgTextValue.ImageUrl = item.TextValue;
 						imgTextValue.Visible = true;
 					}
@@ -70,17 +70,11 @@ namespace YiJingWebUI.Admin.Settings
 				LinkButton btnDelete = ( LinkButton )e.Row.FindControl( "deleteButton" );
 				HtmlAnchor btnEdit = ( HtmlAnchor )e.Row.FindControl( "editButton" );
 				
-				if ( item.Code.Equals( "CutureWords", StringComparison.OrdinalIgnoreCase ) ) {
-					if ( btnEdit != null ) btnEdit.HRef = String.Format( "EditWords.aspx?cid={0}", item.ConstantId );
+				if ( item.Type == ConstantType.Text ) {
+					if ( btnEdit != null ) btnEdit.HRef = String.Format( "AddText.aspx?cid={0}", item.ConstantId );
 				}
-				else if ( item.Code.Equals( "LogoTop", StringComparison.OrdinalIgnoreCase ) ) {
-					if ( btnEdit != null ) btnEdit.HRef = String.Format( "EditLogo.aspx?cid={0}", item.ConstantId );
-				}
-				else if ( item.Code.Equals( "LogoBottom", StringComparison.OrdinalIgnoreCase ) ) {
-					if ( btnEdit != null ) btnEdit.HRef = String.Format( "EditLogo.aspx?cid={0}", item.ConstantId );
-				}
-				else if ( item.Code.Equals( "MirrorPic", StringComparison.OrdinalIgnoreCase ) ) {
-					if ( btnEdit != null ) btnEdit.HRef = String.Format( "EditLogo.aspx?cid={0}", item.ConstantId );
+				else if ( item.Type == ConstantType.Image ) {
+					if ( btnEdit != null ) btnEdit.HRef = String.Format( "AddImage.aspx?cid={0}", item.ConstantId );
 				}
 				else {
 					if ( btnAdd != null ) btnAdd.Visible = true;

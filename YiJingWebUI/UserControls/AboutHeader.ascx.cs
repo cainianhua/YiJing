@@ -34,8 +34,10 @@ namespace YiJingWebUI.UserControls
 			if ( Sort != SiteSort.NotSet ) {
 				Category item = Factory.CategoryProvider.Get( ( int )Sort );
 				if ( item != null ) {
-					Name.Text = HttpUtility.HtmlEncode(item.Name.Trim());
-					NameLocal.Text = HttpUtility.HtmlEncode(item.NameLocal.Trim());
+					//Name.Text = HttpUtility.HtmlEncode(item.Name.Trim());
+					//NameLocal.Text = HttpUtility.HtmlEncode(item.NameLocal.Trim());
+					CategoryLogo.ImageUrl = item.Logo2;
+					CategoryLogo.AlternateText = item.NameLocal;
 				}
 			}
 		}

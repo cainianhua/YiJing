@@ -45,6 +45,14 @@ namespace YiJingWebUI.UserControls
 			if ( constants.Count > 0 ) {
 				MirrorPic.ImageUrl = constants.SingleOrDefault().TextValue;
 			}
+			// 底部背景
+			constants = Factory.ConstantProvider.Gets( "ContactUsBackground" );
+			if ( constants.Count > 0 ) {
+				Constant item = constants.SingleOrDefault();
+				if ( !string.IsNullOrEmpty( item.TextValue ) ) {
+					footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
+				}
+			}
 		}
 		/// <summary>
 		/// 

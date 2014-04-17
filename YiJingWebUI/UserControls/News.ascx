@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="News.ascx.cs" Inherits="YiJingWebUI.UserControls.News" %>
 
 <div class="hd clearfix">
-    <h3><div style="display:none;">请删除div<asp:Literal ID="ltrName" runat="server"></asp:Literal>&nbsp;<span><asp:Literal ID="ltrNameLocal" runat="server"></asp:Literal></span></div><img src="/Content/images/title3.png" alt="" /></h3>
+    <h3><asp:Image ID="CategoryLogo" runat="server" /></h3>
 </div>
 <div class="bd clearfix">
 	<ul>

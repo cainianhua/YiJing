@@ -13,21 +13,12 @@ namespace YiJingWebUI.UserControls {
     public partial class AboutHeader {
         
         /// <summary>
-        /// Name control.
+        /// CategoryLogo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Name;
-        
-        /// <summary>
-        /// NameLocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal NameLocal;
+        protected global::System.Web.UI.WebControls.Image CategoryLogo;
     }
 }

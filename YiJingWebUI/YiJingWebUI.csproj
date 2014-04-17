@@ -98,9 +98,9 @@
     <Content Include="Admin\Scripts\uploadify\__MACOSX\._Change Log.txt" />
     <Content Include="Admin\Scripts\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="Admin\Settings\Add.aspx" />
-    <Content Include="Admin\Settings\EditWords.aspx" />
+    <Content Include="Admin\Settings\AddText.aspx" />
     <Content Include="Admin\Settings\Default.aspx" />
-    <Content Include="Admin\Settings\EditLogo.aspx" />
+    <Content Include="Admin\Settings\AddImage.aspx" />
     <Content Include="Admin\UserControls\AdminMenu.ascx" />
     <Content Include="Admin\UserControls\MessageTips.ascx" />
     <Content Include="Admin\Content\admin.css" />
@@ -736,12 +736,12 @@
     <Compile Include="Admin\Settings\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Settings\EditWords.aspx.cs">
-      <DependentUpon>EditWords.aspx</DependentUpon>
+    <Compile Include="Admin\Settings\AddText.aspx.cs">
+      <DependentUpon>AddText.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Settings\EditWords.aspx.designer.cs">
-      <DependentUpon>EditWords.aspx</DependentUpon>
+    <Compile Include="Admin\Settings\AddText.aspx.designer.cs">
+      <DependentUpon>AddText.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Settings\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -750,12 +750,12 @@
     <Compile Include="Admin\Settings\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Settings\EditLogo.aspx.cs">
-      <DependentUpon>EditLogo.aspx</DependentUpon>
+    <Compile Include="Admin\Settings\AddImage.aspx.cs">
+      <DependentUpon>AddImage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Settings\EditLogo.aspx.designer.cs">
-      <DependentUpon>EditLogo.aspx</DependentUpon>
+    <Compile Include="Admin\Settings\AddImage.aspx.designer.cs">
+      <DependentUpon>AddImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserControls\AdminMenu.ascx.cs">
       <DependentUpon>AdminMenu.ascx</DependentUpon>

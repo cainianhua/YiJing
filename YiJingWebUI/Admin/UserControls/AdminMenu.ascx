@@ -37,8 +37,8 @@
 	<ul>
         <li><a href="<%= this.ResolveUrl("../Settings/")%>">配置列表</a></li>
         <li><a href="<%= this.ResolveUrl("../Settings/Add.aspx")%>">添加联系方式</a></li>
-		<li><a href="<%= this.ResolveUrl("../Settings/EditLogo.aspx")%>">修改LOGO</a></li>
-		<li><a href="<%= this.ResolveUrl("../Settings/EditWords.aspx?code=CutureWords")%>">修改文字</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddImage.aspx")%>">修改LOGO</a></li>
+		<li><a href="<%= this.ResolveUrl("../Settings/AddText.aspx?code=CutureWords")%>">修改文字</a></li>
     </ul>
 </li>
 

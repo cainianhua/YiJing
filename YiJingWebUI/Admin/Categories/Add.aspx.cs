@@ -70,13 +70,15 @@ namespace YiJingWebUI.Admin.Categories
 					item.NameLocal = NameLocal.Text.Trim();
 					item.Description = Description.Text.Trim();
 					item.BgColor = BgColor.Text.Trim();
-					item.BgPic = BgPic.Value;
+					item.BgPic = BgPic.Value.Trim();
 					item.SortOrder = int.Parse( SortOrder.Text );
 					item.AllowToAddSubCategory = bool.Parse( AllToAddSubCategory.Value );
 					item.ParentId = int.Parse( ParentId.Value );
 					if ( drpParentId.Visible && !string.IsNullOrEmpty( drpParentId.SelectedValue ) ) {
 						item.ParentId = int.Parse( drpParentId.SelectedValue );
 					}
+					item.Logo = Logo.Value.Trim();
+					item.Logo2 = Logo2.Value.Trim();
 					item.ActionDate = DateTime.Now;
 					item.ActionBy = User.Identity.Name;
 
@@ -108,9 +110,17 @@ namespace YiJingWebUI.Admin.Categories
 			NameLocal.Text = item.NameLocal;
 			Description.Text = item.Description;
 			BgColor.Text = item.BgColor;
-			BgPic.Value = item.BgPic;
 			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
+				BgPic.Value = item.BgPic;
 				imgBgPic.ImageUrl = item.BgPic;
+			}
+			if ( !string.IsNullOrEmpty( item.Logo ) ) {
+				Logo.Value = item.Logo;
+				imgLogo.ImageUrl = item.Logo;
+			}
+			if ( !string.IsNullOrEmpty( item.Logo2 ) ) {
+				Logo2.Value = item.Logo2;
+				imgLogo2.ImageUrl = item.Logo2;
 			}
 			SortOrder.Text = item.SortOrder.ToString();
 			AllToAddSubCategory.Value = item.AllowToAddSubCategory.ToString();

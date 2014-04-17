@@ -46,10 +46,18 @@
 					<small>只限于熠镜案例使用，其他分类填写无效，255个字符长度，可以输入HTML代码</small>
 				</p>
 				<p>
+					<label>标题栏文字颜色(*)：</label>
+					<asp:TextBox ID="TitleColor" CssClass="text-input small-input" MaxLength="6" runat="server"></asp:TextBox>
+					<button class="button picker" data-src="">选择</button>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator99" ControlToValidate="TitleColor" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="标题栏文字颜色不能为空"></asp:RequiredFieldValidator>
+					<br />
+					<small>标题栏文字颜色默认为白色。</small>
+				</p>
+				<p>
 					<label>关键字：</label>
 					<asp:TextBox ID="Keywords" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<br />
-					<small>关键字最长50个字符，主要用于SEO。</small>
+					<small>主要用于SEO，关键字最长50个字符。</small>
 				</p>
 				<p>
 					<label>文章简介：</label>
@@ -78,7 +86,7 @@
 				<p>
 					<label>背景颜色(*)：</label>
 					<asp:TextBox ID="BgColor" CssClass="text-input small-input" MaxLength="6" runat="server"></asp:TextBox>
-					<button id="picker" class="button">选择</button>
+					<button class="button picker">选择</button>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="BgColor" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="背景颜色必须填写"></asp:RequiredFieldValidator>
 					<br />
 					<small>背景颜色默认为白色。</small>
@@ -125,15 +133,14 @@
 	<script type="text/javascript">
 		jQuery(function ($) {
 			// 颜色选择
-			var $bgColor = $("input[id$=BgColor]");
-			$('#picker').colpick({
+			$('.picker').colpick({
 				layout: 'rgbhex',
 				onBeforeShow: function (el) {
-					var hex = $bgColor.val();
+					var hex = $(this).prev().val();
 					if (hex) $(this).colpickSetColor(hex);
 				},
 				onSubmit: function (hsb, hex, rgb, el) {
-					$bgColor.val(hex);
+					$(el).prev().val(hex);
 					//$(el).css('background-color', '#' + hex);
 					$(el).colpickHide();
 				}
