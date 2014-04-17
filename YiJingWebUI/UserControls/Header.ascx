@@ -16,12 +16,12 @@
 							<dl>
 							<asp:Repeater ID="rptSubNavigator" runat="server" OnItemDataBound="rptSubNavigator_ItemDataBound">
 								<ItemTemplate>
-									<dd><asp:HyperLink ID="lnkSubNavigator" Target="_blank" runat="server"></asp:HyperLink></dd>
+									<dd><asp:HyperLink ID="lnkSubNavigator" runat="server"></asp:HyperLink></dd>
 								</ItemTemplate>
 							</asp:Repeater>
 							<asp:Repeater ID="rptArticles" runat="server" OnItemDataBound="rptArticles_ItemDataBound">
 								<ItemTemplate>
-									<dd><asp:HyperLink ID="lnkArticle" Target="_blank" runat="server"></asp:HyperLink></dd>
+									<dd><asp:HyperLink ID="lnkArticle" runat="server"></asp:HyperLink></dd>
 								</ItemTemplate>
 							</asp:Repeater>
 							</dl>
