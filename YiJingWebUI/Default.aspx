@@ -8,12 +8,10 @@
 <%@ Register src="UserControls/Footer.ascx" tagname="Footer" tagprefix="uc7" %>
 
 <asp:Content ContentPlaceHolderID="Header" runat="server">
-	<div id="header" class="clearfix">
 		<uc1:Header ID="Header1" runat="server" />
-	</div>
 </asp:Content>
 
-<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">	
 	<!--slideshow-->
 	<div class="slideshow slider">
 		<uc2:SlideShow ID="SlideShow1" runat="server" />

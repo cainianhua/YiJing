@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="false" CodeBehind="Header.ascx.cs" Inherits="YiJingWebUI.UserControls.Header" %>
 <%@ Register src="Search.ascx" tagname="Search" tagprefix="uc1" %>
-
+<div id="header" class="clearfix">
 <div class="headerinner">
 	<h2 class="logo">
 		<a href="/" title="广州熠镜品牌策划">
@@ -115,6 +115,8 @@
 	</div>
 	<uc1:Search ID="Search1" runat="server" />
 </div>
+</div>
+<div class="blank_top"></div>
 <script type="text/javascript" src="/scripts/slideto/js/jquery.slideto.min.js"></script>
 <script type="text/javascript">
 	$('.navi li').hover(function () {

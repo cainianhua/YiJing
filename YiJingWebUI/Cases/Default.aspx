@@ -4,9 +4,7 @@
 <%@ Register src="~/UserControls/SideBar.ascx" tagname="SideBar" tagprefix="uc3" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Header" runat="server">
-	<div id="header" class="clearfix">
 		<uc1:Header ID="Header1" runat="server" />
-	</div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">

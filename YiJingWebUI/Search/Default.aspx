@@ -8,9 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
-	<div id="header" class="clearfix">
 		<uc1:Header ID="Header1" runat="server" />
-	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
 	<!--search info-->
