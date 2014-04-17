@@ -12,6 +12,7 @@ namespace CodeStudio.YiJing.Entities
 		public int Seq { get; set; }
 		public String TextValue { get; set; }
 		public String Description { get; set; }
+		public ConstantType Type { get; set; }
 		private int _SortOrder = 9999;
 		public int SortOrder {
 			get { return _SortOrder; }

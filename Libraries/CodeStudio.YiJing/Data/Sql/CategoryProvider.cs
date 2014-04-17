@@ -31,6 +31,8 @@ namespace CodeStudio.YiJing.Data.Sql
 		private const string FIELD_SORTORDER = "SortOrder";
 		private const string FIELD_ALLOWTOADDSUBCATEGORY = "AllowToAddSubCategory";
 		private const string FIELD_PARENTID = "ParentId";
+		private const string FIELD_LOGO = "LOGO";
+		private const string FIELD_LOGO2 = "LOGO2";
 		#endregion
 
 		public Category Get(int categoryId) {
@@ -98,6 +100,8 @@ namespace CodeStudio.YiJing.Data.Sql
 				SqlHelper.MakeInParameter(AT + FIELD_SORTORDER, SqlDbType.Int, 4, c.SortOrder),
 				SqlHelper.MakeInParameter(AT + FIELD_ALLOWTOADDSUBCATEGORY, SqlDbType.Bit, 1, c.AllowToAddSubCategory),
 				SqlHelper.MakeInParameter(AT + FIELD_PARENTID, SqlDbType.Int, 4, c.ParentId),
+				SqlHelper.MakeInParameter(AT + FIELD_LOGO, SqlDbType.NVarChar, 255, c.Logo),
+				SqlHelper.MakeInParameter(AT + FIELD_LOGO2, SqlDbType.NVarChar, 255, c.Logo2),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_DATE, SqlDbType.DateTime, 8, c.ActionDate == DateTime.MinValue ? DateTime.Now : c.ActionDate),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_BY, SqlDbType.NVarChar, 50, c.ActionBy ?? String.Empty),
 				SqlHelper.MakeParameter(AT + FIELD_RETURN_VALUE, SqlDbType.Int, 4, ParameterDirection.Output, -1)
@@ -123,6 +127,8 @@ namespace CodeStudio.YiJing.Data.Sql
 			c.SortOrder = ReadInt(reader, FIELD_SORTORDER);
 			c.AllowToAddSubCategory = ReadBool(reader, FIELD_ALLOWTOADDSUBCATEGORY);
 			c.ParentId = ReadInt(reader, FIELD_PARENTID);
+			c.Logo = ReadString( reader, FIELD_LOGO );
+			c.Logo2 = ReadString( reader, FIELD_LOGO2 );
 
 			SetEntityProperties(c, reader);
 

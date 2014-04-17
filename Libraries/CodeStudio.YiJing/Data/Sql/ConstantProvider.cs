@@ -27,6 +27,7 @@ namespace CodeStudio.YiJing.Data.Sql
 		private const string FIELD_SEQ = "Seq";
 		private const string FIELD_TEXT_VALUE = "TextValue";
 		private const string FIELD_DESCRIPTION = "Description";
+		private const string FIELD_TYPE = "Type";
 		private const string FIELD_SORT_ORDER = "SortOrder";
 		#endregion
 
@@ -91,6 +92,7 @@ namespace CodeStudio.YiJing.Data.Sql
 				SqlHelper.MakeInParameter(AT + FIELD_SEQ, SqlDbType.Int, 4, c.Seq),
 				SqlHelper.MakeInParameter(AT + FIELD_TEXT_VALUE, SqlDbType.NVarChar, 512, c.TextValue),
 				SqlHelper.MakeInParameter(AT + FIELD_DESCRIPTION, SqlDbType.NVarChar, 255, c.Description),
+				SqlHelper.MakeInParameter(AT + FIELD_TYPE, SqlDbType.Int, 4, (int)c.Type),
 				SqlHelper.MakeInParameter(AT + FIELD_SORT_ORDER, SqlDbType.Int, 4, c.SortOrder),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_DATE, SqlDbType.DateTime, 8, c.ActionDate == DateTime.MinValue ? DateTime.Now : c.ActionDate),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_BY, SqlDbType.NVarChar, 50, c.ActionBy ?? String.Empty),
@@ -114,6 +116,7 @@ namespace CodeStudio.YiJing.Data.Sql
 			c.Seq = ReadInt(reader, FIELD_SEQ);
 			c.TextValue = ReadString(reader, FIELD_TEXT_VALUE);
 			c.Description = ReadString( reader, FIELD_DESCRIPTION );
+			c.Type = (ConstantType)ReadInt( reader, FIELD_TYPE );
 			c.SortOrder = ReadInt( reader, FIELD_SORT_ORDER );
 
 			SetEntityProperties(c, reader);

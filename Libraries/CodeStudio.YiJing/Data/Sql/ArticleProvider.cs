@@ -63,6 +63,7 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 		private const string FIELD_SortOrder = "SortOrder";
 		private const string FIELD_CategoryId = "CategoryId";
 		private const string FIELD_ParentId = "ParentId";
+		private const string FIELD_TITLECOLOR = "TitleColor";
 		#endregion
 
 		public Article Get(int articleId) {
@@ -200,6 +201,7 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 				SqlHelper.MakeInParameter(AT + FIELD_BgPic, SqlDbType.NVarChar, 255, item.BgPic),
 				SqlHelper.MakeInParameter(AT + FIELD_SortOrder, SqlDbType.Int, 4, item.SortOrder),
 				SqlHelper.MakeInParameter(AT + FIELD_CategoryId, SqlDbType.Int, 4, item.CategoryId),
+				SqlHelper.MakeInParameter(AT + FIELD_TITLECOLOR, SqlDbType.Char, 6, item.TitleColor),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_DATE, SqlDbType.DateTime, 8, item.ActionDate == DateTime.MinValue ? DateTime.Now : item.ActionDate),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_BY, SqlDbType.NVarChar, 50, item.ActionBy ?? String.Empty),
 				SqlHelper.MakeParameter(AT + FIELD_RETURN_VALUE, SqlDbType.Int, 4, ParameterDirection.Output, -1)
@@ -235,7 +237,9 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 			a.BgPic = ReadString( reader, FIELD_BgPic );
 			a.SortOrder = ReadInt( reader, FIELD_SortOrder );
 			a.CategoryId = ReadInt( reader, FIELD_CategoryId );
-			if ( reader.FieldCount > 19 ) {
+			a.TitleColor = ReadString( reader, FIELD_TITLECOLOR );
+
+			if ( reader.FieldCount > 20 ) {
 				a.ParentId = ReadInt( reader, FIELD_ParentId );
 			}
 

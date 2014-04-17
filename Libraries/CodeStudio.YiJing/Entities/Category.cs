@@ -24,5 +24,7 @@ namespace CodeStudio.YiJing.Entities
 		}
 		public bool AllowToAddSubCategory { get; set; }
 		public int ParentId { get; set; }
+		public string Logo { get; set; }
+		public string Logo2 { get; set; }
     }
 }

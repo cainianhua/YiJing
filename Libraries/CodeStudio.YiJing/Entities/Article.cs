@@ -11,18 +11,14 @@ namespace CodeStudio.YiJing.Entities
 		public String ArticleTitle { get; set; }
 		public String ArticleTitleLocal { get; set; }
 		public String ArticleSubtitle { get; set; }
-		public String WidgetTextBg { get; set; }
+		public String TitleColor { get; set; }
 		public String Keywords { get; set; }
 		public String Description { get; set; }
 		public String Thumbnail { get; set; }
 		public String Remarks { get; set; }
 		public String HtmlContent { get; set; }
 		public String Tags { get; set; }
-		private string _BgColor = "FFFFFF";
-		public String BgColor {
-			get { return _BgColor; }
-			set { _BgColor = value; }
-		}
+		public String BgColor { get; set; }
 		public String BgPic { get; set; }
 		public int SortOrder { get; set; }
 		public int CategoryId { get; set; }
@@ -33,6 +29,7 @@ namespace CodeStudio.YiJing.Entities
 
 		public Article() {
 			this.SortOrder = 9999;
+			this.BgColor = this.TitleColor = "FFFFFF";
 		}
     }
 }
