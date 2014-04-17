@@ -40,23 +40,7 @@
 				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
 			});
 		}
-		//导航
-		var scrollTimes;
-		if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-			$('#header').css({ 'position': 'absolute', 'bottom': '' });
-		}
-		$(window).scroll(function () {
-			clearTimeout(scrollTimes);
-			if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-				$('#header').css('top', $(window).scrollTop());
-			}
-			if (!$('body').hasClass('onscroll')) {
-				$('body').addClass('onscroll');
-			}
-			scrollTimes = setTimeout(function () {
-				$('body').removeClass('onscroll');
-			}, 300);
-		});
+		
 	</script>
 </body>
 </html>
