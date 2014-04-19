@@ -10,7 +10,8 @@
 	<link href="/content/reset.css" type="text/css" rel="stylesheet" />
 	<link href="/content/style.css" type="text/css" rel="stylesheet" />
 	<asp:ContentPlaceHolder ID="HeaderStyles" runat="server"></asp:ContentPlaceHolder>
-	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<%--<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>--%>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<!--[if lt IE 9]>
     <script type="text/javascript" src="/scripts/html5.js"></script>
 	<![endif]-->
@@ -34,13 +35,13 @@
 		$('#toTop').click(function () {
 			$('html,body').animate({ scrollTop: 0 }, 120);
 		});
-		if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+		if ('undefined' == typeof (document.body.style.maxHeight)) {
 			$('#toTop').css({ 'position': 'absolute', 'bottom': '' });
 			$(window).scroll(function () {
 				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
 			});
 		}
-		
 	</script>
 </body>
 </html>

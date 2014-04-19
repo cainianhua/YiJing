@@ -32,36 +32,33 @@
 <script type="text/javascript">
 	$(".footerlogo a").on("click", function (e) {
 		e.preventDefault();
-		$("a[name=top]").slideto({
-			highlight: false,
-			slide_duration: 'slow',
-			offset: -100
-		});
+		$('html,body').animate({ scrollTop: 0 }, 500);
 		return false;
 	});
-	
-		//导航
-		var scrollTimes;
-		if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-			$('#header').css({ 'position': 'absolute', 'bottom': '' });
+	//导航
+	var scrollTimes;
+	//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+	if ('undefined' == typeof (document.body.style.maxHeight)) {
+		$('#header').css({ 'position': 'absolute', 'bottom': '' });
+	}
+	$('body').append('<div class="bodycover"></div>');
+	//$('.bodycover').height($(document).height()-380);
+	$(window).scroll(function () {
+		clearTimeout(scrollTimes);
+		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+		if ('undefined' == typeof (document.body.style.maxHeight)) {
+			$('#header').css('top', $(window).scrollTop());
 		}
-		$('body').append('<div class="bodycover"></div>');
-		//$('.bodycover').height($(document).height()-380);
-		$(window).scroll(function () {
-			clearTimeout(scrollTimes);
-			if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-				$('#header').css('top', $(window).scrollTop());
-			}
-			if (!$('body').hasClass('onscroll')) {
-				$('body').addClass('onscroll');
-			}
-			scrollTimes = setTimeout(function () {
-				$('body').removeClass('onscroll');
-			}, 300);
-			if(($(document).height()-$(window).scrollTop()-$(window).height())<100){
-				$('.bodycover').show('fast');
-			}else{
-				$('.bodycover').hide('fast');
-			}
-		});
-	</script>
+		if (!$('body').hasClass('onscroll')) {
+			$('body').addClass('onscroll');
+		}
+		scrollTimes = setTimeout(function () {
+			$('body').removeClass('onscroll');
+		}, 300);
+		if(($(document).height()-$(window).scrollTop()-$(window).height())<100){
+			$('.bodycover').show('fast');
+		}else{
+			$('.bodycover').hide('fast');
+		}
+	});
+</script>

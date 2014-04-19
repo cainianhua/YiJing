@@ -17,7 +17,7 @@ sub, sup { line-height: 0; position: relative; vertical-align: baseline; }
 sub { bottom: -0.25em; }
 sup { top: -0.5em; }
 svg { /*For IE9.*/ overflow: hidden; }
-body { font:12px/1.5 Arial,sans-serif,"Microsoft YaHei",simsun; color:#333; }
+body { font:12px/1.5 "Microsoft YaHei",Arial,sans-serif,simsun; color:#333; }
 /* `Clear Floated Elements*/
 .clear { clear: both; display: block; overflow: hidden; font-size: 0; line-height: 0; visibility: hidden; width: 0; height: 0; }
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }

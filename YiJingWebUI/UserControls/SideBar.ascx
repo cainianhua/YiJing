@@ -51,7 +51,8 @@
 		});
 	});
 	//ie6不支持position fixed
-	if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+	//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+	if ('undefined' == typeof (document.body.style.maxHeight)) {
 		var floatShare = $('#floatShare');
 		floatShare.css('position', 'absolute');
 		$(window).scroll(function () {

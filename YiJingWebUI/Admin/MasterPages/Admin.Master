@@ -22,7 +22,6 @@
 	<%--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>--%>
 	<script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/facebox.js") %>"></script>
     <script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/configuration.js") %>"></script>
-    <!--[if IE]><script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/jquery.bgiframe.js") %>"></script><![endif]-->
     <!-- Internet Explorer .png-fix -->
     <!--[if IE 6]>
     <script type="text/javascript" src="<%= this.ResolveUrl("~/Admin/Scripts/DD_belatedPNG_0.0.7a.js") %>"></script>

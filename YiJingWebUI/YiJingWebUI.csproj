@@ -82,11 +82,9 @@
     <Content Include="Admin\Scripts\facebox.js" />
     <Content Include="Admin\Scripts\jquery-1.11.0.js" />
     <Content Include="Admin\Scripts\jquery-1.11.0.min.js" />
-    <Content Include="Admin\Scripts\jquery.bgiframe.js" />
     <Content Include="Admin\Scripts\jquery.date.js" />
     <Content Include="Admin\Scripts\jquery.pagination.js" />
     <Content Include="Admin\Scripts\jquery.validate.min.js" />
-    <Content Include="Admin\Scripts\jquery.wysiwyg.js" />
     <Content Include="Admin\Scripts\configuration.js" />
     <Content Include="Admin\Scripts\uploadify\Change Log.txt" />
     <Content Include="Admin\Scripts\uploadify\jquery.uploadify.js" />
@@ -229,22 +227,21 @@
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
-    <Content Include="List.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="News\Default.aspx" />
     <Content Include="News\Detail.aspx" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\hammer\hammer.js" />
     <Content Include="Scripts\hammer\hammer.min.js" />
     <Content Include="Scripts\html5.js" />
     <Content Include="Scripts\modernizr.js" />
-    <Content Include="Scripts\slideto\js\jquery.slideto.min.js" />
     <Content Include="Scripts\move\.gitignore" />
     <Content Include="Scripts\move\index.html" />
     <Content Include="Scripts\move\js\jquery.event.move.js" />
     <Content Include="Scripts\move\test\test_interaction.html" />
     <Content Include="Scripts\move\test\test_propagation.html" />
-    <Content Include="Scripts\slideto\example\index.html" />
-    <Content Include="Scripts\slideto\source\jquery.slideto.js" />
     <Content Include="Scripts\swipe\index.html" />
     <Content Include="Scripts\swipe\js\jquery.event.swipe.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -812,13 +809,6 @@
     <Compile Include="Cases\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -989,7 +979,6 @@
     <None Include="Scripts\move\package.json" />
     <None Include="Scripts\move\README.md" />
     <None Include="Scripts\move\_config.yml" />
-    <None Include="Scripts\slideto\README" />
     <None Include="Scripts\swipe\bower.json" />
     <None Include="Scripts\swipe\event.swipe.jquery.json" />
     <None Include="Scripts\swipe\package.json" />

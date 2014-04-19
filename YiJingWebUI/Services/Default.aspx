@@ -19,7 +19,7 @@
 	<uc3:SideBar ID="SideBar1" runat="server" />
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
-	<script type="text/javascript" src="/scripts/modernizr.js"></script>
+	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
 	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
 	<script type="text/javascript">

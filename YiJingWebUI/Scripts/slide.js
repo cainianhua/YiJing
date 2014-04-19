@@ -21,8 +21,8 @@ var Slider = function (element, options) {
         return;
     }
     this.elem
-        .live('mouseenter', $.proxy(this.pause, this))
-        .live('mouseleave', $.proxy(this.cycle, this));
+        .on('mouseenter', $.proxy(this.pause, this))
+        .on('mouseleave', $.proxy(this.cycle, this));
 }
 Slider.prototype = {
 	constructor: Slider,
@@ -54,7 +54,7 @@ Slider.prototype = {
                 '<a href="#1" data-navi="prev" class="btn-prev">prev</a>',
                 '<a href="#1" data-navi="next" class="btn-next">next</a>',
             ].join(''));
-			$this.live('click', '[data-navi]', function (e) {
+			$this.on('click', '[data-navi]', function (e) {
 				//e.preventDefault();
 				var type = $(e.target).data('navi');
 				if (!type) return;

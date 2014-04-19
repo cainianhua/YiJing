@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderStyles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
-	<script type="text/javascript" src="/scripts/modernizr.js"></script>
+	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
 	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
 </asp:Content>
