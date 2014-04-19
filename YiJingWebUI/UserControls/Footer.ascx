@@ -34,7 +34,8 @@
 		e.preventDefault();
 		$("a[name=top]").slideto({
 			highlight: false,
-			slide_duration: 'slow'
+			slide_duration: 'slow',
+			offset: -100
 		});
 		return false;
 	});
