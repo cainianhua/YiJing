@@ -28,7 +28,7 @@
 			Rights Reserved--</div>
 	</div>
 </div>
-
+<div class="bodycover" <%=ContactUsBackgroundBottomString%>></div>
 <script type="text/javascript">
 	$(".footerlogo a").on("click", function (e) {
 		e.preventDefault();
@@ -41,8 +41,10 @@
 	if ('undefined' == typeof (document.body.style.maxHeight)) {
 		$('#header').css({ 'position': 'absolute', 'bottom': '' });
 	}
-	$('body').append('<div class="bodycover"></div>');
-	//$('.bodycover').height($(document).height()-380);
+	$(window).load(function(){
+		$('.bodycover').height(($(window).height()-$('#footer').outerHeight(true))>0?($(window).height()-$('#footer').outerHeight(true)):0);
+	});
+	
 	$(window).scroll(function () {
 		clearTimeout(scrollTimes);
 		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
@@ -56,9 +58,15 @@
 			$('body').removeClass('onscroll');
 		}, 300);
 		if(($(document).height()-$(window).scrollTop()-$(window).height())<100){
-			$('.bodycover').show('fast');
+			$('.bodycover').fadeIn();
+			$('#floatShare').hide();
+			$('#toTop').hide();
+			$('#header').hide();
 		}else{
-			$('.bodycover').hide('fast');
+			$('.bodycover').fadeOut();
+			$('#floatShare').show();
+			$('#toTop').show();
+			$('#header').show();
 		}
 	});
 </script>

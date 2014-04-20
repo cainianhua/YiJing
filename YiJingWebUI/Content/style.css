@@ -108,9 +108,10 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 #footer .footerinfo{ font-size:16px; color:#FFF;}
 #footer .footerinfo{color:#FFF;}
 #footer .footerinner{ width:1200px; margin:0 auto;}
-#footer .footerinfo-l{ float:left; width:295px; margin-right:80px; font-size:50px; line-height:50px; font-weight:bold;}
+#footer .footerinfo-l{ float:left; width:280px; padding-left:20px; margin-right:50px; font-size:50px; line-height:50px; font-weight:bold;}
+#footer .footerinfo-l img{ width:280px;}
 #footer .footerinfo-l p{ margin:0; padding:0;}
-#footer .footerinfo-c{float:left; width:435px;margin-right:90px;}
+#footer .footerinfo-c{float:left; width:435px;margin-right:50px;}
 #footer .footerinfo-c p{ margin-bottom:8px;}
 #footer .footerinfo-r{float:left; width:248px; line-height:30px;}
 #footer .footerinfo-r li img{ width:21px; height:21px; vertical-align:middle; margin-right:3px;}
@@ -165,7 +166,14 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 #footer2 .copyright2{ color:#6A6B6D; text-align:center; font-size:14px;}
 #footer2 .copyright2 a{ color:#6A6B6D;}
 
-.bodycover{ position:fixed; z-index:99998; left:0; top:0;right:0; bottom:380px; background:#282829; display:none;}
+.bodycover{
+    display: none;
+    height: 254px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;}
 
 /*pager*/
 .pager { font-size: 14px; text-align: right; word-wrap: break-word; clear: both; padding: 48px 12px 16px; }
@@ -198,8 +206,9 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 
 
 /*detail*/
-.detail-topbar{ background:#282829;}
-.detail-topbar .detailtopbar-inner{width:1200px; margin:0 auto; height:38px; line-height:38px; padding-top:10px; overflow:hidden; font-size:16px;}
+.detail-topbar{ background:#282829; width:100%; z-index:2;}
+.onscroll .detail-topbar{opacity: 0.95;filter: Alpha(opacity=95);}
+.detail-topbar .detailtopbar-inner{width:1200px; margin:0 auto; height:38px; line-height:38px; overflow:hidden; font-size:16px;}
 .detailtopbar-inner .prv-next{ float:left;}
 .detailtopbar-inner .prv-next a,.detailtopbar-inner .prv-next span{ display:inline-block; vertical-align:middle; color:#BFBFBF; margin:0 4px;}
 .detailtopbar-inner .prv-next .prev{ width:10px; height:12px; overflow:hidden; background:url(images/btn_03.png) no-repeat 0 0; font-size:0;}
