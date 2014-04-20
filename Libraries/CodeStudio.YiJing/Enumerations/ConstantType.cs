@@ -19,6 +19,10 @@ namespace CodeStudio.YiJing
 		/// <summary>
 		/// 序列，像联系方式
 		/// </summary>
-		Sequence
+		Sequence,
+		/// <summary>
+		/// 颜色值
+		/// </summary>
+		Color
 	}
 }

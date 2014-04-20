@@ -28,7 +28,7 @@
 			Rights Reserved--</div>
 	</div>
 </div>
-<div class="bodycover" <%=ContactUsBackgroundBottomString%>></div>
+<div class="bodycover" <%=ContactUsBackgroundTopString%>></div>
 <script type="text/javascript">
 	$(".footerlogo a").on("click", function (e) {
 		e.preventDefault();

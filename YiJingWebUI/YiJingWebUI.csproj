@@ -96,6 +96,7 @@
     <Content Include="Admin\Scripts\uploadify\__MACOSX\._Change Log.txt" />
     <Content Include="Admin\Scripts\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="Admin\Settings\Add.aspx" />
+    <Content Include="Admin\Settings\AddColor.aspx" />
     <Content Include="Admin\Settings\AddText.aspx" />
     <Content Include="Admin\Settings\Default.aspx" />
     <Content Include="Admin\Settings\AddImage.aspx" />
@@ -732,6 +733,13 @@
     </Compile>
     <Compile Include="Admin\Settings\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\AddColor.aspx.cs">
+      <DependentUpon>AddColor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\AddColor.aspx.designer.cs">
+      <DependentUpon>AddColor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Settings\AddText.aspx.cs">
       <DependentUpon>AddText.aspx</DependentUpon>

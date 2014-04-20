@@ -15,7 +15,7 @@ namespace YiJingWebUI.Admin.Articles
 	{
 		private int PageSize { get; set; }
 		private int CurrPageIndex { get; set; }
-		//private int TotalCount { get; set; }
+		private int TotalCount { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -68,6 +68,15 @@ namespace YiJingWebUI.Admin.Articles
 					txtDescription.Text = item.Description;
 				}
 			}
+			else if ( e.Row.RowType == DataControlRowType.Footer ) {
+				AspNetPager AspNetPager1 = ( AspNetPager )e.Row.FindControl( "AspNetPager1" );
+				if ( AspNetPager1 != null ) {
+					// 分页代码
+					AspNetPager1.RecordCount = this.TotalCount;
+					AspNetPager1.PageSize = this.PageSize;
+					AspNetPager1.CurrentPageIndex = this.CurrPageIndex;
+				}
+			}
 		}
 		/// <summary>
 		/// 
@@ -115,17 +124,10 @@ namespace YiJingWebUI.Admin.Articles
 			string searchWords = txtSearchText.Text.Trim();
 			this.PageSize = 5;
 			Pager<Article> articlePager = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, searchWords, categoryId );
-			
+			this.TotalCount = articlePager.Total;
+
 			GridView1.DataSource = articlePager.DataItems;
 			GridView1.DataBind();
-
-			AspNetPager AspNetPager1 = ( AspNetPager )GridView1.FooterRow.FindControl( "AspNetPager1" );
-			if ( AspNetPager1 != null ) {
-				// 分页代码
-				AspNetPager1.RecordCount = articlePager.Total;
-				AspNetPager1.PageSize = this.PageSize;
-				AspNetPager1.CurrentPageIndex = this.CurrPageIndex;
-			}
 		}
 
 		/// <summary>
@@ -157,6 +159,9 @@ namespace YiJingWebUI.Admin.Articles
 				}
 			}
 		}
+
+
+
 		/// <summary>
 		/// 
 		/// </summary>

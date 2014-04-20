@@ -26,8 +26,9 @@
 				</asp:TemplateField>
 				<asp:TemplateField HeaderText="内容">
 					<ItemTemplate>
-						<asp:TextBox ID="TextValue" CssClass="text-input large-input" ReadOnly="true" runat="server"></asp:TextBox>
-						<asp:Image ID="imgTextValue" CssClass="preview" runat="server" />
+						<asp:TextBox ID="TextValue" CssClass="text-input large-input" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
+						<asp:Image ID="imgTextValue" CssClass="preview" Visible="false" runat="server" />
+						<div id="colorTextValue" class="colorbox" visible="false" runat="server"></div>
 					</ItemTemplate>
 				</asp:TemplateField>
 				<asp:BoundField DataField="SortOrder" HeaderText="排序值" />

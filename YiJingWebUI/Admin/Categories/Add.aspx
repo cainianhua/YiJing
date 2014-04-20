@@ -59,12 +59,16 @@
 					<label>背景图片：</label>
 					<asp:HiddenField ID="BgPic" runat="server" />
 					<asp:Image ID="imgBgPic" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<br />
+					<input type="button" id="btnRemove" class="button" value="清除图片" />
 					<input id="file_upload" name="file_upload" type="file" />
 				</p>
 				<p>
 					<label>首页展示部件头图：</label>
 					<asp:HiddenField ID="Logo" runat="server" />
 					<asp:Image ID="imgLogo" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<br />
+					<input type="button" id="btnRemove2" class="button" value="清除图片" />
 					<input id="file_upload2" name="file_upload" type="file" />
 					<br />
 					<small>仅限于关于熠镜，熠镜服务，以及新闻资讯三个分类有效，其他分类在首页没有展示。</small>
@@ -73,6 +77,8 @@
 					<label>内容页头图：</label>
 					<asp:HiddenField ID="Logo2" runat="server" />
 					<asp:Image ID="imgLogo2" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<br />
+					<input type="button" id="btnRemove3" class="button" value="清除图片" />
 					<input id="file_upload3" name="file_upload" type="file" />
 					<br />
 					<small>仅限于关于熠镜，熠镜服务有效，其他分类在内容页没有头图展示。</small>
@@ -134,6 +140,11 @@
 					$("img[id$=imgLogo2]").attr("src", returns[1]);
 					$("input[id$=Logo2]").val(returns[1]);
 				}
+			});
+			$("#btnRemove, #btnRemove2, #btnRemove3").on("click", function (e) {
+				var self = $(this);
+				self.prev().prev().attr("src", "/Admin/Content/images/default.jpg");
+				self.prev().prev().prev().val("");
 			});
 		});
 	</script>

@@ -42,6 +42,8 @@ namespace YiJingWebUI.Admin.Settings
 				TextBox txtDescription = ( TextBox )e.Row.FindControl( "Description" );
 				TextBox txtTextValue = ( TextBox )e.Row.FindControl( "TextValue" );
 				Image imgTextValue = ( Image )e.Row.FindControl( "imgTextValue" );
+				HtmlControl colorTextValue = ( HtmlControl )e.Row.FindControl( "colorTextValue" );
+				
 				Literal ltrOthers = ( Literal )e.Row.FindControl( "Others" );
 				
 				if ( txtDescription != null ) {
@@ -49,11 +51,13 @@ namespace YiJingWebUI.Admin.Settings
 				}
 
 				if ( imgTextValue != null && txtTextValue != null ) {
-					imgTextValue.Visible = false;
-					txtTextValue.Visible = false;
 					if ( item.Type == ConstantType.Image ) {
 						imgTextValue.ImageUrl = item.TextValue;
 						imgTextValue.Visible = true;
+					}
+					else if ( item.Type == ConstantType.Color ) {
+						colorTextValue.Visible = true;
+						colorTextValue.Attributes.Add( "style", "background-color:#" + item.TextValue );
 					}
 					else {
 						txtTextValue.Visible = true;
@@ -75,6 +79,9 @@ namespace YiJingWebUI.Admin.Settings
 				}
 				else if ( item.Type == ConstantType.Image ) {
 					if ( btnEdit != null ) btnEdit.HRef = String.Format( "AddImage.aspx?cid={0}", item.ConstantId );
+				}
+				else if ( item.Type == ConstantType.Color ) {
+					if ( btnEdit != null ) btnEdit.HRef = String.Format( "AddColor.aspx?cid={0}", item.ConstantId );
 				}
 				else {
 					if ( btnAdd != null ) btnAdd.Visible = true;

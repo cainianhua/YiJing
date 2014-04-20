@@ -55,23 +55,37 @@ namespace YiJingWebUI.UserControls
 			if ( constants.Count > 0 ) {
 				MirrorPic.ImageUrl = constants.SingleOrDefault().TextValue;
 			}
+			this.ContactUsBackgroundBottomString = this.ContactUsBackgroundTopString = "style=\"background:{color} {backgroundimage} no-repeat center top;\"";
+			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundColor" ).ToList();
+			if ( constants.Count > 0 ) {
+				Constant item = constants.SingleOrDefault();
+				ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{color}", "#" + item.TextValue );
+				ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{color}", "#" + item.TextValue );
+			}
+			else {
+				ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{color}", "" );
+				ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{color}", "" );
+			}
+
 			// 联系我底图（下）
 			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundBottom" ).ToList();
 			if ( constants.Count > 0 ) {
 				Constant item = constants.SingleOrDefault();
-				if ( !string.IsNullOrEmpty( item.TextValue ) ) {
-					ContactUsBackgroundBottomString = String.Format( "style=\"background-image:url({0})\"", item.TextValue );
-					//footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
-				}
+				if ( !string.IsNullOrEmpty( item.TextValue ) )
+					ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{backgroundimage}", String.Format( "url({0})", item.TextValue ) );
+			}
+			else {
+				ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{backgroundimage}", "" );
 			}
 			// 联系我底图（上）
 			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundTop" ).ToList();
 			if ( constants.Count > 0 ) {
 				Constant item = constants.SingleOrDefault();
-				if ( !string.IsNullOrEmpty( item.TextValue ) ) {
-					ContactUsBackgroundTopString = String.Format( "style=\"background-image:url({0})\"", item.TextValue );
-					//footer.Attributes.Add( "style", String.Format( "background-image:url(\"{0}\")", item.TextValue ) );
-				}
+				if ( !string.IsNullOrEmpty( item.TextValue ) )
+					ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{backgroundimage}", String.Format( "url({0})", item.TextValue ) );
+			}
+			else {
+				ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{backgroundimage}", "" );
 			}
 		}
 		/// <summary>

@@ -48,7 +48,7 @@
 				<p>
 					<label>标题栏文字颜色(*)：</label>
 					<asp:TextBox ID="TitleColor" CssClass="text-input small-input" MaxLength="6" runat="server"></asp:TextBox>
-					<button class="button picker" data-src="">选择</button>
+					<button class="button picker">选择</button>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator99" ControlToValidate="TitleColor" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="标题栏文字颜色不能为空"></asp:RequiredFieldValidator>
 					<br />
 					<small>标题栏文字颜色默认为白色。</small>
@@ -95,6 +95,8 @@
 					<label>背景图片：</label>
 					<asp:HiddenField ID="BgPic" runat="server" />
 					<asp:Image ID="imgBgPic" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
+					<br />
+					<input type="button" id="btnRemove" class="button" value="清除图片" />
 					<input id="file_upload_bg_pic" class="upload-control" name="file_upload" type="file" />
 				</p>
 				<p>
@@ -161,6 +163,11 @@
 					$("input[id$=Thumbnail]").val(returns[1]);
 					$("span[id$=RequiredFieldValidator6]").hide();
 				}
+			});
+			$("#btnRemove").on("click", function (e) {
+				var self = $(this);
+				self.prev().prev().attr("src", "/Admin/Content/images/default.jpg");
+				self.prev().prev().prev().val("");
 			});
 			// 富文本编辑器
 			var editor = UE.getEditor('<%= HtmlContent.ClientID %>', { initialFrameWidth: 1200 });
