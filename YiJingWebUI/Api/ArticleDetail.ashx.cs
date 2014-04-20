@@ -34,7 +34,7 @@ namespace YiJingWebUI.Api
 					output = serializer.Serialize( new {
 						code = 1,
 						message = "success",
-						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
+						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, bgcolor = item.BgColor, bgpic = item.BgPic, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
 						//items = from item in items
 						//        select new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
 					} );

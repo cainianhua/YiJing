@@ -71,9 +71,16 @@
 			"currentCategoryId": currentCategoryId,
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
+
 				if (currentPageNo != pageNo) {
 					window.location = "/news/detail.aspx?pn=" + pageNo;
 				}
+				/*
+				$(".detail-topbar .prev").attr("href", "/news/detail.aspx?pn=" + Math.max(1, pageNo - 1));
+				$(".detail-topbar .next").attr("href", "/news/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
+				$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
+				window.history.pushState(null, null, "/news/detail.aspx?pn=" + pageNo); 
+				*/
 			}
 		});
 		carousel.init();
