@@ -1,7 +1,7 @@
 ﻿/* home page javascript */
 (function ($) {
 	// 新闻资讯hover效果
-	$('.box-indexnews .bd li').hover(function () {
+	$('.box-indexnews .bd ul').delegate("li", "mouseenter mouseleave", function () {
 		$(this).toggleClass('on');
 	});
 	//瀑布流
