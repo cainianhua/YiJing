@@ -115,36 +115,37 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 #footer .footerinfo-c p{ margin-bottom:8px;}
 #footer .footerinfo-r{float:left; width:248px; line-height:30px;}
 #footer .footerinfo-r li img{ width:21px; height:21px; vertical-align:middle; margin-right:3px;}
-#footer .footerlogo{ padding:60px 0 20px; text-align:center;}
+#footer .footerlogo{ padding:140px 0 20px; text-align:center;}
 #footer .copyright{ color:#a7aaae; text-align:center; font-size:12px;}
 #footer .copyright a{ color:#a7aaae;}
 
-#floatShare{ position:fixed;right:0; top:180px; z-index:9999; width:38px; height:187px;padding: 60px 0 60px 8px; background:url(images/share_03_24.png) no-repeat 0 0;_background-image:url(images/share_03.png);}
-#floatShare li{ margin-bottom:15px; cursor:pointer; position:relative; zoom:1;}
-.subfloatshare{ position:absolute; z-index:9999; left:46px; top:0; height:307px; width:100px;display:block; background:#FFF;}
+#floatShare{ position:fixed;right:0; top:180px; z-index:9999; width:27px; height:138px;padding: 30px 0 20px 5px; background:url(images/share_03_24.png) no-repeat 0 0;}
+#floatShare li{ margin-bottom:12px; cursor:pointer; position:relative; zoom:1;}
+#floatShare li a img{ opacity:.8;}
+#floatShare li a:hover img{ opacity:1;}
+.subfloatshare{ position:absolute; z-index:9999; left:32px; top:0; height:188px; width:100px; overflow:hidden;display:block; background:#444444;}
 
 
 
 /*.floatshare01 .subfloatshare{ top:0;width:100px;}
 .floatshare01 .subfloatshare .icon{ top:10px;background-image:url(images/arrar2.png);}*/
-.sharebd{ background:#FFF;height: 307px;}
-.sharebd .hd{ background:#282829; padding:0 15px; height:35px; zoom:1; line-height:35px; font-size:20px; color:#FFF; white-space:nowrap;}
-.sharebd .hd .close{ position:absolute; right:28px; top:10px; width:10px; height:10px; overflow:hidden; background:url(images/close.png) no-repeat 0 0;}
+.sharebd{}
+.sharebd .hd{ background:#393939; padding:0 10px; height:33px; zoom:1; line-height:33px; font-size:16px; color:#FFF; white-space:nowrap;}
+.sharebd .hd img{ display:block;}
+.sharebd .hd .close{ position:absolute; right:5px; top:10px; width:10px; height:10px; overflow:hidden; background:url(images/close.png) no-repeat 0 0;}
 .sharebd .bd{ padding:0;}
-.sharebd .ft{background:#282829; height:10px; overflow:hidden;}
 
-.qqshare .bd dl{height:262px;}
-.qqshare .bd dd{ border-bottom:1px solid #D8D8D8; padding:5px 15px; white-space:nowrap; font-size:14px;}
+.qqshare .bd dl{}
+.qqshare .bd dd{ border-bottom:1px solid #4d4d4d; padding:5px 15px; white-space:nowrap; font-size:14px;}
+.qqshare .bd dd{ color:#cfcfcf;}
 
-.weiboshare .bd{width:500px;height:272px; overflow:hidden;}
+.weiboshare .bd{width:490px;height:155px; overflow:hidden;}
 .weiboshare .bd iframe{margin-top: -87px;}
 
 /*.floatshare03 .subfloatshare{ top:-100px; width:120px;}
 .floatshare03 .subfloatshare .icon{ top:113px;}*/
-.weichatshare{ background:#FFF;}
-.weichatshare .hd{ background:#282829; padding:0 15px; height:35px; line-height:35px; font-size:20px; color:#FFF; white-space:nowrap;}
-.weichatshare .hd .close{ position:absolute; right:28px; top:10px; width:10px; height:10px; overflow:hidden; background:url(images/close.png) no-repeat 0 0;}
-.weichatshare .bd{ padding:10px; text-align:center;}
+.weichatshare{}
+.weichatshare .bd{ padding:6px; text-align:center;}
 
 
 
