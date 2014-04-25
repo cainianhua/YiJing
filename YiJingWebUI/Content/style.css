@@ -156,7 +156,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 .box-listnews .hd a{ font-family: ºÚÌå;width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:18px; text-align:center; margin-right:20px;}
 .box-listnews .hd a.selected,.box-listnews .hd a:hover{ color:#FFF; background:url(images/list1_03.png) no-repeat 0 0;}
 .box-listnews .bd ul{position: relative;}
-.box-listnews .bd li{ width:260px; padding:20px;margin-bottom: 10px;position: absolute; display:none;}
+.box-listnews .bd li{ width:260px; padding:20px;/*margin-bottom: 10px;*/position: absolute; display:none;}
 .box-listnews .bd li img{ width:260px;}
 .box-listnews .bd li h3{ padding:8px 0; margin:0; font-size:20px;font-weight: normal;}
 .box-listnews .bd li p{ margin:0; padding:0;}
