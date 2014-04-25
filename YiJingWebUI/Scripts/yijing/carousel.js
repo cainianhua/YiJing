@@ -10,8 +10,8 @@ function Carousel(element, options) {
 
 	var defaults = {
 		dataApi: "/api/articledetail.ashx", // 获取数据的文章数据的API
-		containerSelector: ">ul", 			// Carousel的容器
-		panesSelector: ">ul>li", 			// Carousel的数据项
+		containerSelector: ">div.panes", 			// Carousel的容器
+		panesSelector: ">div.panes>div", 			// Carousel的数据项
 		//cachedCount: 1,					// 缓存的页数，就是每次从数据表里面获取多少个数据
 		//penaCssClass: '<div class="pane"></div>',
 		paneDataTemplate: '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',

@@ -825,6 +825,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\Content.Master.cs">
+      <DependentUpon>Content.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Content.Master.designer.cs">
+      <DependentUpon>Content.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -983,6 +990,7 @@
     <Content Include="Api\News.ashx" />
     <Content Include="Api\ArticleDetail.ashx" />
     <Content Include="Config\PROD\Web.config" />
+    <Content Include="MasterPages\Content.Master" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Scripts\move\event.move.jquery.json" />
     <None Include="Scripts\move\package.json" />

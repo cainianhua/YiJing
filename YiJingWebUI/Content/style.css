@@ -37,7 +37,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 #header .search-box .btn-search{ background:url(images/btn-search.png); width:32px; height:27px; overflow:hidden; border:none; float:left;}
 .blank_top{height:85px; overflow:hidden;}
 
-#maincontent{ width:1200px; margin:0 auto; padding-bottom:25px; position:relative; z-index:1;}
+#maincontent,.maincontent{ width:1200px; margin:0 auto; padding-bottom:25px; position:relative; z-index:1;}
 .slideshow { width:1200px; height:540px; margin-bottom:70px; }
 .slider{position:relative;height:540px;}
 .slider li{ position:absolute; left:0; top:0;}
@@ -290,7 +290,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 	text-indent:-500px;
 }
 /***************************** Carousel Start *****************************/
-#carousel {
+#container {
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
@@ -298,13 +298,13 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
     -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
     -webkit-transform-style: preserve-3d;
 }
-#carousel div.animate {
+#container div.animate {
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
 }
-#carousel .articles {
+#container .panes {
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -moz-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -ms-transform: translate3d(0%,0,0) scale3d(1,1,1);
@@ -314,12 +314,12 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
 }
-#carousel .articles {
+#container .panes {
     -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
     box-shadow: 0 0 20px rgba(0,0,0,.2);
     position: relative;
 }
-#carousel .pane {
+#container .pane {
     float: left;
     overflow: hidden;
     -webkit-transform-style: preserve-3d;
