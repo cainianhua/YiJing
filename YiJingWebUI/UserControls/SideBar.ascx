@@ -45,6 +45,8 @@
 <script type="text/javascript">
 	$('#floatShare li').click(function (e) {
 		e.stopPropagation();
+		$(this).siblings().removeClass('on');
+		$(this).toggleClass('on');
 		var w=$(this).data('w');
 		$('.subfloatshare>div:visible').hide();
 		$('.'+$(this).data('sub'),'.subfloatshare').show();
@@ -53,11 +55,13 @@
 	});
 	$('#floatShare .close').click(function (e) {
 		e.stopPropagation();
+		$('#floatShare li.on').removeClass('on');
 		$('#floatShare').animate({right:'0'},100,function(){
 			$('.subfloatshare>div:visible').hide();
 		});
 	});
-	$(document).click(function (e) {		
+	$(document).click(function (e) {
+		$('#floatShare li.on').removeClass('on');
 		$('#floatShare').animate({right:'0'},100,function(){
 			$('.subfloatshare>div:visible').hide();
 		});
