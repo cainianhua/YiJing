@@ -49,11 +49,18 @@
 	$(".navi a[rel]").on("click", function (e) {
 		e.preventDefault();
 
-		var destination = $("a[name=" + $(this).attr("rel") + "]");
+		var currNav = $(this).attr("rel");
+		var _scrollTop = 0;
+
+		var destination = $("a[name=" + currNav + "]");
 		if (destination.length > 0) {
-			$("html, body").animate({
-				scrollTop: (destination.offset().top - $(window).height() / 2 + (249 + 50 + 40/*未知*/) / 2) + "px"
-			}, {
+			if (currNav == "contactus") {
+				_scrollTop = destination.offset().top + "px";
+			}
+			else {
+				_scrollTop = (destination.offset().top - $(window).height() / 2 + (249 + 57 + 40/*未知*/) / 2) + "px";
+			}
+			$("html, body").animate({ scrollTop: _scrollTop }, {
 				duration: 500,
 				easing: "swing"
 			});
