@@ -22,13 +22,12 @@
 	<!--<asp:Literal ID="BgImage" runat="server"></asp:Literal>-->
 	<form id="form1" runat="server">
 	<asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
-	<a name="top"></a>
 	<div id="maincontent" class="clearfix">
 		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 	</div>
 	<asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
-	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
 	</form>
+	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
 	<div class="backtotop" id="toTop">返回顶部</div>
 	<script type="text/javascript">
 		//返回顶部

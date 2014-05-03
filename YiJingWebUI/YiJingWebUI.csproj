@@ -248,8 +248,8 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\slide.js" />
     <Content Include="Scripts\waterfall.js" />
+    <Content Include="Scripts\yijing\carousel_ajax.js" />
     <Content Include="Scripts\yijing\carousel.js" />
-    <Content Include="Scripts\yijing\Copy of carousel.js" />
     <Content Include="Scripts\yijing\index.js" />
     <Content Include="Search\Default.aspx" />
     <Content Include="Services\Default.aspx" />
