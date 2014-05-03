@@ -55,7 +55,8 @@ namespace YiJingWebUI.UserControls
 			if ( constants.Count > 0 ) {
 				MirrorPic.ImageUrl = constants.SingleOrDefault().TextValue;
 			}
-			this.ContactUsBackgroundBottomString = this.ContactUsBackgroundTopString = "style=\"background:{color} {backgroundimage} no-repeat center top;\"";
+
+			this.ContactUsBackgroundBottomString = this.ContactUsBackgroundTopString = "style=\"background:{color} {backgroundimage} no-repeat center {position};\"";
 			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundColor" ).ToList();
 			if ( constants.Count > 0 ) {
 				Constant item = constants.SingleOrDefault();
@@ -66,7 +67,8 @@ namespace YiJingWebUI.UserControls
 				ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{color}", "" );
 				ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{color}", "" );
 			}
-
+			ContactUsBackgroundBottomString = ContactUsBackgroundBottomString.Replace( "{position}", "top" );
+			ContactUsBackgroundTopString = ContactUsBackgroundTopString.Replace( "{position}", "bottom" );
 			// 联系我底图（下）
 			constants = allConstants.Where( item => item.Code == "ContactUsBackgroundBottom" ).ToList();
 			if ( constants.Count > 0 ) {

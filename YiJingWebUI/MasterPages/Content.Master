@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Content.master.cs" Inherits="YiJingWebUI.MasterPages.Content" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<title>广州熠镜品牌策划有限公司</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="/content/reset.css" type="text/css" rel="stylesheet" />
+	<link href="/content/style.css" type="text/css" rel="stylesheet" />
+	<asp:ContentPlaceHolder ID="HeaderStyles" runat="server"></asp:ContentPlaceHolder>
+	<%--<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>--%>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    <script type="text/javascript" src="/scripts/html5.js"></script>
+	<![endif]-->
+	<asp:ContentPlaceHolder ID="HeaderScripts" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+	<!--<asp:Literal ID="BgColor" runat="server"></asp:Literal>-->
+	<!--<asp:Literal ID="BgImage" runat="server"></asp:Literal>-->
+	<form id="form1" runat="server">
+	<asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
+	<a name="top"></a>
+	<div id="container">
+		<div class="panes">
+			<div class="pane" style="background:<%= BgColor.Text %> <%= BgImage.Text %> repeat-x center top;">
+				<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+			</div>
+		</div>
+	</div>
+	<asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
+	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
+	</form>
+	<div class="backtotop" id="toTop">返回顶部</div>
+	<script type="text/javascript">
+		//返回顶部
+		$('#toTop').click(function () {
+			$('html,body').animate({ scrollTop: 0 }, 120);
+		});
+		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+		if ('undefined' == typeof (document.body.style.maxHeight)) {
+			$('#toTop').css({ 'position': 'absolute', 'bottom': '' });
+			$(window).scroll(function () {
+				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
+			});
+		}
+	</script>
+</body>
+</html>

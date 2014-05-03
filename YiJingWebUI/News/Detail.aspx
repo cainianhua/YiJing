@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="false" CodeBehind="Detail.aspx.cs" Inherits="YiJingWebUI.News.Detail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Content.Master" AutoEventWireup="false" CodeBehind="Detail.aspx.cs" Inherits="YiJingWebUI.News.Detail" %>
 <%@ Register src="~/UserControls/Footer2.ascx" tagname="Footer2" tagprefix="uc2" %>
 <%@ Register src="~/UserControls/ShareWidget.ascx" tagname="ShareWidget" tagprefix="uc1" %>
 
@@ -23,38 +23,34 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<div id="carousel">
-		<div class="articles">
-			<div class="pane">
-				<div class="newsdetail-hd clearfix">
-					<h2>
-						<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
-					<p>
-						<asp:Repeater ID="rptTags" runat="server">
-							<ItemTemplate>
-								<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
-							</ItemTemplate>
-						</asp:Repeater>
-						<span><asp:Literal ID="CreatedDate" runat="server"></asp:Literal></span></p>
-					<div class="line">
-					</div>
-				</div>
-				<!--bd-->
-				<div class="detail-bd">
-					<div class="richcont">
-						<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
-					</div>
-				</div>
+	<div class="maincontent">
+		<div class="newsdetail-hd clearfix">
+			<h2>
+				<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
+			<p>
+				<asp:Repeater ID="rptTags" runat="server">
+					<ItemTemplate>
+						<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
+					</ItemTemplate>
+				</asp:Repeater>
+				<span><asp:Literal ID="CreatedDate" runat="server"></asp:Literal></span></p>
+			<div class="line">
 			</div>
 		</div>
-	</div>
-	<!--bd end-->
-	<div class="detail-ft">
-		<div class="sharebox"></div>
-		<div class="line">
+		<!--bd-->
+		<div class="detail-bd">
+			<div class="richcont">
+				<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
+			</div>
 		</div>
-		<div class="back">
-			<a href="/news/"><i class="icon icon-x"></i>返回</a></div>
+		<!--bd end-->
+		<div class="detail-ft">
+			<div class="sharebox"></div>
+			<div class="line">
+			</div>
+			<div class="back">
+				<a href="/news/"><i class="icon icon-x"></i>返回</a></div>
+		</div>
 	</div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
@@ -62,10 +58,7 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
-		var carousel = new Carousel("#carousel", {
-			"containerSelector": ">div.articles",
-			"panesSelector": ">div.articles>div",
-			//"paneDataTemplate": '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',
+		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,

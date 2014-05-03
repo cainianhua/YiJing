@@ -41,8 +41,10 @@
 	if ('undefined' == typeof (document.body.style.maxHeight)) {
 		$('#header').css({ 'position': 'absolute', 'bottom': '' });
 	}
-	$(window).load(function(){
-		$('.bodycover').height(($(window).height()-$('#footer').outerHeight(true))>0?($(window).height()-$('#footer').outerHeight(true)):0);
+	$(window).on("resize load", function () {
+		$('.bodycover').height(Math.max($(window).height() - $('#footer').outerHeight(true), 0));
+		//console.log($(window).height());
+		//console.log($('#footer').outerHeight(true));
 	});
 	
 	$(window).scroll(function () {

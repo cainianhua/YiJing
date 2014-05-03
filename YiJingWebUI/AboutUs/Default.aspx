@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="YiJingWebUI.AboutUs.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Content.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="YiJingWebUI.AboutUs.Default" %>
 <%@ Register src="~/UserControls/Footer2.ascx" tagname="Footer2" tagprefix="uc2" %>
 <%@ Register src="~/UserControls/SideBar.ascx" tagname="SideBar" tagprefix="uc3" %>
 <%@ Register src="~/UserControls/AboutDetail.ascx" tagname="AboutDetail" tagprefix="uc1" %>
@@ -23,10 +23,7 @@
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
 	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
 	<script type="text/javascript">
-		var carousel = new Carousel("#carousel", {
-			"containerSelector": ">div.articles",
-			"panesSelector": ">div.articles>div",
-			//"paneDataTemplate": '<div class="newsdetail-hd clearfix"><h2>{title}</h2><p>{tags}<span>{createddate}</span></p><div class="line"></div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div>',
+		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,
