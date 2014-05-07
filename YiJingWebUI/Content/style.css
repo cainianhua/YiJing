@@ -153,7 +153,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 .newsbanner{ height:300px;}
 .box-listnews{ }
 .box-listnews .hd { background:none;}
-.box-listnews .hd a{ font-family: ºÚÌå;width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:18px; text-align:center; margin-right:20px;}
+.box-listnews .hd a{ font-family: "Microsoft YaHei";width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:18px; text-align:center; margin-right:20px;}
 .box-listnews .hd a.selected,.box-listnews .hd a:hover{ color:#FFF; background:url(images/list1_03.png) no-repeat 0 0;}
 .box-listnews .bd ul{position: relative;}
 .box-listnews .bd li{ width:260px; padding:20px;/*margin-bottom: 10px;*/position: absolute; display:none;}
@@ -197,7 +197,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 .casebanner{ height:300px;}
 .box-listcase{ }
 .box-listcase .hd { background:none;}
-.box-listcase .hd a{ font-family: ºÚÌå;width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:18px; text-align:center; margin-right:20px;}
+.box-listcase .hd a{ font-family: "Microsoft YaHei";width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:18px; text-align:center; margin-right:20px;}
 .box-listcase .hd a.selected,.box-listcase .hd a:hover{ color:#FFF; background:url(images/list1_03.png) no-repeat 0 0;}
 .box-listcase .bd ul{margin-left:-20px;}
 .box-listcase .bd li{ width:285px; height:170px;margin-bottom: 20px; margin-left:20px; display:inline;position: relative; overflow:hidden; float:left;}
@@ -247,7 +247,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 .detailtopbar-inner .topbar-t h2 img{ max-height:38px;}
 
 .servicedetail-hd{ padding:13px 0;}
-.servicedetail-hd a{ font-family: ºÚÌå;width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:16px; text-align:center; margin-right:15px;}
+.servicedetail-hd a{ font-family: "Microsoft YaHei";width:83px; height:25px; line-height:25px; overflow:hidden; display:inline-block; font-size:16px; text-align:center; margin-right:15px;}
 .servicedetail-hd a.selected,.servicedetail-hd a:hover{ color:#FFF; background:url(images/list1_03.png) no-repeat 0 0;}
 .body-servicedetail .detail-bd{ padding-top:75px;}
 
