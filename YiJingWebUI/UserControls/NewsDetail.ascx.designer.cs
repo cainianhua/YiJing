@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YiJingWebUI.Cases {
+namespace YiJingWebUI.UserControls {
     
     
-    public partial class Detail {
+    public partial class NewsDetail {
         
         /// <summary>
-        /// lnkPrevious control.
+        /// ArticleTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
+        protected global::System.Web.UI.WebControls.Literal ArticleTitle;
         
         /// <summary>
-        /// ltrCurrPageIndex control.
+        /// rptTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrCurrPageIndex;
+        protected global::System.Web.UI.WebControls.Repeater rptTags;
         
         /// <summary>
-        /// ltrTotalCount control.
+        /// CreatedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrTotalCount;
+        protected global::System.Web.UI.WebControls.Literal CreatedDate;
         
         /// <summary>
-        /// lnkNext control.
+        /// HtmlContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
-        
-        /// <summary>
-        /// Containers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder Containers;
+        protected global::System.Web.UI.WebControls.Literal HtmlContent;
     }
 }

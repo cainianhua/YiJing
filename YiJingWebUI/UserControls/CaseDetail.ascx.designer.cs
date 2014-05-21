@@ -7,54 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YiJingWebUI.Cases {
+namespace YiJingWebUI.UserControls {
     
     
-    public partial class Detail {
+    public partial class CaseDetail {
         
         /// <summary>
-        /// lnkPrevious control.
+        /// TitleColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
+        protected global::System.Web.UI.WebControls.Literal TitleColor;
         
         /// <summary>
-        /// ltrCurrPageIndex control.
+        /// ArticleTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrCurrPageIndex;
+        protected global::System.Web.UI.WebControls.Literal ArticleTitle;
         
         /// <summary>
-        /// ltrTotalCount control.
+        /// ArticleSubtitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrTotalCount;
+        protected global::System.Web.UI.WebControls.Literal ArticleSubtitle;
         
         /// <summary>
-        /// lnkNext control.
+        /// rptTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
+        protected global::System.Web.UI.WebControls.Repeater rptTags;
         
         /// <summary>
-        /// Containers control.
+        /// ArticleRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder Containers;
+        protected global::System.Web.UI.WebControls.Literal ArticleRemarks;
+        
+        /// <summary>
+        /// HtmlContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal HtmlContent;
     }
 }

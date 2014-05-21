@@ -22,13 +22,13 @@ namespace YiJingWebUI.AboutUs {
         protected global::YiJingWebUI.UserControls.AboutHeader AboutHeader1;
         
         /// <summary>
-        /// AboutDetail1 control.
+        /// Containers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::YiJingWebUI.UserControls.AboutDetail AboutDetail1;
+        protected global::System.Web.UI.WebControls.PlaceHolder Containers;
         
         /// <summary>
         /// Footer21 control.

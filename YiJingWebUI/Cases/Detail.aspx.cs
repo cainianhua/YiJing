@@ -6,29 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CodeStudio.YiJing;
 using CodeStudio.YiJing.Entities;
+using YiJingWebUI.UserControls;
 
 namespace YiJingWebUI.Cases
 {
-	public partial class Detail : YiJingWebUI.BaseClasses.PageBase
+	public partial class Detail : YiJingWebUI.BaseClasses.ArticlePageBase
 	{
-		private int CurrArticleId { get; set; }
-		private int TotalCount { get; set; }
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
-		protected override void OnInit( EventArgs e ) {
-			base.OnInit( e );
-
-			this.rptTags.ItemDataBound += new RepeaterItemEventHandler( rptTags_ItemDataBound );
-		}
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
-
+			this.CurrSort = SiteSort.Cases;
 			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
 			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
 			if ( !this.IsPostBack ) {
@@ -64,44 +54,22 @@ namespace YiJingWebUI.Cases
 		/// 
 		/// </summary>
 		private void BindDataToWebUI() {
-			Article item = null;
-			Pager<Article> articlePagers = new Pager<Article>();
-			if ( this.CurrPageIndex > 0 ) {
-				articlePagers = Factory.ArticleProvider.Gets( this.CurrPageIndex, 1, "", ( int )SiteSort.Cases );
-			}
-			else if ( this.CurrArticleId > 0 ) {
-				articlePagers = Factory.ArticleProvider.GetPagedArticle( this.CurrArticleId );
-			}
-
-			this.CurrPageIndex = articlePagers.CurrentPageIndex;
-			this.TotalCount = articlePagers.Total;
-			if ( articlePagers.DataItems.Count > 0 ) {
-				item = articlePagers.DataItems.Single();
-			}
+			Article item = base.CurrArticle;
+			if ( item == null ) return;
 
 			BindDataToPager();
 
-			if ( item == null ) return;
-
-			if ( !string.IsNullOrEmpty( item.Tags ) ) {
-				// tag是用空格隔开
-				string[] tags = item.Tags.Split( ' ' );
-				this.rptTags.DataSource = tags.ToList();
-				this.rptTags.DataBind();
-			}
 			// 背景
 			base.BgColor = item.BgColor;
 			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
 				base.BgImage = item.BgPic;
 			}
-			// 文字颜色
-			TitleColor.Text = item.TitleColor;
+			
+			this.Page.Title = item.ArticleTitleLocal;
 
-			this.Page.Title = ArticleTitle.Text = item.ArticleTitleLocal;
-			ArticleSubtitle.Text = item.ArticleSubtitle;
-			ArticleRemarks.Text = item.Remarks;
-			//CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
-			HtmlContent.Text = item.HtmlContent;
+			CaseDetail ctl = ( CaseDetail )LoadControl( "~/UserControls/CaseDetail.ascx" );
+			ctl.DataSource = item;
+			Containers.Controls.Add( ctl );
 
 			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.Cases, this.TotalCount ), true );
 		}

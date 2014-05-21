@@ -25,7 +25,7 @@
 	<a name="top"></a>
 	<div id="container">
 		<div class="panes">
-			<div class="pane" style="background:<%= BgColor.Text %> <%= BgImage.Text %> repeat-x center top;">
+			<div class="pane">
 				<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 			</div>
 		</div>
