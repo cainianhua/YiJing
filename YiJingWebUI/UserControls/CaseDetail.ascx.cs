@@ -60,7 +60,10 @@ namespace YiJingWebUI.UserControls
 				this.rptTags.DataSource = tags.ToList();
 				this.rptTags.DataBind();
 			}
-			
+			// 文字颜色
+			TitleColor.Text = item.TitleColor;
+
+			ArticleTitle.Text = item.ArticleTitleLocal;
 			ArticleSubtitle.Text = item.ArticleSubtitle;
 			ArticleRemarks.Text = item.Remarks;
 			//CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );

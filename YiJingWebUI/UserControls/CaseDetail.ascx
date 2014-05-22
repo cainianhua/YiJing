@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CaseDetail.ascx.cs" Inherits="YiJingWebUI.UserControls.CaseDetail" %>
+<%@ Register src="~/UserControls/ShareWidget.ascx" tagname="ShareWidget" tagprefix="uc1" %>
 
 <div class="maincontent">
 	<!--<asp:Literal ID="TitleColor" runat="server"></asp:Literal>-->

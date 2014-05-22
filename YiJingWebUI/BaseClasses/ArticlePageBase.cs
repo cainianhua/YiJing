@@ -50,5 +50,18 @@ namespace YiJingWebUI.BaseClasses
 				return item;
 			}
 		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnLoad( EventArgs e ) {
+			base.OnLoad( e );
+			
+			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
+			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
+			if ( !this.IsPostBack ) {
+				
+			}
+		}
 	}
 }

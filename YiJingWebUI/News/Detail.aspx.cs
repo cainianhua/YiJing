@@ -19,8 +19,7 @@ namespace YiJingWebUI.News
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
 			this.CurrSort = SiteSort.News;
-			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
-			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
+			
 			if ( !this.IsPostBack ) {
 				if ( this.CurrArticleId <=0 && this.CurrPageIndex <= 0 ) {
 					Response.Redirect( "/news/", true );

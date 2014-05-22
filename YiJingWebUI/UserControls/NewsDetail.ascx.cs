@@ -64,12 +64,16 @@ namespace YiJingWebUI.UserControls
 		private void BindDataToWebUI() {
 			Article item = DataSource;
 
+			ArticleTitle.Text = item.ArticleTitleLocal;
 			if ( !string.IsNullOrEmpty( item.Tags ) ) {
 				// tag是用空格隔开
 				string[] tags = item.Tags.Split( ' ' );
 				this.rptTags.DataSource = tags.ToList();
 				this.rptTags.DataBind();
 			}
+			// 文字颜色
+			TitleColor.Text = item.TitleColor;
+
 			CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
 			HtmlContent.Text = item.HtmlContent;
 		}

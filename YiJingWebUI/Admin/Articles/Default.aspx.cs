@@ -16,6 +16,9 @@ namespace YiJingWebUI.Admin.Articles
 		private int PageSize { get; set; }
 		private int CurrPageIndex { get; set; }
 		private int TotalCount { get; set; }
+
+		private string SearchWords { get; set; }
+		private int CurrCategoryId { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -35,13 +38,13 @@ namespace YiJingWebUI.Admin.Articles
 		/// <param name="e"></param>
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
-			int cid = CodeStudio.WebRequest.GetQueryInt( "cid", 0 );
-			string searchWords = CodeStudio.WebRequest.GetQueryString( "s" );
+			this.CurrCategoryId = CodeStudio.WebRequest.GetQueryInt( "cid", 0 );
+			this.SearchWords = CodeStudio.WebRequest.GetQueryString( "s" );
 			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 1 );
 
 			if ( !this.IsPostBack ) {
-				BindDateToDropdownList( cid.ToString() );
-				txtSearchText.Text = searchWords;
+				BindDateToDropdownList(  );
+				txtSearchText.Text = this.SearchWords;
 
 				BindDataToWebUI();
 			}
@@ -112,7 +115,8 @@ namespace YiJingWebUI.Admin.Articles
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		protected void btnSearch_OnClick( object sender, EventArgs e ) {
-			BindDataToWebUI();
+			//BindDataToWebUI();
+			Response.Redirect( string.Format( "Default.aspx?cid={0}&s={1}", drpCategories.SelectedValue, HttpUtility.UrlEncode(txtSearchText.Text.Trim()) ), true );
 		}
 		/// <summary>
 		/// 
@@ -134,7 +138,7 @@ namespace YiJingWebUI.Admin.Articles
 		/// 
 		/// </summary>
 		/// <param name="selectedValue"></param>
-		private void BindDateToDropdownList( string selectedValue ) {
+		private void BindDateToDropdownList() {
 			drpCategories.DataSource = Factory.CategoryProvider.Gets().Where( item => item.AllowToAddSubCategory == false );
 			drpCategories.DataTextField = "NameLocal";
 			drpCategories.DataValueField = "CategoryId";
@@ -143,7 +147,7 @@ namespace YiJingWebUI.Admin.Articles
 			drpCategories.Items.Insert( 0, new ListItem( "全部", "0" ) );
 
 			drpCategories.ClearSelection();
-			drpCategories.SelectedIndex = drpCategories.Items.IndexOf( drpCategories.Items.FindByValue( selectedValue ) );
+			drpCategories.SelectedIndex = drpCategories.Items.IndexOf( drpCategories.Items.FindByValue( CurrCategoryId.ToString() ) );
 		}
 		/// <summary>
 		/// 

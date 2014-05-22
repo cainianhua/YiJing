@@ -42,7 +42,6 @@
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,
-			"paneDataTemplate": '<div class="maincontent"><div class="detail-hd clearfix"><div class="detail-hd-l"><h2 style="color:#{titlecolor}"><strong>{title}</strong>&nbsp;{subtitle}</h2><p>{tags}</p></div><div class="detail-hd-r" style="color:#{titlecolor}">{remarks}</div></div><!--bd--><div class="detail-bd"><div class="richcont">{content}</div></div></div>',
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
 				$(".detail-topbar .prev").attr("href", "/cases/detail.aspx?pn=" + Math.max(1, pageNo - 1));

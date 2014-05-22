@@ -32,6 +32,6 @@
 				window.history.pushState(null, null, "/aboutus/?pn=" + pageNo);
 			}
 		});
-		//carousel.init();
+		carousel.init();
 	</script>
 </asp:Content>

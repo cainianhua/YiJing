@@ -41,7 +41,7 @@ namespace YiJingWebUI.Api
 						code = 1,
 						message = "success",
 						//dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, bgcolor = item.BgColor, bgpic = item.BgPic, titlecolor = item.TitleColor, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
-						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, keywords = item.Keywords, description = item.Description, bgcolor = item.BgColor, bgpic = item.BgPic, articleHtml = GetControlOutput(context, item) }
+						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, keywords = item.Keywords, description = item.Description, bgcolor = item.BgColor, bgpic = item.BgPic, articleHtml = GetControlOutput(context, item, cid) }
 					} );
 				}
 			}
@@ -59,12 +59,12 @@ namespace YiJingWebUI.Api
 		/// </summary>
 		/// <param name="context"></param>
 		/// <returns></returns>
-		private string GetControlOutput(HttpContext context, Article currArticle) {
+		private string GetControlOutput( HttpContext context, Article currArticle, int cid ) {
 			Page page = new Page();
 
 			if(currArticle == null) return "";
 
-			SiteSort sort = (SiteSort)currArticle.CategoryId;
+			SiteSort sort = ( SiteSort )cid;
 
 			ArticleControlBase c = null;
 			switch ( sort ) { 
@@ -83,6 +83,7 @@ namespace YiJingWebUI.Api
 			if ( c == null ) return "";
 
 			c.DataSource = currArticle;
+			c.CurrSort = sort;
 
 			page.Controls.Add( c );
 
@@ -90,7 +91,9 @@ namespace YiJingWebUI.Api
 			using ( StringWriter sw = new StringWriter( sb ) ) {
 				using ( HtmlTextWriter textwriter = new HtmlTextWriter( sw ) ) {
 					context.Server.Execute( page, textwriter, false );
-					return sb.ToString();
+					//return sb.ToString().Replace( "\r\n", "" ).Replace( "\n", "" ).Replace( "\r", "" );
+					//return "";.Trim('\r','\n')
+					return sb.ToString().Trim( '\r', '\n' );
 				}
 			}
 		}

@@ -53,7 +53,7 @@ namespace YiJingWebUI.UserControls
 				HyperLink lnkArticle = ( HyperLink )e.Item.FindControl( "lnkArticle" );
 				if ( lnkArticle != null ) {
 					lnkArticle.Text = item.ArticleTitleLocal;
-					lnkArticle.NavigateUrl = String.Format( "/{0}/?aid={1}", ( ( SiteSort )item.CategoryId ).ToString().ToLower(), item.ArticleId );
+					lnkArticle.NavigateUrl = String.Format( "/{0}/?aid={1}", ( ( SiteSort )this.CurrSort ).ToString().ToLower(), item.ArticleId );
 					if ( item.ArticleId == DataSource.ArticleId ) {
 						lnkArticle.CssClass = "selected";
 					}

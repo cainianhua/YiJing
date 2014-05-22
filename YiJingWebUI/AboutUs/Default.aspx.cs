@@ -20,9 +20,7 @@ namespace YiJingWebUI.AboutUs
 			base.OnLoad( e );
 
 			this.CurrSort = SiteSort.AboutUs;
-			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
-			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
-
+			
 			if ( !this.IsPostBack ) {
 				if ( CurrArticleId <= 0 && CurrPageIndex <= 0 ) {
 					Response.Redirect( "/", true );
@@ -50,6 +48,7 @@ namespace YiJingWebUI.AboutUs
 
 			AboutDetail ctlAbout = ( AboutDetail )LoadControl( "~/UserControls/AboutDetail.ascx" );
 			ctlAbout.DataSource = item;
+			ctlAbout.CurrSort = CurrSort;
 			Containers.Controls.Add( ctlAbout );
 
 			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )CurrSort, this.TotalCount ), true );
