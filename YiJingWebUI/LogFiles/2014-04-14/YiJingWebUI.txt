@@ -1,1 +1,0 @@
-2014-04-14 03:10:50,493 [6] WARN  YiJingWebUI.Api.ImageSaver [(null)]  - Upload successfully and path is: /Uploads/Images/20140414/571871242.png

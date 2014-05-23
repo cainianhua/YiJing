@@ -1,2 +1,0 @@
-2014-04-08 23:23:51,407 [6] WARN  YiJingWebUI.Api.ImageSaver [(null)]  - Upload successfully and path is: /Uploads/Images/20140408/368381842.jpg
-2014-04-08 23:25:05,319 [5] WARN  YiJingWebUI.Api.ImageSaver [(null)]  - Upload successfully and path is: /Uploads/Images/20140408/173590717.jpg
