@@ -82,8 +82,6 @@ function Carousel(element, options) {
 		var offset = -((100 / pane_count) * current_pane);
 		setContainerOffset(offset, animate);
 
-		scrollTo(0, 0);
-
 		// set the pane height;
 		var pane_this = $(">div.pane:eq(" + current_pane + ")", container);
 		container.height(pane_this.attr("data-height"));
