@@ -89,7 +89,7 @@ namespace YiJingWebUI.Admin.Settings
 					}
 				}
 			}
-			ConstantType.Value = item.Type.ToString();
+			ConstantType.Value = ((int)item.Type).ToString();
 			Description.Text = item.Description;
 			SortOrder.Text = item.SortOrder.ToString();
 		}
