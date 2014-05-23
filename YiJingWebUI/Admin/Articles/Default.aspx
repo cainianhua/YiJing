@@ -116,14 +116,6 @@
 				</table>
 			</EmptyDataTemplate>
 		</asp:GridView>
-
-		<asp:DataList runat="server">
-			
-				
-			<ItemTemplate>
-			
-			</ItemTemplate>
-		</asp:DataList>
 		</form>
 		</div>
 		<!-- End #tab1 -->

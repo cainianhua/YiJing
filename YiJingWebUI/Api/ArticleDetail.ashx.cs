@@ -5,6 +5,11 @@ using System.Web;
 using CodeStudio.YiJing;
 using CodeStudio.YiJing.Entities;
 using System.Web.Script.Serialization;
+using System.Web.UI;
+using System.Text;
+using YiJingWebUI.UserControls;
+using System.IO;
+using YiJingWebUI.BaseClasses;
 
 namespace YiJingWebUI.Api
 {
@@ -20,10 +25,10 @@ namespace YiJingWebUI.Api
 		/// <param name="context"></param>
 		public void ProcessRequest( HttpContext context ) {
 			string output = serializer.Serialize( new { code = -1, message = "unknown error" } );
-			
+
 			int pageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
 			int cid = CodeStudio.WebRequest.GetQueryInt( "cid", 0 );
-			
+
 			if ( pageIndex <= 0 || cid <= 0 ) {
 				output = serializer.Serialize( new { code = -1, message = "invalid parameters" } );
 			}
@@ -31,12 +36,12 @@ namespace YiJingWebUI.Api
 				List<Article> items = Factory.ArticleProvider.Gets( pageIndex, 1, "", cid ).DataItems;
 				if ( items.Count > 0 ) {
 					Article item = items.Single();
+					
 					output = serializer.Serialize( new {
 						code = 1,
 						message = "success",
-						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, bgcolor = item.BgColor, bgpic = item.BgPic, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
-						//items = from item in items
-						//        select new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
+						//dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, subtitle = item.ArticleSubtitle, remarks = item.Remarks, tags = item.Tags, content = item.HtmlContent, bgcolor = item.BgColor, bgpic = item.BgPic, titlecolor = item.TitleColor, createddate = item.CreatedDate.ToString( "yyyy-MM-dd" ) }
+						dataItem = new { aid = item.ArticleId, title = item.ArticleTitleLocal, keywords = item.Keywords, description = item.Description, bgcolor = item.BgColor, bgpic = item.BgPic, articleHtml = GetControlOutput(context, item, cid) }
 					} );
 				}
 			}
@@ -47,6 +52,49 @@ namespace YiJingWebUI.Api
 		public bool IsReusable {
 			get {
 				return false;
+			}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="context"></param>
+		/// <returns></returns>
+		private string GetControlOutput( HttpContext context, Article currArticle, int cid ) {
+			Page page = new Page();
+
+			if(currArticle == null) return "";
+
+			SiteSort sort = ( SiteSort )cid;
+
+			ArticleControlBase c = null;
+			switch ( sort ) { 
+				case SiteSort.AboutUs:
+				case SiteSort.Services:
+					c = ( AboutDetail )page.LoadControl( "~/UserControls/AboutDetail.ascx" );
+					break;
+				case SiteSort.Cases:
+					c = ( CaseDetail )page.LoadControl( "~/UserControls/CaseDetail.ascx" );
+					break;
+				case SiteSort.News:
+					c = ( NewsDetail )page.LoadControl( "~/UserControls/NewsDetail.ascx" );
+					break;
+			}
+
+			if ( c == null ) return "";
+
+			c.DataSource = currArticle;
+			c.CurrSort = sort;
+
+			page.Controls.Add( c );
+
+			StringBuilder sb = new StringBuilder();
+			using ( StringWriter sw = new StringWriter( sb ) ) {
+				using ( HtmlTextWriter textwriter = new HtmlTextWriter( sw ) ) {
+					context.Server.Execute( page, textwriter, false );
+					//return sb.ToString().Replace( "\r\n", "" ).Replace( "\n", "" ).Replace( "\r", "" );
+					//return "";.Trim('\r','\n')
+					return sb.ToString().Trim( '\r', '\n' );
+				}
 			}
 		}
 	}

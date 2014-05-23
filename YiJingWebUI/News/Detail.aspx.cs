@@ -6,25 +6,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CodeStudio.YiJing.Entities;
 using CodeStudio.YiJing;
+using YiJingWebUI.UserControls;
 
 namespace YiJingWebUI.News
 {
-	public partial class Detail : YiJingWebUI.BaseClasses.PageBase
+	public partial class Detail : YiJingWebUI.BaseClasses.ArticlePageBase
 	{
-		private int CurrArticleId { get; set; }
-		private int TotalCount { get; set; }
-
-		protected override void OnInit( EventArgs e ) {
-			base.OnInit( e );
-
-			this.rptTags.ItemDataBound += new RepeaterItemEventHandler( rptTags_ItemDataBound );
-		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
-
-			this.CurrArticleId = CodeStudio.WebRequest.GetQueryInt( "aid", 0 );
-			this.CurrPageIndex = CodeStudio.WebRequest.GetQueryInt( "pn", 0 );
+			this.CurrSort = SiteSort.News;
+			
 			if ( !this.IsPostBack ) {
 				if ( this.CurrArticleId <=0 && this.CurrPageIndex <= 0 ) {
 					Response.Redirect( "/news/", true );
@@ -33,65 +28,27 @@ namespace YiJingWebUI.News
 				BindDataToWebUI();
 			}
 		}
-
-		/// <summary>
-		/// 关键字绑定
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		protected void rptTags_ItemDataBound( object sender, RepeaterItemEventArgs e ) {
-			if ( e.Item.ItemType == ListItemType.AlternatingItem
-				|| e.Item.ItemType == ListItemType.Item ) 
-			{
-				string tag = ( string )e.Item.DataItem;
-				if ( string.IsNullOrEmpty(tag) ) return;
-
-				HyperLink lnkTag = ( HyperLink )e.Item.FindControl( "lnkTag" );
-				if ( lnkTag != null ) {
-					lnkTag.Text = tag;
-					lnkTag.NavigateUrl = String.Format( "/search/?s={0}&type=tag",  tag);
-				}
-			}
-		}
-
 		/// <summary>
 		/// 
 		/// </summary>
 		private void BindDataToWebUI() {
-			Article item = null;
-			Pager<Article> articlePagers = new Pager<Article>();
-			if ( this.CurrPageIndex > 0 ) {
-				articlePagers = Factory.ArticleProvider.Gets( this.CurrPageIndex, 1, "", ( int )SiteSort.News );
-			}
-			else if(this.CurrArticleId > 0) {
-				articlePagers = Factory.ArticleProvider.GetPagedArticle( this.CurrArticleId );
-			}
-
-			this.CurrPageIndex = articlePagers.CurrentPageIndex;
-			this.TotalCount = articlePagers.Total;
-			if ( articlePagers.DataItems.Count > 0 ) {
-				item = articlePagers.DataItems.Single();
-			}
+			Article item = base.CurrArticle;
+			if ( item == null ) return;
 
 			BindDataToPager();
 
-			if ( item == null ) return;
-
-			if ( !string.IsNullOrEmpty( item.Tags ) ) { 
-				// tag是用空格隔开
-				string[] tags = item.Tags.Split(' ');
-				this.rptTags.DataSource = tags.ToList();
-				this.rptTags.DataBind();
-			}
 			// 背景
 			base.BgColor = item.BgColor;
 			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
 				base.BgImage = item.BgPic;
 			}
 
-			this.Page.Title = ArticleTitle.Text = item.ArticleTitleLocal;
-			CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
-			HtmlContent.Text = item.HtmlContent;
+			this.Page.Title = item.ArticleTitleLocal;
+
+			//AboutDetail1.DataSource = item;
+			NewsDetail ctl = ( NewsDetail )LoadControl( "~/UserControls/NewsDetail.ascx" );
+			ctl.DataSource = item;
+			Containers.Controls.Add( ctl );
 
 			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.News, this.TotalCount ), true );
 		}

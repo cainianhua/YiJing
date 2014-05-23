@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
 	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
-	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<div class="detail-topbar">
@@ -21,55 +21,45 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<!--<asp:Literal ID="TitleColor" runat="server"></asp:Literal>-->
-	<div class="maincontent">
-		<div class="detail-hd clearfix">
-			<div class="detail-hd-l">
-				<h2 style="color:#<%=TitleColor.Text%>"><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
-				<p>
-					<asp:Repeater ID="rptTags" runat="server">
-						<ItemTemplate>
-							<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
-						</ItemTemplate>
-					</asp:Repeater>
-				</p>
-			</div>
-			<div class="detail-hd-r" style="color:#<%=TitleColor.Text%>">
-				<asp:Literal ID="ArticleRemarks" runat="server"></asp:Literal>
-				<!--<p>客户行业&nbsp;｜&nbsp;推荐案例/集团</p>
-				<p>客户行业&nbsp;｜&nbsp;2012年</p>
-				<p>客户行业&nbsp;｜&nbsp;推荐案集团</p>-->
-			</div>
-		</div>
-		<!--bd-->
-		<div class="detail-bd">
-			<div class="richcont">
-				<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
-			</div>
-		</div>
-		<!--bd end-->
-  		<div class="detail-ft">
-			<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>
-			<div class="line"></div>
-			<div class="back"><a href="/cases/"><i class="icon icon-x"></i>返回</a></div>
-		</div>
-	</div>
+	<asp:PlaceHolder ID="Containers" runat="server"></asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
+		//var carousel = new Carousel("#container", {
+		//	"totalPane": totalCount,
+		//	"currentPane": currentPageNo - 1,
+		//	"currentCategoryId": currentCategoryId,
+		//	"onShowed": function (pageIndex) {
+		//		var pageNo = pageIndex + 1;
+		//		if (currentPageNo != pageNo) {
+		//			window.location = "/cases/detail.aspx?pn=" + pageNo;
+		//		}
+		//	}
+		//});
 		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
-				if (currentPageNo != pageNo) {
-					window.location = "/cases/detail.aspx?pn=" + pageNo;
-				}
+				$(".detail-topbar .prev").attr("href", "/cases/detail.aspx?pn=" + Math.max(1, pageNo - 1));
+				$(".detail-topbar .next").attr("href", "/cases/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
+				$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
+				window.history.pushState(null, null, "/cases/detail.aspx?pn=" + pageNo);
 			}
 		});
 		carousel.init();
+		$(".detail-topbar .prev").on("click", function (e) {
+			e.preventDefault();
+			carousel.prev();
+			return false;
+		});
+		$(".detail-topbar .next").on("click", function (e) {
+			e.preventDefault();
+			carousel.next();
+			return false;
+		});
 	</script>
 </asp:Content>

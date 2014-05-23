@@ -12,7 +12,7 @@
 	<uc4:AboutHeader ID="AboutHeader1" Sort="AboutUs" runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<uc1:AboutDetail ID="AboutDetail1" Sort="AboutUs" runat="server" />
+	<asp:PlaceHolder ID="Containers" runat="server"></asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
@@ -21,7 +21,7 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
-	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
 	<script type="text/javascript">
 		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
@@ -29,9 +29,7 @@
 			"currentCategoryId": currentCategoryId,
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
-				if (currentPageNo != pageNo) {
-					window.location = "/aboutus/?pn=" + pageNo;
-				}
+				window.history.pushState(null, null, "/aboutus/?pn=" + pageNo);
 			}
 		});
 		carousel.init();

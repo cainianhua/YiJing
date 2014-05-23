@@ -632,9 +632,11 @@
     <Content Include="UserControls\AboutHeader.ascx" />
     <Content Include="UserControls\AboutUS.ascx" />
     <Content Include="UserControls\ArticleControl.ascx" />
+    <Content Include="UserControls\CaseDetail.ascx" />
     <Content Include="UserControls\Footer.ascx" />
     <Content Include="UserControls\Footer2.ascx" />
     <Content Include="UserControls\News.ascx" />
+    <Content Include="UserControls\NewsDetail.ascx" />
     <Content Include="UserControls\Search.ascx" />
     <Content Include="UserControls\Services.ascx" />
     <Content Include="UserControls\ShareWidget.ascx" />
@@ -795,6 +797,12 @@
     <Compile Include="BaseClasses\Admin\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="BaseClasses\ArticleControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseClasses\ArticlePageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="BaseClasses\ControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -902,6 +910,13 @@
     <Compile Include="UserControls\ArticleControl.ascx.designer.cs">
       <DependentUpon>ArticleControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CaseDetail.ascx.cs">
+      <DependentUpon>CaseDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CaseDetail.ascx.designer.cs">
+      <DependentUpon>CaseDetail.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -922,6 +937,13 @@
     </Compile>
     <Compile Include="UserControls\News.ascx.designer.cs">
       <DependentUpon>News.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewsDetail.ascx.cs">
+      <DependentUpon>NewsDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewsDetail.ascx.designer.cs">
+      <DependentUpon>NewsDetail.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Search.ascx.cs">
       <DependentUpon>Search.ascx</DependentUpon>

@@ -12,7 +12,7 @@
 	<uc4:AboutHeader ID="AboutHeader1" Sort="Services" runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<uc1:AboutDetail ID="AboutDetail1" Sort="Services" runat="server" />
+	<asp:PlaceHolder ID="Containers" runat="server"></asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
@@ -27,10 +27,12 @@
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,
+			"paneDataTemplate": "",
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
 				if (currentPageNo != pageNo) {
-					window.location = "/services/?pn=" + pageNo;
+					//window.location = "/services/?pn=" + pageNo;
+					window.history.pushState(null, null, "/services/?pn=" + pageNo);
 				}
 			}
 		});

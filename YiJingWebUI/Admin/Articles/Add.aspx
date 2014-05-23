@@ -43,27 +43,27 @@
 					<label>文章备注：</label>
 					<asp:TextBox ID="Remarks" CssClass="text-input textarea" TextMode="MultiLine" MaxLength="255" runat="server"></asp:TextBox>
 					<br />
-					<small>只限于熠镜案例使用，其他分类填写无效，255个字符长度，可以输入HTML代码</small>
+					<small>标题右边的备注文字，只限于熠镜案例使用，其他分类填写无效，255个字符长度，可以输入HTML代码</small>
 				</p>
 				<p>
-					<label>标题栏文字颜色(*)：</label>
+					<label>标题文字颜色(*)：</label>
 					<asp:TextBox ID="TitleColor" CssClass="text-input small-input" MaxLength="6" runat="server"></asp:TextBox>
 					<button class="button picker">选择</button>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator99" ControlToValidate="TitleColor" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="标题栏文字颜色不能为空"></asp:RequiredFieldValidator>
 					<br />
-					<small>标题栏文字颜色默认为白色。</small>
+					<small>副标题标题栏文字颜色默认为白色。</small>
 				</p>
 				<p>
 					<label>关键字：</label>
 					<asp:TextBox ID="Keywords" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<br />
-					<small>主要用于SEO，关键字最长50个字符。</small>
+					<small>用于SEO，关键字最长50个字符，多个关键字用逗号分隔</small>
 				</p>
 				<p>
 					<label>文章简介：</label>
 					<asp:TextBox ID="Description" CssClass="text-input textarea" TextMode="MultiLine" MaxLength="255" runat="server"></asp:TextBox>
 					<br />
-					<small>文章简介最长255个字符。</small>
+					<small>用于SEO，文章简介最长255个字符，超出保存的时候会自动截断。</small>
 				</p>
 				<p>
 					<label>缩略图(*)：</label>
@@ -76,7 +76,7 @@
 					<label>文章标签：</label>
 					<asp:TextBox ID="Tags" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<br />
-					<small>多个文章标签用英文空格分隔。</small>
+					<small>用户文章搜索，多个文章标签用英文空格分隔。</small>
 				</p>
 				<p>
 					<label>文章内容(*)：</label>
@@ -170,7 +170,7 @@
 				self.prev().prev().prev().val("");
 			});
 			// 富文本编辑器
-			var editor = UE.getEditor('<%= HtmlContent.ClientID %>', { initialFrameWidth: 1200 });
+			var editor = UE.getEditor('<%= HtmlContent.ClientID %>', { initialFrameWidth: Math.min($(".content-box-content").width(), 1200) });
 		});
 
 		function clientValidationHandler(source, args) {

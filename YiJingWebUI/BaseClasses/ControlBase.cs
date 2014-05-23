@@ -41,7 +41,7 @@ namespace YiJingWebUI.BaseClasses
 			set { _PageSize = value; }
 		}
 
-		protected int CurrPageIndex {
+		public int CurrPageIndex {
 			get;
 			set;
 		}

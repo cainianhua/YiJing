@@ -70,24 +70,33 @@ namespace YiJingWebUI.Search
 		/// </summary>
 		/// <param name="s"></param>
 		private void BindDataToWebUI() {
-			Pager<Article> articlePages = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, this.SearchWords, (int)SiteSort.News, (int)SiteSort.Cases );
+			Pager<Article> articlePages;
+			if ( this.CurrCategoryId > 0 ) {
+				articlePages = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, this.SearchWords, this.CurrCategoryId );
+			}
+			else {
+				articlePages = Factory.ArticleProvider.Gets( this.CurrPageIndex, this.PageSize, this.SearchWords, ( int )SiteSort.News, ( int )SiteSort.Cases );
+			}
 			this.CategoryStatistics = Factory.ArticleProvider.GetStatistics( this.CurrPageIndex, this.PageSize, this.SearchWords, ( int )SiteSort.News, ( int )SiteSort.Cases );
-			
+
+			int totalCount = 0;
+			foreach ( var item in this.CategoryStatistics ) {
+				totalCount += item.Value;
+			}
+
 			this.Page.Title = String.Format( "{0} - 搜索结果", this.SearchWords );
 			this.SearchText.Text = this.SearchWords;
-			this.TotalCount.Text = articlePages.Total.ToString();
+			this.TotalCount.Text = totalCount.ToString();
 			this.lnkKeywords.Text = this.SearchWords;
 			this.lnkKeywords.NavigateUrl = String.Format( "/search/?s={0}", this.SearchWords );
 
 			if ( articlePages.DataItems.Count == 0 ) {
 				phEmpty.Visible = true;
 			}
-
+			// 分页
 			this.AspNetPager1.RecordCount = articlePages.Total;
 			this.AspNetPager1.PageSize = this.PageSize;
 			this.AspNetPager1.CurrentPageIndex = this.CurrPageIndex;
-
-
 
 			List<Category> lstCategories = Factory.CategoryProvider.Gets( -1 ).Where(item => item.AllowToAddSubCategory).ToList();
 			lstCategories.Insert( 0, new Category() { NameLocal = "全部" } );
@@ -107,9 +116,9 @@ namespace YiJingWebUI.Search
 				string[] words = keywords.Split( new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries );
 				StringBuilder builder = new StringBuilder( words.Length );
 				for ( int i = words.Length - 1; i > 0; i-- ) {
-					builder.AppendFormat( "<a href=\"/search/?s={0}\">{0}</a>", words[i] );
+					builder.AppendFormat( "<a href=\"/search/?s={0}\">{0}</a>/", words[i] );
 				}
-				builder.AppendFormat( "<a href=\"/search/?s={0}\">{0}</a>/", words[0] );
+				builder.AppendFormat( "<a href=\"/search/?s={0}\">{0}</a>", words[0] );
 
 				return builder.ToString();
 			}

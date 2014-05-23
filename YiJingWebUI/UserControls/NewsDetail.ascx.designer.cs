@@ -7,54 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YiJingWebUI.Cases {
+namespace YiJingWebUI.UserControls {
     
     
-    public partial class Detail {
+    public partial class NewsDetail {
         
         /// <summary>
-        /// lnkPrevious control.
+        /// TitleColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
+        protected global::System.Web.UI.WebControls.Literal TitleColor;
         
         /// <summary>
-        /// ltrCurrPageIndex control.
+        /// ArticleTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrCurrPageIndex;
+        protected global::System.Web.UI.WebControls.Literal ArticleTitle;
         
         /// <summary>
-        /// ltrTotalCount control.
+        /// rptTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrTotalCount;
+        protected global::System.Web.UI.WebControls.Repeater rptTags;
         
         /// <summary>
-        /// lnkNext control.
+        /// CreatedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
+        protected global::System.Web.UI.WebControls.Literal CreatedDate;
         
         /// <summary>
-        /// Containers control.
+        /// HtmlContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder Containers;
+        protected global::System.Web.UI.WebControls.Literal HtmlContent;
+        
+        /// <summary>
+        /// ShareWidget1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::YiJingWebUI.UserControls.ShareWidget ShareWidget1;
     }
 }

@@ -34,7 +34,7 @@
 						<ItemTemplate>
 						<li>
 							<h3><a target="_blank" href="<%#this.GenerateArticleLink(Convert.ToInt32(Eval("ParentId")), Convert.ToInt32(Eval("ArticleId"))) %>"><%#Eval("ArticleTitleLocal") %></a></h3>
-							<p class="meta"><%#this.GenerateKeywordsLink(Eval("Tags").ToString()) %><span style="padding-left:20px;"><%#Convert.ToDateTime(Eval("CreatedDate")).ToString("yyyy.MM.dd") %></span></p>
+							<p class="meta"><%#this.GenerateKeywordsLink(Eval("Tags").ToString()) %><span><%#Convert.ToDateTime(Eval("CreatedDate")).ToString("yyyy.MM.dd") %></span></p>
 							<p class="desc"><%#Eval("Description") %></p>
 						</li>
 						</ItemTemplate>

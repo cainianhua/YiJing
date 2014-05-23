@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
 	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
-	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<div class="detail-topbar">
@@ -23,59 +23,46 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="maincontent">
-		<div class="newsdetail-hd clearfix">
-			<h2>
-				<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
-			<p>
-				<asp:Repeater ID="rptTags" runat="server">
-					<ItemTemplate>
-						<asp:HyperLink ID="lnkTag" runat="server"></asp:HyperLink>
-					</ItemTemplate>
-				</asp:Repeater>
-				<span><asp:Literal ID="CreatedDate" runat="server"></asp:Literal></span></p>
-			<div class="line">
-			</div>
-		</div>
-		<!--bd-->
-		<div class="detail-bd">
-			<div class="richcont">
-				<asp:Literal ID="HtmlContent" runat="server"></asp:Literal>
-			</div>
-		</div>
-		<!--bd end-->
-		<div class="detail-ft">
-			<div class="sharebox"></div>
-			<div class="line">
-			</div>
-			<div class="back">
-				<a href="/news/"><i class="icon icon-x"></i>返回</a></div>
-		</div>
-	</div>
+	<asp:PlaceHolder ID="Containers" runat="server"></asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
+		//var carousel = new Carousel("#container", {
+		//	"totalPane": totalCount,
+		//	"currentPane": currentPageNo - 1,
+		//	"currentCategoryId": currentCategoryId,
+		//	"onShowed": function (pageIndex) {
+		//		var pageNo = pageIndex + 1;
+		//		if (currentPageNo != pageNo) {
+		//			window.location = "/news/detail.aspx?pn=" + pageNo;
+		//		}
+		//	}
+		//});
 		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
 			"currentPane": currentPageNo - 1,
 			"currentCategoryId": currentCategoryId,
 			"onShowed": function (pageIndex) {
 				var pageNo = pageIndex + 1;
-
-				if (currentPageNo != pageNo) {
-					window.location = "/news/detail.aspx?pn=" + pageNo;
-				}
-				/*
 				$(".detail-topbar .prev").attr("href", "/news/detail.aspx?pn=" + Math.max(1, pageNo - 1));
 				$(".detail-topbar .next").attr("href", "/news/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
 				$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
-				window.history.pushState(null, null, "/news/detail.aspx?pn=" + pageNo); 
-				*/
+				window.history.pushState(null, null, "/news/detail.aspx?pn=" + pageNo);
 			}
 		});
 		carousel.init();
+		$(".detail-topbar .prev").on("click", function (e) {
+			e.preventDefault();
+			carousel.prev();
+			return false;
+		});
+		$(".detail-topbar .next").on("click", function (e) {
+			e.preventDefault();
+			carousel.next();
+			return false;
+		});
 	</script>
 </asp:Content>
