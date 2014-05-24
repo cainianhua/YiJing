@@ -19,7 +19,7 @@ namespace YiJingWebUI.Services
 		protected override void OnLoad( EventArgs e ) {
 			base.OnLoad( e );
 
-			this.CurrSort = SiteSort.AboutUs;
+			this.CurrSort = SiteSort.Services;
 
 			if ( !this.IsPostBack ) {
 				if ( CurrArticleId <= 0 && CurrPageIndex <= 0 ) {

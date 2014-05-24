@@ -21,7 +21,7 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
 	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
-	<script type="text/javascript" src="/scripts/yijing/carousel.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
 	<script type="text/javascript">
 		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
