@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Content.Master" AutoEventWireup="false" CodeBehind="Detail.aspx.cs" Inherits="YiJingWebUI.News.Detail" %>
 <%@ Register src="~/UserControls/Footer2.ascx" tagname="Footer2" tagprefix="uc2" %>
 <%@ Register src="~/UserControls/ShareWidget.ascx" tagname="ShareWidget" tagprefix="uc1" %>
+<%@ Register src="~/UserControls/ArticleMetas.ascx" tagname="ArticleMetas" tagprefix="uc5" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="HeaderStyles" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="Metas" runat="server">
+	<uc5:ArticleMetas ID="ArticleMetas1" runat="server" />
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="HeaderScripts" runat="server">
-	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
-	<script type="text/javascript" src="/scripts/hammer/hammer.min.js"></script>
-	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeaderStyles" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<div class="detail-topbar">
@@ -22,47 +21,45 @@
 		</div>
 	</div>
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<asp:PlaceHolder ID="Containers" runat="server"></asp:PlaceHolder>
-</asp:Content>
+
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">
 	<script type="text/javascript">
-		//var carousel = new Carousel("#container", {
-		//	"totalPane": totalCount,
-		//	"currentPane": currentPageNo - 1,
-		//	"currentCategoryId": currentCategoryId,
-		//	"onShowed": function (pageIndex) {
-		//		var pageNo = pageIndex + 1;
-		//		if (currentPageNo != pageNo) {
-		//			window.location = "/news/detail.aspx?pn=" + pageNo;
-		//		}
-		//	}
-		//});
 		var carousel = new Carousel("#container", {
 			"totalPane": totalCount,
-			"currentPane": currentPageNo - 1,
-			"currentCategoryId": currentCategoryId,
-			"onShowed": function (pageIndex) {
+			"currPaneIndex": currentPageNo - 1, // base on 0;
+			"currSort": currentSort,
+			"onPageIndexChanged": function (pageIndex, title) {
 				var pageNo = pageIndex + 1;
-				$(".detail-topbar .prev").attr("href", "/news/detail.aspx?pn=" + Math.max(1, pageNo - 1));
-				$(".detail-topbar .next").attr("href", "/news/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
-				$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
-				window.history.pushState(null, null, "/news/detail.aspx?pn=" + pageNo);
+
+				if (Modernizr.history) {
+					document.title = title;
+					$(".detail-topbar .prev").attr("href", "/news/detail.aspx?pn=" + Math.max(1, pageNo - 1));
+					$(".detail-topbar .next").attr("href", "/news/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
+					$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
+
+					window.history.pushState(null, title, "/news/detail.aspx?pn=" + pageNo);
+				}
+				else {
+					window.location = "/news/detail.aspx?pn=" + pageNo
+				}
 			}
 		});
 		carousel.init();
-		$(".detail-topbar .prev").on("click", function (e) {
-			e.preventDefault();
-			carousel.prev();
-			return false;
-		});
-		$(".detail-topbar .next").on("click", function (e) {
-			e.preventDefault();
-			carousel.next();
-			return false;
-		});
+		// if browser is not support history management, we will refresh page to load article.
+		if (Modernizr.history) {
+			$(".detail-topbar .prev").on("click", function (e) {
+				e.preventDefault();
+				carousel.prev();
+				return false;
+			});
+			$(".detail-topbar .next").on("click", function (e) {
+				e.preventDefault();
+				carousel.next();
+				return false;
+			});
+		}
 	</script>
 </asp:Content>

@@ -3,9 +3,12 @@
 
 <div class="maincontent">
 	<!--<asp:Literal ID="TitleColor" runat="server"></asp:Literal>-->
+	<!--<asp:Literal ID="SubTitleColor" runat="server"></asp:Literal>-->
+	<!--<asp:Literal ID="RemarksColor" runat="server"></asp:Literal>-->
+	<!--<asp:Literal ID="TagsColor" runat="server"></asp:Literal>-->
 	<div class="detail-hd clearfix">
 		<div class="detail-hd-l">
-			<h2 style="color:#<%=TitleColor.Text%>"><strong><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></h2>
+			<h2><strong style="color:#<%=TitleColor.Text%>"><asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></strong>&nbsp;<span style="color:#<%=SubTitleColor.Text%>"><asp:Literal ID="ArticleSubtitle" runat="server"></asp:Literal></span></h2>
 			<p>
 				<asp:Repeater ID="rptTags" runat="server">
 					<ItemTemplate>
@@ -14,7 +17,7 @@
 				</asp:Repeater>
 			</p>
 		</div>
-		<div class="detail-hd-r" style="color:#<%=TitleColor.Text%>">
+		<div class="detail-hd-r" style="color:#<%=RemarksColor.Text%>">
 			<asp:Literal ID="ArticleRemarks" runat="server"></asp:Literal>
 			<!--<p>客户行业&nbsp;｜&nbsp;推荐案例/集团</p>
 			<p>客户行业&nbsp;｜&nbsp;2012年</p>
@@ -29,7 +32,7 @@
 	</div>
 	<!--bd end-->
   	<div class="detail-ft">
-		<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>
+		<%--<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>--%>
 		<div class="line"></div>
 		<div class="back"><a href="/cases/"><i class="icon icon-x"></i>返回</a></div>
 	</div>

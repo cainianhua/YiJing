@@ -17,7 +17,7 @@
             <form id="form1" runat="server" autocomplete="off">
             <fieldset>
 				<p>
-					<label>缩略图(*)：</label>
+					<label>缩略图(<strong>*</strong>)：</label>
 					<asp:TextBox ID="Pic" MaxLength="255" CssClass="text-input medium-input" runat="server" style="display:none;"></asp:TextBox>
 					<br />
 					<asp:Image ID="imgPic" ImageUrl="/Admin/Content/images/default.jpg" CssClass="bg-preview" runat="server" />
@@ -31,14 +31,14 @@
 					<small>描述最长255个字符，超长自动截断。</small>
 				</p>
 				<p>
-					<label>链接(*)：</label>
+					<label>链接(<strong>*</strong>)：</label>
 					<asp:TextBox ID="LinkTo" CssClass="text-input large-input" MaxLength="255" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="LinkTo" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="链接必须填写"></asp:RequiredFieldValidator>
 					<br />
 					<small>以http开头的链接，请勿使用相对路径。</small>
 				</p>
 				<p>
-					<label>排序字段(*)：</label>
+					<label>排序字段(<strong>*</strong>)：</label>
 					<asp:TextBox ID="SortOrder" CssClass="text-input small-input" MaxLength="6" runat="server">9999</asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="SortOrder" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须填写"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="SortOrder" ValidationExpression="\d+" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须为整型数值"></asp:RegularExpressionValidator>

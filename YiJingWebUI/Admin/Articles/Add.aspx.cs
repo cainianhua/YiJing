@@ -66,14 +66,18 @@ namespace YiJingWebUI.Admin.Articles
 					item.ArticleId = int.Parse( ArticleId.Value );
 					item.ArticleTitle = ArticleTitle.Text.Trim();
 					item.ArticleTitleLocal = ArticleTitleLocal.Text.Trim();
+					item.TitleColor = TitleColor.Text.Trim();
 					item.ArticleSubtitle = ArticleSubtitle.Text.Trim();
+					item.SubTitleColor = SubTitleColor.Text.Trim();
 					item.TitleColor = TitleColor.Text.Trim();
 					item.Keywords = Keywords.Text.Trim();
 					item.Description = Description.Text.Trim();
 					item.Thumbnail = Thumbnail.Text.Trim();
 					item.Remarks = Remarks.Text.Trim();
+					item.RemarksColor = RemarksColor.Text.Trim();
 					item.HtmlContent = HtmlContent.Text.Trim();
 					item.Tags = Tags.Text.Trim();
+					item.TagsColor = TagsColor.Text.Trim();
 					item.BgColor = BgColor.Text.Trim();
 					item.BgPic = BgPic.Value.Trim();
 					item.SortOrder = int.Parse(SortOrder.Text.Trim());
@@ -107,6 +111,7 @@ namespace YiJingWebUI.Admin.Articles
 			ArticleTitleLocal.Text = item.ArticleTitleLocal;
 			ArticleSubtitle.Text = item.ArticleSubtitle;
 			TitleColor.Text = item.TitleColor;
+			SubTitleColor.Text = item.SubTitleColor;
 			Keywords.Text = item.Keywords;
 			Description.Text = item.Description;
 			Thumbnail.Text = item.Thumbnail;
@@ -114,8 +119,10 @@ namespace YiJingWebUI.Admin.Articles
 				imgThumbnail.ImageUrl = item.Thumbnail;
 			}
 			Remarks.Text = item.Remarks;
+			RemarksColor.Text = item.RemarksColor;
 			HtmlContent.Text = item.HtmlContent;
 			Tags.Text = item.Tags;
+			TagsColor.Text = item.TagsColor;
 			BgColor.Text = item.BgColor;
 			BgPic.Value = item.BgPic;
 			if ( !string.IsNullOrEmpty( item.BgPic ) ) {

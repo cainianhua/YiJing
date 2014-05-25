@@ -72,7 +72,7 @@ namespace YiJingWebUI.UserControls
 				this.rptTags.DataBind();
 			}
 			// 文字颜色
-			TitleColor.Text = item.TitleColor;
+			//TitleColor.Text = item.RemarksColor;
 
 			CreatedDate.Text = item.CreatedDate.ToString( "yyyy-MM-dd" );
 			HtmlContent.Text = item.HtmlContent;

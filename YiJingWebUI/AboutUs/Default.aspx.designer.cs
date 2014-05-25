@@ -13,6 +13,15 @@ namespace YiJingWebUI.AboutUs {
     public partial class Default {
         
         /// <summary>
+        /// ArticleMetas1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::YiJingWebUI.UserControls.ArticleMetas ArticleMetas1;
+        
+        /// <summary>
         /// AboutHeader1 control.
         /// </summary>
         /// <remarks>
@@ -20,15 +29,6 @@ namespace YiJingWebUI.AboutUs {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::YiJingWebUI.UserControls.AboutHeader AboutHeader1;
-        
-        /// <summary>
-        /// Containers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder Containers;
         
         /// <summary>
         /// Footer21 control.

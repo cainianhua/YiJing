@@ -429,6 +429,10 @@ form label {
 	padding:0 0 10px;
 	font-weight:bold;
 }
+form label strong {
+	color: #ff0000;
+	font-weight: bold;
+}
 form fieldset legend {
 	font-weight:bold;
 	margin-bottom:10px;

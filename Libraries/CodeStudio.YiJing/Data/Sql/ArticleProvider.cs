@@ -64,6 +64,9 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 		private const string FIELD_CategoryId = "CategoryId";
 		private const string FIELD_ParentId = "ParentId";
 		private const string FIELD_TITLECOLOR = "TitleColor";
+		private const string FIELD_SUBTITLE_COLOR = "SubTitleColor";
+		private const string FIELD_REMARKS_COLOR = "RemarksColor";
+		private const string FIELD_TAGS_COLOR = "TagsColor";
 		#endregion
 
 		public Article Get(int articleId) {
@@ -202,6 +205,9 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 				SqlHelper.MakeInParameter(AT + FIELD_SortOrder, SqlDbType.Int, 4, item.SortOrder),
 				SqlHelper.MakeInParameter(AT + FIELD_CategoryId, SqlDbType.Int, 4, item.CategoryId),
 				SqlHelper.MakeInParameter(AT + FIELD_TITLECOLOR, SqlDbType.Char, 6, item.TitleColor),
+				SqlHelper.MakeInParameter(AT + FIELD_SUBTITLE_COLOR, SqlDbType.Char, 6, item.SubTitleColor),
+				SqlHelper.MakeInParameter(AT + FIELD_REMARKS_COLOR, SqlDbType.Char, 6, item.RemarksColor),
+				SqlHelper.MakeInParameter(AT + FIELD_TAGS_COLOR, SqlDbType.Char, 6, item.TagsColor),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_DATE, SqlDbType.DateTime, 8, item.ActionDate == DateTime.MinValue ? DateTime.Now : item.ActionDate),
 				SqlHelper.MakeInParameter(AT + FIELD_ACTION_BY, SqlDbType.NVarChar, 50, item.ActionBy ?? String.Empty),
 				SqlHelper.MakeParameter(AT + FIELD_RETURN_VALUE, SqlDbType.Int, 4, ParameterDirection.Output, -1)
@@ -238,8 +244,11 @@ WHERE a.CreatedDate > t.CreatedDate AND a.CategoryId IN (
 			a.SortOrder = ReadInt( reader, FIELD_SortOrder );
 			a.CategoryId = ReadInt( reader, FIELD_CategoryId );
 			a.TitleColor = ReadString( reader, FIELD_TITLECOLOR );
+			a.SubTitleColor = ReadString( reader, FIELD_SUBTITLE_COLOR );
+			a.RemarksColor = ReadString( reader, FIELD_REMARKS_COLOR );
+			a.TagsColor = ReadString( reader, FIELD_TAGS_COLOR );
 
-			if ( reader.FieldCount > 20 ) {
+			if ( reader.FieldCount > 23 ) {
 				a.ParentId = ReadInt( reader, FIELD_ParentId );
 			}
 

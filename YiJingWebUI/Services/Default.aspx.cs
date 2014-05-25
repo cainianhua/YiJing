@@ -38,19 +38,24 @@ namespace YiJingWebUI.Services
 			if ( item == null ) return;
 
 			this.Page.Title = item.ArticleTitleLocal;
-			// 设置背景
-			base.BgColor = item.BgColor;
-			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
-				base.BgImage = item.BgPic;
-			}
+			//// 设置背景
+			//base.BgColor = item.BgColor;
+			//if ( !string.IsNullOrEmpty( item.BgPic ) ) {
+			//    base.BgImage = item.BgPic;
+			//}
 
-			//AboutDetail1.DataSource = item;
-			AboutDetail ctlAbout = ( AboutDetail )LoadControl( "~/UserControls/AboutDetail.ascx" );
-			ctlAbout.DataSource = item;
-			ctlAbout.CurrSort = CurrSort;
-			Containers.Controls.Add( ctlAbout );
+			//AboutDetail ctlAbout = ( AboutDetail )LoadControl( "~/UserControls/AboutDetail.ascx" );
+			//ctlAbout.DataSource = item;
+			//ctlAbout.CurrSort = CurrSort;
+			//Containers.Controls.Add( ctlAbout );
 
-			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )CurrSort, this.TotalCount ), true );
+			//ArticleMetas ctlMetas = ( ArticleMetas )LoadControl( "~/UserControls/ArticleMetas.ascx" );
+			//ctlMetas.DataSource = item;
+			//Metas.Controls.Add( ctlMetas );
+
+			ArticleMetas1.DataSource = item;
+
+			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentSort = {1}; var totalCount = {2};", CurrPageIndex, ( int )CurrSort, this.TotalCount ), true );
 		}
 	}
 }

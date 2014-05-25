@@ -5,17 +5,18 @@
 <head runat="server">
 	<title>广州熠镜品牌策划有限公司</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="广州熠镜品牌策划有限公司,广州熠镜,熠镜,品牌策划,品牌运营,策划" />
-	<meta name="description" content="广州熠镜品牌策划有限公司成立于2013年，公司致力于为品牌在新媒体时代寻求机会，并开创全新的网络营销渠道。熠镜互动首创品牌网络策划“镜”模式：整合企业优势及产品特点，通过品牌设计与网络精准投放折射成倍于产品本身的品牌价值；同时“以镜为鉴”，为品牌提供专业的网络调研及口碑维护、帮助品牌实时了解行业动态、对手信息，规避网络风险，维系用户体验。 " />
+	<asp:ContentPlaceHolder ID="Metas" runat="server"></asp:ContentPlaceHolder>
     <link rel="shortcut icon" href="/favicon.ico" />
 	<link href="/content/reset.css" type="text/css" rel="stylesheet" />
 	<link href="/content/style.css" type="text/css" rel="stylesheet" />
 	<asp:ContentPlaceHolder ID="HeaderStyles" runat="server"></asp:ContentPlaceHolder>
-	<%--<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>--%>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
 	<!--[if lt IE 9]>
     <script type="text/javascript" src="/scripts/html5.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="/scripts/modernizr.min.js"></script>
+	<script type="text/javascript" src="/scripts/hammer/jquery.hammer-full.min.js"></script>
+	<script type="text/javascript" src="/scripts/yijing/carousel_ajax.js"></script>
 	<asp:ContentPlaceHolder ID="HeaderScripts" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -26,9 +27,7 @@
 	<a name="top"></a>
 	<div id="container">
 		<div class="panes">
-			<div class="pane">
-				<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
-			</div>
+			<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 		</div>
 	</div>
 	<asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
@@ -47,6 +46,7 @@
 				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
 			});
 		}
+		
 	</script>
 </body>
 </html>

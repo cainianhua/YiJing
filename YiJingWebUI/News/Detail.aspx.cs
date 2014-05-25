@@ -37,20 +37,25 @@ namespace YiJingWebUI.News
 
 			BindDataToPager();
 
-			// 背景
-			base.BgColor = item.BgColor;
-			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
-				base.BgImage = item.BgPic;
-			}
+			//// 背景
+			//base.BgColor = item.BgColor;
+			//if ( !string.IsNullOrEmpty( item.BgPic ) ) {
+			//    base.BgImage = item.BgPic;
+			//}
 
 			this.Page.Title = item.ArticleTitleLocal;
 
-			//AboutDetail1.DataSource = item;
-			NewsDetail ctl = ( NewsDetail )LoadControl( "~/UserControls/NewsDetail.ascx" );
-			ctl.DataSource = item;
-			Containers.Controls.Add( ctl );
+			//NewsDetail ctl = ( NewsDetail )LoadControl( "~/UserControls/NewsDetail.ascx" );
+			//ctl.DataSource = item;
+			//Containers.Controls.Add( ctl );
 
-			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.News, this.TotalCount ), true );
+			//ArticleMetas ctlMetas = ( ArticleMetas )LoadControl( "~/UserControls/ArticleMetas.ascx" );
+			//ctlMetas.DataSource = item;
+			//Metas.Controls.Add( ctlMetas );
+
+			ArticleMetas1.DataSource = item;
+
+			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentSort = {1}; var totalCount = {2};", CurrPageIndex, ( int )CurrSort, this.TotalCount ), true );
 		}
 		/// <summary>
 		/// 

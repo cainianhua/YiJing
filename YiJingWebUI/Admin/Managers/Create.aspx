@@ -17,22 +17,22 @@
             <form id="form1" runat="server" autocomplete="off">
             <fieldset>
 				<p>
-					<label>登录账号(*)：</label>
+					<label>登录账号(<strong>*</strong>)：</label>
 					<asp:TextBox ID="Name" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="Name" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="登录账号不能为空"></asp:RequiredFieldValidator>
 				</p>
 				<p>
-					<label>用户昵称(*)：</label>
+					<label>用户昵称(<strong>*</strong>)：</label>
 					<asp:TextBox ID="NickName" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="NickName" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="用户昵称不能为空"></asp:RequiredFieldValidator>
 				</p>
 				<p>
-					<label>密码(*)：</label>
+					<label>密码(<strong>*</strong>)：</label>
 					<asp:TextBox ID="Pwd" CssClass="text-input small-input" TextMode="Password" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="Pwd" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="密码不能为空"></asp:RequiredFieldValidator>
 				</p>
 				<p>
-					<label>确认密码(*)：</label>
+					<label>确认密码(<strong>*</strong>)：</label>
 					<asp:TextBox ID="PwdConfirmed" CssClass="text-input small-input" TextMode="Password" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="PwdConfirmed" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="确认密码不能为空"></asp:RequiredFieldValidator>
 					<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="PwdConfirmed" ControlToCompare="Pwd" CssClass="input-notification error png_bg" Display="Dynamic" ErrorMessage="两次输入的密码不一致"></asp:CompareValidator>

@@ -15,7 +15,7 @@
             <form id="form1" runat="server" autocomplete="off">
             <fieldset>
 				<p>
-					<label>文字内容(*)：</label>
+					<label>文字内容(<strong>*</strong>)：</label>
 					<asp:TextBox ID="TextValue" CssClass="text-input textarea" TextMode="MultiLine" Rows="5" MaxLength="512" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextValue" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="中文标题必须填写"></asp:RequiredFieldValidator>
 					<br />
@@ -28,7 +28,7 @@
 					<small>说明最长255个字符，只是用于标识此值的含义，便于管理。</small>
 				</p>
 				<p>
-					<label>排序字段(*)：</label>
+					<label>排序字段(<strong>*</strong>)：</label>
 					<asp:TextBox ID="SortOrder" CssClass="text-input medium-input" MaxLength="6" runat="server">9999</asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="SortOrder" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须填写"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="SortOrder" ValidationExpression="\d+" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须为整型数值"></asp:RegularExpressionValidator>

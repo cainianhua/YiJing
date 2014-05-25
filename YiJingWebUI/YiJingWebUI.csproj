@@ -182,6 +182,8 @@
     <Content Include="Admin\Content\style.css" />
     <Content Include="Cases\Default.aspx" />
     <Content Include="Cases\Detail.aspx" />
+    <Content Include="Content\images\1pxOverlaypng.png" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\arrar.png" />
     <Content Include="Content\images\arrar2.png" />
     <Content Include="Content\images\arrar3.png" />
@@ -232,8 +234,12 @@
     <Content Include="Default.aspx" />
     <Content Include="News\Default.aspx" />
     <Content Include="News\Detail.aspx" />
+    <Content Include="Scripts\history\jquery.history.js" />
+    <Content Include="Scripts\history\jquery.history.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\hammer\jquery.hammer-full.js" />
+    <Content Include="Scripts\hammer\jquery.hammer-full.min.js" />
     <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\hammer\hammer.js" />
     <Content Include="Scripts\hammer\hammer.min.js" />
@@ -251,6 +257,8 @@
     <Content Include="Scripts\waterfall.js" />
     <Content Include="Scripts\yijing\carousel_ajax.js" />
     <Content Include="Scripts\yijing\carousel.js" />
+    <Content Include="Scripts\yijing\carousel_ajax.backup.js" />
+    <Content Include="Scripts\yijing\cores.js" />
     <Content Include="Scripts\yijing\index.js" />
     <Content Include="Search\Default.aspx" />
     <Content Include="Services\Default.aspx" />
@@ -633,6 +641,7 @@
     <Content Include="UserControls\AboutHeader.ascx" />
     <Content Include="UserControls\AboutUS.ascx" />
     <Content Include="UserControls\ArticleControl.ascx" />
+    <Content Include="UserControls\ArticleMetas.ascx" />
     <Content Include="UserControls\CaseDetail.ascx" />
     <Content Include="UserControls\Footer.ascx" />
     <Content Include="UserControls\Footer2.ascx" />
@@ -911,6 +920,13 @@
     <Compile Include="UserControls\ArticleControl.ascx.designer.cs">
       <DependentUpon>ArticleControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ArticleMetas.ascx.cs">
+      <DependentUpon>ArticleMetas.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ArticleMetas.ascx.designer.cs">
+      <DependentUpon>ArticleMetas.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CaseDetail.ascx.cs">
       <DependentUpon>CaseDetail.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1015,6 +1031,7 @@
     <Content Include="Config\PROD\Web.config" />
     <Content Include="MasterPages\Content.Master" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Scripts\hammer\jquery.hammer-full.min.map" />
     <None Include="Scripts\move\event.move.jquery.json" />
     <None Include="Scripts\move\package.json" />
     <None Include="Scripts\move\README.md" />

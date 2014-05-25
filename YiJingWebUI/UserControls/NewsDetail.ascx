@@ -2,9 +2,8 @@
 <%@ Register src="~/UserControls/ShareWidget.ascx" tagname="ShareWidget" tagprefix="uc1" %>
 
 <div class="maincontent">
-	<!--<asp:Literal ID="TitleColor" runat="server"></asp:Literal>-->
 	<div class="newsdetail-hd clearfix">
-		<h2 style="color:#<%=TitleColor.Text%>">
+		<h2>
 			<asp:Literal ID="ArticleTitle" runat="server"></asp:Literal></h2>
 		<p>
 			<asp:Repeater ID="rptTags" runat="server">

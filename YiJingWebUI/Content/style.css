@@ -327,6 +327,18 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
     overflow: hidden;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0,0,0);    
-    min-height:200px;
+    min-height:600px;
 }
 /***************************** Carousel End *****************************/
+
+/***************************Loading Layer start***************************/
+#loadingLayer {
+	background: url("images/1pxOverlayPng.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+	display: block;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 100000;
+	background-color:#F5F5F5
+}
+/***************************Loading Layer end***************************/

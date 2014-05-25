@@ -10,6 +10,11 @@ namespace YiJingWebUI.UserControls
 {
 	public partial class CaseDetail : YiJingWebUI.BaseClasses.ArticleControlBase
 	{
+		protected override void OnInit( EventArgs e ) {
+			base.OnInit( e );
+
+			this.rptTags.ItemDataBound += new RepeaterItemEventHandler( rptTags_ItemDataBound );
+		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -44,6 +49,7 @@ namespace YiJingWebUI.UserControls
 				if ( lnkTag != null ) {
 					lnkTag.Text = tag;
 					lnkTag.NavigateUrl = String.Format( "/search/?s={0}&type=tag", tag );
+					lnkTag.Attributes.Add( "style", string.Format( "color:#{0}", DataSource.TagsColor ) );
 				}
 			}
 		}
@@ -62,6 +68,9 @@ namespace YiJingWebUI.UserControls
 			}
 			// 文字颜色
 			TitleColor.Text = item.TitleColor;
+			SubTitleColor.Text = item.SubTitleColor;
+			RemarksColor.Text = item.RemarksColor;
+			TagsColor.Text = item.TagsColor;
 
 			ArticleTitle.Text = item.ArticleTitleLocal;
 			ArticleSubtitle.Text = item.ArticleSubtitle;

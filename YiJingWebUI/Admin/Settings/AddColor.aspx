@@ -17,7 +17,7 @@
             <form id="form1" runat="server" autocomplete="off">
             <fieldset>
 				<p>
-					<label>颜色(*)：</label>
+					<label>颜色(<strong>*</strong>)：</label>
 					<asp:TextBox ID="TextValue" CssClass="text-input medium-input" MaxLength="6" runat="server"></asp:TextBox>
 					<button class="button picker">选择</button>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextValue" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="中文标题必须填写"></asp:RequiredFieldValidator>

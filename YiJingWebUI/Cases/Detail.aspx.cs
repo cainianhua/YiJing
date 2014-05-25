@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using CodeStudio.YiJing;
 using CodeStudio.YiJing.Entities;
 using YiJingWebUI.UserControls;
+using System.Collections.Specialized;
 
 namespace YiJingWebUI.Cases
 {
@@ -28,27 +29,6 @@ namespace YiJingWebUI.Cases
 				BindDataToWebUI();
 			}
 		}
-
-		/// <summary>
-		/// 关键字绑定
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		protected void rptTags_ItemDataBound( object sender, RepeaterItemEventArgs e ) {
-			if ( e.Item.ItemType == ListItemType.AlternatingItem
-				|| e.Item.ItemType == ListItemType.Item ) 
-			{
-				string tag = ( string )e.Item.DataItem;
-				if ( string.IsNullOrEmpty( tag ) ) return;
-
-				HyperLink lnkTag = ( HyperLink )e.Item.FindControl( "lnkTag" );
-				if ( lnkTag != null ) {
-					lnkTag.Text = tag;
-					lnkTag.NavigateUrl = String.Format( "/search/?s={0}&type=tag", tag );
-				}
-			}
-		}
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -58,19 +38,24 @@ namespace YiJingWebUI.Cases
 
 			BindDataToPager();
 
-			// 背景
-			base.BgColor = item.BgColor;
-			if ( !string.IsNullOrEmpty( item.BgPic ) ) {
-				base.BgImage = item.BgPic;
-			}
+			//// 背景
+			//base.BgColor = item.BgColor;
+			//if ( !string.IsNullOrEmpty( item.BgPic ) ) {
+			//    base.BgImage = item.BgPic;
+			//}
 			
 			this.Page.Title = item.ArticleTitleLocal;
 
-			CaseDetail ctl = ( CaseDetail )LoadControl( "~/UserControls/CaseDetail.ascx" );
-			ctl.DataSource = item;
-			Containers.Controls.Add( ctl );
+			//CaseDetail ctl = ( CaseDetail )LoadControl( "~/UserControls/CaseDetail.ascx" );
+			//ctl.DataSource = item;
+			//Containers.Controls.Add( ctl );
 
-			this.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentCategoryId = {1}; var totalCount = {2};", CurrPageIndex, ( int )SiteSort.Cases, this.TotalCount ), true );
+			//ArticleMetas ctlMetas = ( ArticleMetas )LoadControl( "~/UserControls/ArticleMetas.ascx" );
+			//ctlMetas.DataSource = item;
+			//MetaString.Controls.Add( ctlMetas );
+			ArticleMetas1.DataSource = item;
+
+			this.Page.ClientScript.RegisterClientScriptBlock( typeof( Page ), "currentPageIndexScript", String.Format( "var currentPageNo = {0}; var currentSort = {1}; var totalCount = {2};", CurrPageIndex, ( int )CurrSort, this.TotalCount ), true );
 		}
 		/// <summary>
 		/// 

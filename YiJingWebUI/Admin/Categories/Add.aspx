@@ -28,14 +28,14 @@
                     <small>请选择所属的新分类所属的父级分类。</small>
                 </p>
 				<p>
-					<label>中文名称(*)：</label>
+					<label>中文名称(<strong>*</strong>)：</label>
 					<asp:TextBox ID="NameLocal" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="NameLocal" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="中文名称必须填写"></asp:RequiredFieldValidator>
 					<br />
 					<small>中文名称最长50个字符，实际长度根据界面展示效果自行调整。</small>
 				</p>
                 <p>
-					<label>英文名称(*)：</label>
+					<label>英文名称(<strong>*</strong>)：</label>
 					<asp:TextBox ID="Name" CssClass="text-input medium-input" MaxLength="50" runat="server"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="Name" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="英文名称必须填写"></asp:RequiredFieldValidator>
 					<br />
@@ -48,7 +48,7 @@
 					<small>分类描述最长255个字符。</small>
 				</p>
 				<p>
-					<label>背景颜色(*)：</label>
+					<label>背景颜色(<strong>*</strong>)：</label>
 					<asp:TextBox ID="BgColor" CssClass="text-input small-input" MaxLength="6" runat="server"></asp:TextBox>
 					<button id="picker" class="button">选择</button>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="BgColor" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="背景颜色必须填写"></asp:RequiredFieldValidator>
@@ -84,7 +84,7 @@
 					<small>仅限于关于熠镜，熠镜服务有效，其他分类在内容页没有头图展示。</small>
 				</p>
 				<p>
-					<label>排序字段：</label>
+					<label>排序字段(<strong>*</strong>)：</label>
 					<asp:TextBox ID="SortOrder" CssClass="text-input small-input" MaxLength="6" runat="server">9999</asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="SortOrder" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须填写"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="SortOrder" ValidationExpression="\d+" Display="Dynamic" runat="server" CssClass="input-notification error png_bg" ErrorMessage="排序字段必须为整型数值"></asp:RegularExpressionValidator>

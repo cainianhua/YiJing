@@ -10,6 +10,7 @@ using System.Text;
 using YiJingWebUI.UserControls;
 using System.IO;
 using YiJingWebUI.BaseClasses;
+using System.Threading;
 
 namespace YiJingWebUI.Api
 {
@@ -45,6 +46,7 @@ namespace YiJingWebUI.Api
 					} );
 				}
 			}
+			//Thread.Sleep( 3000 );
 			context.Response.ContentType = "application/json";
 			context.Response.Write( output );
 		}
