@@ -258,7 +258,6 @@
     <Content Include="Scripts\yijing\carousel_ajax.js" />
     <Content Include="Scripts\yijing\carousel.js" />
     <Content Include="Scripts\yijing\carousel_ajax.backup.js" />
-    <Content Include="Scripts\yijing\cores.js" />
     <Content Include="Scripts\yijing\index.js" />
     <Content Include="Search\Default.aspx" />
     <Content Include="Services\Default.aspx" />
