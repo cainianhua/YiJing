@@ -26,11 +26,13 @@
 			"totalPane": totalCount,
 			"currPaneIndex": currentPageNo - 1, // base on 0;
 			"currSort": currentSort,
-			"onPageIndexChanged": function (pageIndex, title) {
+			"onPageIndexChanged": function (pageIndex, item) {
 				var pageNo = pageIndex + 1;
 				if (Modernizr.history) {
-					document.title = title;
-					window.history.pushState(null, title, "/aboutus/?pn=" + pageNo);
+					document.title = item.title;
+					document.getElementsByName("keywords")[0].content = item.keywords;
+					document.getElementsByName("description")[0].content = item.description;
+					window.history.pushState(null, item.title, "/aboutus/?pn=" + pageNo);
 				}
 				else {
 					// it will be not executed.

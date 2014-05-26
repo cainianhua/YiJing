@@ -8,19 +8,20 @@
  *           so it only can display article data, no swipe and drag effects.
  **/
 function Carousel(element, options) {
-    var _defaults = {
-        url: "/api/articledetail.ashx", // 获取数据的文章数据的API
-        containerSelector: ">div.panes", // Carousel的容器
-        paneItemsSelector: ">div.panes>div", // Carousel的数据项集合
-        paneItemTemplate: "<div class=\"pane pane-{index}\"><div class=\"maincontent\"><div id=\"loadingLayer\"></div><img id=\"loadingLayerImg\" alt=\"加载中...\" src=\"/content/images/ajax-loader.gif\" style=\"opacity:1; z-index:100001; position:absolute; {topLeftString}\" /></div></div>",
+	var _defaults = {
+		url: "/api/articledetail.ashx", // 获取数据的文章数据的API
+		containerSelector: ">div.panes", // Carousel的容器
+		paneItemsSelector: ">div.panes>div", // Carousel的数据项集合
+		paneItemTemplate: "<div class=\"pane pane-{index}\"><div class=\"maincontent\"><div id=\"loadingLayer\"></div><img id=\"loadingLayerImg\" alt=\"加载中...\" src=\"/content/images/ajax-loader.gif\" style=\"opacity:1; z-index:100001; position:absolute; {topLeftString}\" /></div></div>",
 
-        totalPane: 0, 		// Carousel的总个数
-        currPaneIndex: 0, 	// 当前显示的Pane序号，从0开始计算
-        currSort: 0, 		// 当前页的根类编号
+		totalPane: 0, 		// Carousel的总个数
+		currPaneIndex: 0, 	// 当前显示的Pane序号，从0开始计算
+		currSort: 0, 		// 当前页的根类编号
 
-        onShowed: function () { },
-        onPageIndexChanged: function () { }
-    }
+		onShowed: function () { },
+		onContentLoaded: function () { },
+		onPageIndexChanged: function () { }
+	}
 
     element = $(element);
     options = $.extend({}, _defaults, options);
@@ -51,7 +52,7 @@ function Carousel(element, options) {
             setPaneDimensions();
         });
 
-        self.showPane(current_pane, true, true);
+        self.showPane(current_pane, false);
     };
     /*
      * show pane by index
@@ -76,8 +77,8 @@ function Carousel(element, options) {
         }
     };
 
-    this.next = function () { return this.showPane(current_pane + 1, true, true); };
-    this.prev = function () { return this.showPane(current_pane - 1, true, true); };
+    this.next = function () { return this.showPane(current_pane + 1, true); };
+    this.prev = function () { return this.showPane(current_pane - 1, true); };
 
     /**
     * set the pane dimensions and scale the container
@@ -172,6 +173,8 @@ function Carousel(element, options) {
         pane_this.css("background-position", "center top");
 
         paneStatuses["p" + pane_index] = true;
+
+        options.onContentLoaded && options.onContentLoaded(pane_index, item);
     }
 
     function _checkPaneDataLoadedStatus(pane_index) {
@@ -202,7 +205,7 @@ function Carousel(element, options) {
         if (indexChanged) {
             // invoke page index changed callback.
             if (options.onPageIndexChanged)
-                options.onPageIndexChanged(current_pane, paneDatas["_" + current_pane].title);
+                options.onPageIndexChanged(current_pane, paneDatas["_" + current_pane]);
         }
 
         // set the pane height;
@@ -210,7 +213,7 @@ function Carousel(element, options) {
         container.height(pane_this.attr("data-height"));
 
         if (options.onShowed)
-            options.onShowed(current_pane);
+        	options.onShowed(current_pane, paneDatas["_" + current_pane]);
         
         // delay 0.5s to pre-load article data.
         setTimeout(function () {
@@ -266,7 +269,7 @@ function Carousel(element, options) {
                     }
                 }
                 else {
-                    self.showPane(current_pane, true, false);
+                    self.showPane(current_pane, true);
                 }
                 break;
         }

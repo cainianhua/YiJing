@@ -31,16 +31,19 @@
 			"totalPane": totalCount,
 			"currPaneIndex": currentPageNo - 1, // base on 0;
 			"currSort": currentSort,
-			"onPageIndexChanged": function (pageIndex, title) {
+			"onPageIndexChanged": function (pageIndex, item) {
 				var pageNo = pageIndex + 1;
 
 				if (Modernizr.history) {
-					document.title = title;
+					document.title = item.title;
+					document.getElementsByName("keywords")[0].content = item.keywords;
+					document.getElementsByName("description")[0].content = item.description;
+
 					$(".detail-topbar .prev").attr("href", "/news/detail.aspx?pn=" + Math.max(1, pageNo - 1));
 					$(".detail-topbar .next").attr("href", "/news/detail.aspx?pn=" + Math.min(totalCount, pageNo + 1));
 					$(".detail-topbar .prv-next span").html(pageNo + "/" + totalCount);
 
-					window.history.pushState(null, title, "/news/detail.aspx?pn=" + pageNo);
+					window.history.pushState(null, item.title, "/news/detail.aspx?pn=" + pageNo);
 				}
 				else {
 					window.location = "/news/detail.aspx?pn=" + pageNo
