@@ -35,12 +35,12 @@
 			$('html,body').animate({ scrollTop: 0 }, 120);
 		});
 		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-		if ('undefined' == typeof (document.body.style.maxHeight)) {
+		/*if ('undefined' == typeof (document.body.style.maxHeight)) {
 			$('#toTop').css({ 'position': 'absolute', 'bottom': '' });
 			$(window).scroll(function () {
 				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
 			});
-		}
+		}*/
 	</script>
 </body>
 </html>

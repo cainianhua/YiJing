@@ -13,20 +13,20 @@
 
 	$(window).scroll(function () {
 	    clearTimeout(scrollTimes);
-	    if ($(window).scrollTop() <= 0) {
-	        $('.detail-topbar').css('position', 'relative');
-	    } else {
-	        $('.detail-topbar').css('position', 'fixed');
-	        if ('undefined' == typeof (document.body.style.maxHeight)) {
+	    //if ($(window).scrollTop() <= 0) {
+	    //    $('.detail-topbar').css('position', 'relative');
+	    //} else {
+	        //$('.detail-topbar').css('position', 'fixed');
+	        /*if ('undefined' == typeof (document.body.style.maxHeight)) {
 	            $('.detail-topbar').css({ 'position': 'absolute', 'bottom': '' });
 	        }
 	        if ('undefined' == typeof (document.body.style.maxHeight)) {
 	            $('.detail-topbar').css('top', $(window).scrollTop());
-	        }
+	        }*/
 	        if (!$('body').hasClass('onscroll')) {
 	            $('body').addClass('onscroll');
 	        }
-	    }
+	    //}
 
 	    scrollTimes = setTimeout(function () {
 	        $('body').removeClass('onscroll');

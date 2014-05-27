@@ -38,9 +38,9 @@
 	//导航
 	var scrollTimes;
 	//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-	if ('undefined' == typeof (document.body.style.maxHeight)) {
+	/*if ('undefined' == typeof (document.body.style.maxHeight)) {
 		$('#header').css({ 'position': 'absolute', 'bottom': '' });
-	}
+	}*/
 	$(window).on("resize load", function () {
 		$('.bodycover').height(Math.max($(window).height() - $('#footer').outerHeight(true), 0));
 		//console.log($(window).height());
@@ -50,9 +50,9 @@
 	$(window).scroll(function () {
 	    clearTimeout(scrollTimes);
 	    //if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-	    if ('undefined' == typeof (document.body.style.maxHeight)) {
+	    /*if ('undefined' == typeof (document.body.style.maxHeight)) {
 	        $('#header').css('top', $(window).scrollTop());
-	    }
+	    }*/
 	    if (!$('body').hasClass('onscroll')) {
 	        $('body').addClass('onscroll');
 	    }
