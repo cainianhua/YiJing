@@ -32,7 +32,7 @@
 	</div>
 	<!--bd end-->
   	<div class="detail-ft">
-		<%--<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>--%>
+		<div class="sharebox"><uc1:ShareWidget ID="ShareWidget1" runat="server" /></div>
 		<div class="line"></div>
 		<div class="back"><a href="/cases/"><i class="icon icon-x"></i>返回</a></div>
 	</div>
