@@ -15,7 +15,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Header" runat="server">
 	<uc4:AboutHeader ID="AboutHeader1" Sort="Services" runat="server" />
 </asp:Content>
-
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
 	<uc3:SideBar ID="SideBar1" runat="server" />
@@ -33,7 +32,7 @@
 					document.title = item.title;
 					document.getElementsByName("keywords")[0].content = item.keywords;
 					document.getElementsByName("description")[0].content = item.description;
-					window.history.pushState(null, title, "/services/?pn=" + pageNo);
+					window.history.pushState(null, item.title, "/services/?pn=" + pageNo);
 				}
 				else {
 					window.location = "/services/?pn=" + pageNo;

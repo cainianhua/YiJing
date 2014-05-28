@@ -19,7 +19,6 @@
 		</div>
 	</div>
 </asp:Content>
-
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="FooterScripts" runat="server">

@@ -35,8 +35,7 @@
 		$('html,body').animate({ scrollTop: 0 }, 500);
 		return false;
 	});
-	//导航
-	var scrollTimes;
+	
 	//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
 	/*if ('undefined' == typeof (document.body.style.maxHeight)) {
 		$('#header').css({ 'position': 'absolute', 'bottom': '' });
@@ -45,31 +44,5 @@
 		$('.bodycover').height(Math.max($(window).height() - $('#footer').outerHeight(true), 0));
 		//console.log($(window).height());
 		//console.log($('#footer').outerHeight(true));
-	});
-
-	$(window).scroll(function () {
-	    clearTimeout(scrollTimes);
-	    //if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-	    /*if ('undefined' == typeof (document.body.style.maxHeight)) {
-	        $('#header').css('top', $(window).scrollTop());
-	    }*/
-	    if (!$('body').hasClass('onscroll')) {
-	        $('body').addClass('onscroll');
-	    }
-	    scrollTimes = setTimeout(function () {
-	        $('body').removeClass('onscroll');
-	    }, 300);
-
-	    if (($(document).height() - $(window).scrollTop() - $(window).height()) < 100) {
-	        $('.bodycover').fadeIn();
-	        $('#floatShare').hide();
-	        $('#toTop').hide();
-	        $('#header').hide();
-	    } else {
-	        $('.bodycover').fadeOut();
-	        $('#floatShare').show();
-	        $('#toTop').show();
-	        $('#header').show();
-	    }
 	});
 </script>

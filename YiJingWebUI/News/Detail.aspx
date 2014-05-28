@@ -21,7 +21,6 @@
 		</div>
 	</div>
 </asp:Content>
-
 <asp:Content ID="Content6" ContentPlaceHolderID="Footer" runat="server">
 	<uc2:Footer2 ID="Footer21" runat="server" />
 </asp:Content>

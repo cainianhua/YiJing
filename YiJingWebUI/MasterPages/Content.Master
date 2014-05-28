@@ -34,7 +34,7 @@
 	<asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
 	<asp:ContentPlaceHolder ID="FooterScripts" runat="server"></asp:ContentPlaceHolder>
 	</form>
-	<div class="backtotop" id="toTop">返回顶部</div>
+	<div class="backtotop" id="toTop" style="display:none;">返回顶部</div>
 	<script type="text/javascript">
 		//返回顶部
 		$('#toTop').click(function () {
@@ -47,7 +47,26 @@
 				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
 			});
 		}*/
-		
+		//导航
+		var scrollTimes;
+		$(window).scroll(function () {
+			clearTimeout(scrollTimes);
+
+			if (!$('body').hasClass('onscroll')) {
+				$('body').addClass('onscroll');
+			}
+
+			scrollTimes = setTimeout(function () {
+				$('body').removeClass('onscroll');
+			}, 300);
+
+			if ($(window).scrollTop() > 50) {
+				$('#toTop').fadeIn(500);
+			}
+			else {
+				$('#toTop').fadeOut(500);
+			}
+		});
 	</script>
 </body>
 </html>
