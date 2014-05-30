@@ -34,21 +34,10 @@
 		$('#toTop').click(function () {
 			$('html,body').animate({ scrollTop: 0 }, 120);
 		});
-		//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-		/*if ('undefined' == typeof (document.body.style.maxHeight)) {
-			$('#toTop').css({ 'position': 'absolute', 'bottom': '' });
-			$(window).scroll(function () {
-				$('#toTop').css('top', $(window).scrollTop() + $(window).height() - 30);
-			});
-		}*/
 		//导航
 		var scrollTimes;
 		$(window).scroll(function () {
 			clearTimeout(scrollTimes);
-			//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-			/*if ('undefined' == typeof (document.body.style.maxHeight)) {
-			$('#header').css('top', $(window).scrollTop());
-			}*/
 			if (!$('body').hasClass('onscroll')) {
 				$('body').addClass('onscroll');
 			}
@@ -76,5 +65,14 @@
 			}
 		});
 	</script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d6bf2201f975bf713a1f1ac3560b4761";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </body>
 </html>

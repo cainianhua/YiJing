@@ -232,6 +232,7 @@
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="News\Default.aspx" />
     <Content Include="News\Detail.aspx" />
     <Content Include="Scripts\history\jquery.history.js" />
@@ -841,6 +842,9 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Content.Master.cs">
       <DependentUpon>Content.Master</DependentUpon>
