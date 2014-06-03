@@ -2,14 +2,12 @@
 
 <div id="floatShare">
 
-  <ul>
-    <li class="floatshare01" data-sub="qqshare" data-w=100><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a>
-	</li>
-    <li class="floatshare02" data-sub="weiboshare" data-w=490><a href="#"><img src="/content/images/share_03_06.png" /></a></li>
-    <li class="floatshare03" data-sub="weichatshare" data-w=160><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a>
-	</li>
-    <li class="floatshare04" data-sub="mapshare" data-w=343><a href="#"><img src="/content/images/share_03_10.png" /></a></li>
-  </ul>
+    <ul>
+        <li class="floatshare01" data-sub="qqshare" data-w=100><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
+        <li class="floatshare02" data-sub="weiboshare" data-w=490><a href="javascript:void(0);"><img src="/content/images/share_03_06.png" /></a></li>
+        <li class="floatshare03" data-sub="weichatshare" data-w=160><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a></li>
+        <li class="floatshare04" data-sub="mapshare" data-w=343><a href="javascript:void(0);"><img src="/content/images/share_03_10.png" /></a></li>
+    </ul>
 	<div class="subfloatshare">
 		<div class="sharebd qqshare">
 			<div class="hd">腾讯QQ<span class="close"></span></div>
@@ -24,8 +22,8 @@
 		</div>
 		<div class="sharebd weiboshare">
 			<div class="hd"><a href="http://weibo.com/u/3697506610" target="_blank"><img src="/content/images/weibotitle.png" /></a><span class="close"></span></div>
-			<div class="bd">				
-				<iframe width="490" height="240" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=490&height=240&fansRow=2&ptype=1&speed=0&skin=10&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3697506610&verifier=a698177a&colors=d6f3f7,030408,666666,00A6BF,030408&dpc=1"></iframe>
+			<div class="bd">
+                <iframe width="490" height="240" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=490&height=240&fansRow=2&ptype=1&speed=0&skin=10&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3697506610&verifier=0c7f8e5f&colors=d6f3f7,303030,666666,00A6BF,353535&dpc=1"></iframe>
 			</div>
 		</div>
 		<div class="sharebd weichatshare" style="display:none;">
@@ -43,36 +41,36 @@
 	</div>
 </div>
 <script type="text/javascript">
-	$('#floatShare li').click(function (e) {
-		e.stopPropagation();
-		$(this).siblings().removeClass('on');
-		$(this).toggleClass('on');
-		var w=$(this).data('w');
-		$('.subfloatshare>div:visible').hide();
-		$('.'+$(this).data('sub'),'.subfloatshare').show();
-		$('.subfloatshare').width(w);
-		$('#floatShare').animate({right:w+'px'},100);
-	});
+    $('#floatShare li').click(function (e) {
+        e.stopPropagation();
+        $(this).siblings().removeClass('on');
+        $(this).toggleClass('on');
+        var w = $(this).data('w');
+        $('.subfloatshare>div:visible').hide();
+        $('.' + $(this).data('sub'), '.subfloatshare').show();
+        $('.subfloatshare').width(w);
+        $('#floatShare').animate({ right: w + 'px' }, 100);
+    });
 	$('#floatShare .close').click(function (e) {
-		e.stopPropagation();
-		$('#floatShare li.on').removeClass('on');
-		$('#floatShare').animate({right:'0'},100,function(){
-			$('.subfloatshare>div:visible').hide();
-		});
+	    e.stopPropagation();
+	    $('#floatShare li.on').removeClass('on');
+	    $('#floatShare').animate({ right: '0' }, 100, function () {
+	        $('.subfloatshare>div:visible').hide();
+	    });
 	});
 	$(document).click(function (e) {
-		$('#floatShare li.on').removeClass('on');
-		$('#floatShare').animate({right:'0'},100,function(){
-			$('.subfloatshare>div:visible').hide();
-		});
+	    $('#floatShare li.on').removeClass('on');
+	    $('#floatShare').animate({ right: '0' }, 100, function () {
+	        $('.subfloatshare>div:visible').hide();
+	    });
 	});
 	//ie6不支持position fixed
 	//if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
 	if ('undefined' == typeof (document.body.style.maxHeight)) {
-		var floatShare = $('#floatShare');
-		floatShare.css('position', 'absolute');
-		$(window).scroll(function () {
-			floatShare.css({ 'top': $(window).scrollTop() + 180, 'position': 'absolute' });
-		});
+	    var floatShare = $('#floatShare');
+	    floatShare.css('position', 'absolute');
+	    $(window).scroll(function () {
+	        floatShare.css({ 'top': $(window).scrollTop() + 180, 'position': 'absolute' });
+	    });
 	}
 </script>
