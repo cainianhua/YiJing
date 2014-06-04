@@ -13,9 +13,9 @@
 			<div class="hd">腾讯QQ<span class="close"></span></div>
 			<div class="bd">
 				<dl>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=83193739&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;用户名</dd>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=83193739&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;用户名</dd>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=83193739&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;用户名</dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1056412463&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;普通小编</dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=692331938&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;文艺小编</dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=199856654&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;非正常小编</dd>
 				</dl>
 			</div>
 			<div class="ft"></div>
