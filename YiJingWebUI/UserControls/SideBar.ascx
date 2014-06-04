@@ -3,7 +3,7 @@
 <div id="floatShare">
 
     <ul>
-        <li class="floatshare01" data-sub="qqshare" data-w=100><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
+        <li class="floatshare01" data-sub="qqshare" data-w=150><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
         <li class="floatshare02" data-sub="weiboshare" data-w=490><a href="javascript:void(0);"><img src="/content/images/share_03_06.png" /></a></li>
         <li class="floatshare03" data-sub="weichatshare" data-w=160><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a></li>
         <li class="floatshare04" data-sub="mapshare" data-w=343><a href="javascript:void(0);"><img src="/content/images/share_03_10.png" /></a></li>
