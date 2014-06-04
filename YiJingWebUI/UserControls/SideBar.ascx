@@ -1,15 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SideBar.ascx.cs" Inherits="YiJingWebUI.UserControls.SideBar" %>
 
 <div id="floatShare">
-
     <ul>
-        <li class="floatshare01" data-sub="qqshare" data-w=150><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
-        <li class="floatshare02" data-sub="weiboshare" data-w=490><a href="javascript:void(0);"><img src="/content/images/share_03_06.png" /></a></li>
-        <li class="floatshare03" data-sub="weichatshare" data-w=160><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a></li>
-        <li class="floatshare04" data-sub="mapshare" data-w=343><a href="javascript:void(0);"><img src="/content/images/share_03_10.png" /></a></li>
+        <li class="floatshare01" data-sub="qqshare" data-w="150"><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
+        <li class="floatshare02" data-sub="weiboshare" data-w="490"><a href="javascript:void(0);"><img src="/content/images/share_03_06.png" /></a></li>
+        <li class="floatshare03" data-sub="weichatshare" data-w="160"><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a></li>
+        <li class="floatshare04" data-sub="mapshare" data-w="343"><a href="javascript:void(0);"><img src="/content/images/share_03_10.png" /></a></li>
     </ul>
 	<div class="subfloatshare">
-		<div class="sharebd qqshare">
+		<div class="sharebd qqshare" style="display:none;">
 			<div class="hd">腾讯QQ<span class="close"></span></div>
 			<div class="bd">
 				<dl>
@@ -20,10 +19,10 @@
 			</div>
 			<div class="ft"></div>
 		</div>
-		<div class="sharebd weiboshare">
+		<div class="sharebd weiboshare" style="display:none;">
 			<div class="hd"><a href="http://weibo.com/u/3697506610" target="_blank"><img src="/content/images/weibotitle.png" /></a><span class="close"></span></div>
 			<div class="bd">
-                <iframe width="490" height="240" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=490&height=240&fansRow=2&ptype=1&speed=0&skin=10&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3697506610&verifier=0c7f8e5f&colors=d6f3f7,303030,666666,00A6BF,353535&dpc=1"></iframe>
+                <iframe width="490" height="275" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=490&height=275&fansRow=2&ptype=1&speed=0&skin=10&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3697506610&verifier=0c7f8e5f&colors=d6f3f7,303030,666666,00A6BF,353535&dpc=1"></iframe>
 			</div>
 		</div>
 		<div class="sharebd weichatshare" style="display:none;">
@@ -40,7 +39,7 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
+<script type="text/javascript">	
     $('#floatShare li').click(function (e) {
         e.stopPropagation();
         $(this).siblings().removeClass('on');
