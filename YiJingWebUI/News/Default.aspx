@@ -51,11 +51,12 @@
 					NumericButtonType="Text" 
 					NavigationButtonType="Image"
 					ButtonImageExtension="png" 
-					ShowDisabledButtons="false"
+					ShowDisabledButtons="true"
 					ShowNavigationToolTip="true" 
 					UrlPageIndexName="pn"
 					ShowPageIndexBox="Never" 
-					AlwaysShowFirstLastPageNumber="true"
+					AlwaysShowFirstLastPageNumber="true" 
+                    AlwaysShow="true"
 					NumericButtonCount="7"></webdiyer:aspnetpager>
 			<div class="line"></div>
 			<div class="back">
