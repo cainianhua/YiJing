@@ -139,6 +139,7 @@ a:hover img{ opacity: .95;filter: Alpha(opacity=95);}
 .qqshare .bd dl{}
 .qqshare .bd dd{ border-bottom:1px solid #4d4d4d; padding:5px 15px; white-space:nowrap; font-size:14px;}
 .qqshare .bd dd{ color:#cfcfcf;}
+.qqshare .bd a{ color:#ffffff;}
 
 .weiboshare .bd{width:490px;height:155px; overflow:hidden;}
 .weiboshare .bd iframe{margin-top: -87px;}

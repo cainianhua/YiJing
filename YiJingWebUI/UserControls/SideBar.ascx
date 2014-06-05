@@ -2,7 +2,7 @@
 
 <div id="floatShare">
     <ul>
-        <li class="floatshare01" data-sub="qqshare" data-w="150"><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
+        <li class="floatshare01" data-sub="qqshare" data-w="135"><a href="javascript:void(0);"><img src="/content/images/share_03_03.png" /></a></li>
         <li class="floatshare02" data-sub="weiboshare" data-w="490"><a href="javascript:void(0);"><img src="/content/images/share_03_06.png" /></a></li>
         <li class="floatshare03" data-sub="weichatshare" data-w="160"><a href="javascript:void(0);"><img src="/content/images/share_03_08.png" /></a></li>
         <li class="floatshare04" data-sub="mapshare" data-w="343"><a href="javascript:void(0);"><img src="/content/images/share_03_10.png" /></a></li>
@@ -12,9 +12,9 @@
 			<div class="hd">腾讯QQ<span class="close"></span></div>
 			<div class="bd">
 				<dl>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1056412463&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;普通小编</dd>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=692331938&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;文艺小编</dd>
-					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=199856654&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:83193739:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>&nbsp;非正常小编</dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1056412463&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:1056412463:52" alt="点击这里给我发消息" title="点击这里给我发消息"/>&nbsp;普通小编</a></dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=692331938&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:692331938:52" alt="点击这里给我发消息" title="点击这里给我发消息"/>&nbsp;文艺小编</a></dd>
+					<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=199856654&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:199856654:52" alt="点击这里给我发消息" title="点击这里给我发消息"/>&nbsp;非正常小编</a></dd>
 				</dl>
 			</div>
 			<div class="ft"></div>
