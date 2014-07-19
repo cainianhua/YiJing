@@ -169,7 +169,7 @@ function Carousel(element, options) {
         //pane_this.attr("style", bgStyle + pane_this.attr);
         pane_this.css("background-color", "#" + item.bgcolor);
         pane_this.css("background-image", (item.bgpic ? "url(" + item.bgpic + ")" : "none"));
-        pane_this.css("background-repeat", "repeat-x");
+        pane_this.css("background-repeat", "no-repeat");
         pane_this.css("background-position", "center top");
 
         paneStatuses["p" + pane_index] = true;

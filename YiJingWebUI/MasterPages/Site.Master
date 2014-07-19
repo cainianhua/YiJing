@@ -17,7 +17,7 @@
 	<![endif]-->
 	<asp:ContentPlaceHolder ID="HeaderScripts" runat="server"></asp:ContentPlaceHolder>
 </head>
-<body style="background:<%= BgColor.Text %> <%= BgImage.Text %> repeat-x center top;">
+<body style="background:<%= BgColor.Text %> <%= BgImage.Text %> no-repeat center top;">
 	<!--<asp:Literal ID="BgColor" runat="server"></asp:Literal>-->
 	<!--<asp:Literal ID="BgImage" runat="server"></asp:Literal>-->
 	<form id="form1" runat="server">
