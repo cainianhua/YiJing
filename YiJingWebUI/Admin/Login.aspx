@@ -15,7 +15,8 @@
 	<!--[if lte IE 7]>
 		<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+	<script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/jquery-1.11.0.min.js")%>"></script>
+	<!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>-->
 	<script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/facebox.js") %>"></script>
 	<script type="text/javascript" src="<%= this.ResolveUrl("~/admin/scripts/configuration.js") %>"></script>
 	<!-- Internet Explorer .png-fix -->
